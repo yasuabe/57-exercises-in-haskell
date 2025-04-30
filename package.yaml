@@ -8,10 +8,12 @@ extra-source-files: []
 
 dependencies:
   - base >= 4.7 && < 5
+  - string-interpolate
 
 library:
   source-dirs: src
-  exposed-modules: []
+  exposed-modules:
+    - Common.Util
   ghc-options: -Wall
 
 executables:
@@ -19,13 +21,19 @@ executables:
     main: Main.hs
     source-dirs: ex01
     ghc-options: -Wall
+    dependencies:
+      - exercises-for-programmer-in-haskell
 
   ex02:
     main: Main.hs
     source-dirs: ex02
     ghc-options: -Wall
+    dependencies:
+      - exercises-for-programmer-in-haskell
 
   ex03:
     main: Main.hs
     source-dirs: ex03
     ghc-options: -Wall
+    dependencies:
+      - exercises-for-programmer-in-haskell

@@ -6,14 +6,12 @@
 -- - Keep input, concatenation, and output as separate steps.
 
 module Main where
-import System.IO (hFlush, stdout)
+import Common.Util (promptInput)
 
 main :: IO ()
 main = do
     -- Step 1: input
-    putStr "What is your name? "
-    hFlush stdout
-    name <- getLine
+    name <- promptInput "What is your name? "
 
     -- Step 2: concatenation
     let greeting = "Hello, " ++ name ++ ", nice to meet you!"
