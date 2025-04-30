@@ -1,0 +1,31 @@
+name: exercises-for-programmer-in-haskell
+version: 0.1.0.0
+github: "your/repo"
+license: MIT
+author: "Yasuyuki Abe"
+maintainer: "yasu@yasuabe.net"
+extra-source-files: []
+
+dependencies:
+  - base >= 4.7 && < 5
+
+library:
+  source-dirs: src
+  exposed-modules: []
+  ghc-options: -Wall
+
+executables:
+  ex01:
+    main: Main.hs
+    source-dirs: ex01
+    ghc-options: -Wall
+
+  ex02:
+    main: Main.hs
+    source-dirs: ex02
+    ghc-options: -Wall
+
+  ex03:
+    main: Main.hs
+    source-dirs: ex03
+    ghc-options: -Wall

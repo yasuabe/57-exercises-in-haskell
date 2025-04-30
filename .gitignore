@@ -1,0 +1,44 @@
+# Ignore build artifacts
+dist/
+dist-newstyle/
+.stack-work/
+cabal.sandbox.config
+cabal.sandbox.config.lock
+*.buildinfo
+*.hi
+*.o
+*.so
+*.dyn_o
+*.dyn_hi
+
+# Ignore Haskell IDE files
+.idea/
+*.hie
+*.hie-bios
+*.ghc.environment.*
+
+# Ignore test and coverage artifacts
+*.tix
+.hpc/
+
+# Ignore binary executables
+*.exe
+*.exe~
+*.out
+*.out~
+
+# Ignore temporary files
+*.swp
+*.swo
+*~
+*.tmp
+*.bak
+*.orig
+
+# Ignore tags and ctags files
+tags
+TAGS
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
