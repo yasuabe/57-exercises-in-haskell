@@ -29,6 +29,7 @@ library
   build-depends:
       base >=4.7 && <5
     , string-interpolate
+    , transformers
   default-language: Haskell2010
 
 executable ex01
@@ -42,6 +43,7 @@ executable ex01
       base >=4.7 && <5
     , exercises-for-programmer-in-haskell
     , string-interpolate
+    , transformers
   default-language: Haskell2010
 
 executable ex02
@@ -55,6 +57,7 @@ executable ex02
       base >=4.7 && <5
     , exercises-for-programmer-in-haskell
     , string-interpolate
+    , transformers
   default-language: Haskell2010
 
 executable ex03
@@ -69,6 +72,22 @@ executable ex03
       base >=4.7 && <5
     , exercises-for-programmer-in-haskell
     , string-interpolate
+    , transformers
+  default-language: Haskell2010
+
+executable ex07
+  main-is: Main.hs
+  other-modules:
+      Ex07
+      Paths_exercises_for_programmer_in_haskell
+  hs-source-dirs:
+      ex07
+  ghc-options: -Wall
+  build-depends:
+      base >=4.7 && <5
+    , exercises-for-programmer-in-haskell
+    , string-interpolate
+    , transformers
   default-language: Haskell2010
 
 test-suite ex03-test
@@ -86,4 +105,23 @@ test-suite ex03-test
     , base
     , exercises-for-programmer-in-haskell
     , string-interpolate
+    , transformers
+  default-language: Haskell2010
+
+test-suite ex07-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Ex07
+      Main
+      Paths_exercises_for_programmer_in_haskell
+  hs-source-dirs:
+      test/ex07
+      ex07
+  build-depends:
+      QuickCheck
+    , base
+    , exercises-for-programmer-in-haskell
+    , string-interpolate
+    , transformers
   default-language: Haskell2010

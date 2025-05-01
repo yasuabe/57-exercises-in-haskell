@@ -9,6 +9,7 @@ extra-source-files: []
 dependencies:
   - base >= 4.7 && < 5
   - string-interpolate
+  - transformers
 
 library:
   source-dirs: src
@@ -37,6 +38,12 @@ executables:
     ghc-options: -Wall
     dependencies:
       - exercises-for-programmer-in-haskell
+  ex07:
+    main: Main.hs
+    source-dirs: ex07
+    ghc-options: -Wall
+    dependencies:
+      - exercises-for-programmer-in-haskell
 
 tests:
   ex03-test:
@@ -44,6 +51,15 @@ tests:
     source-dirs:
       - test/ex03
       - ex03
+    dependencies:
+      - base
+      - QuickCheck
+      - exercises-for-programmer-in-haskell
+  ex07-test:
+    main: Spec.hs
+    source-dirs:
+      - test/ex07
+      - ex07
     dependencies:
       - base
       - QuickCheck

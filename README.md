@@ -16,13 +16,13 @@ A personal project to solve the exercises from the book *Exercises for Programme
 #### Chapter 3: Calculations
 | Exercise | dependencies | Memo  |
 | -------- | -------------| ----- |
-| Ex07 [ ] [Area of a Rectangular Room](ex07/Main.hs)
-| Ex08 [ ] [Pizza Party](ex08/Main.hs)
-| Ex09 [ ] [Paint Calculator](ex09/Main.hs)
-| Ex10 [ ] [Self-Checkout](ex10/Main.hs)
-| Ex11 [ ] [Currency Conversion](ex11/Main.hs)
-| Ex12 [ ] [Computing Simple Interest](ex12/Main.hs)
-| Ex13 [ ] [Determining Compound Interest](ex13/Main.hs)
+| Ex07 [x] [Area of a Rectangular Room](ex07/Main.hs)    | transformers |
+| Ex08 [ ] [Pizza Party](ex08/Main.hs)                   | |
+| Ex09 [ ] [Paint Calculator](ex09/Main.hs)              | |
+| Ex10 [ ] [Self-Checkout](ex10/Main.hs)                 | |
+| Ex11 [ ] [Currency Conversion](ex11/Main.hs)           | |
+| Ex12 [ ] [Computing Simple Interest](ex12/Main.hs)     | |
+| Ex13 [ ] [Determining Compound Interest](ex13/Main.hs) | |
 #### Chapter 4: Making Decisions
 | Exercise | dependencies | Memo  |
 | -------- | -------------| ----- |
@@ -96,6 +96,7 @@ A personal project to solve the exercises from the book *Exercises for Programme
 
 ### Dependency
 - string-interpolate
+- transformers
 
 ## How to Run
 Run the following directly under the project.
