@@ -7,10 +7,11 @@
 -- - Use a single output statement for the result.
 module Main where
 import Common.Util (promptInput)
+import Ex03 (makeOutput)
 
 main :: IO ()
 main = do
   quote  <- promptInput "What is the quote? "
   author <- promptInput "Who said it? "
-  let output = author ++ " says, \"" ++ quote ++ "\""
+  let output = makeOutput author quote
   putStrLn output

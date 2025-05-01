@@ -37,3 +37,14 @@ executables:
     ghc-options: -Wall
     dependencies:
       - exercises-for-programmer-in-haskell
+
+tests:
+  ex03-test:
+    main: Spec.hs
+    source-dirs:
+      - test/ex03
+      - ex03
+    dependencies:
+      - base
+      - QuickCheck
+      - exercises-for-programmer-in-haskell

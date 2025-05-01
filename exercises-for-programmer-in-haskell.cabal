@@ -60,12 +60,30 @@ executable ex02
 executable ex03
   main-is: Main.hs
   other-modules:
+      Ex03
       Paths_exercises_for_programmer_in_haskell
   hs-source-dirs:
       ex03
   ghc-options: -Wall
   build-depends:
       base >=4.7 && <5
+    , exercises-for-programmer-in-haskell
+    , string-interpolate
+  default-language: Haskell2010
+
+test-suite ex03-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Ex03
+      Main
+      Paths_exercises_for_programmer_in_haskell
+  hs-source-dirs:
+      test/ex03
+      ex03
+  build-depends:
+      QuickCheck
+    , base
     , exercises-for-programmer-in-haskell
     , string-interpolate
   default-language: Haskell2010
