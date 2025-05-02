@@ -17,6 +17,9 @@ dependencies:
   - aeson-casing
   - bytestring
   - directory
+  - gi-gtk
+  - gi-gdkpixbuf
+  - gi-gio
 
 library:
   source-dirs: src
@@ -45,12 +48,25 @@ executables:
     ghc-options: -Wall
     dependencies:
       - exercises-for-programmer-in-haskell
+
   ex07:
     main: Main.hs
     source-dirs: ex07
     ghc-options: -Wall
     dependencies:
       - exercises-for-programmer-in-haskell
+
+  ex49:
+    main: Main.hs
+    source-dirs: ex49
+    ghc-options: -Wall
+    dependencies:
+      - exercises-for-programmer-in-haskell
+      - gi-gtk
+      - haskell-gi-base
+      - gi-gio
+      - gi-gdkpixbuf
+
   ex56:
     main: Main.hs
     source-dirs: ex56
@@ -68,6 +84,7 @@ tests:
       - base
       - QuickCheck
       - exercises-for-programmer-in-haskell
+
   ex07-test:
     main: Spec.hs
     source-dirs:

@@ -32,6 +32,9 @@ library
     , base >=4.7 && <5
     , bytestring
     , directory
+    , gi-gdkpixbuf
+    , gi-gio
+    , gi-gtk
     , lucid
     , scotty
     , string-interpolate
@@ -53,6 +56,9 @@ executable ex01
     , bytestring
     , directory
     , exercises-for-programmer-in-haskell
+    , gi-gdkpixbuf
+    , gi-gio
+    , gi-gtk
     , lucid
     , scotty
     , string-interpolate
@@ -74,6 +80,9 @@ executable ex02
     , bytestring
     , directory
     , exercises-for-programmer-in-haskell
+    , gi-gdkpixbuf
+    , gi-gio
+    , gi-gtk
     , lucid
     , scotty
     , string-interpolate
@@ -96,6 +105,9 @@ executable ex03
     , bytestring
     , directory
     , exercises-for-programmer-in-haskell
+    , gi-gdkpixbuf
+    , gi-gio
+    , gi-gtk
     , lucid
     , scotty
     , string-interpolate
@@ -118,6 +130,34 @@ executable ex07
     , bytestring
     , directory
     , exercises-for-programmer-in-haskell
+    , gi-gdkpixbuf
+    , gi-gio
+    , gi-gtk
+    , lucid
+    , scotty
+    , string-interpolate
+    , text
+    , transformers
+  default-language: Haskell2010
+
+executable ex49
+  main-is: Main.hs
+  other-modules:
+      Paths_exercises_for_programmer_in_haskell
+  hs-source-dirs:
+      ex49
+  ghc-options: -Wall
+  build-depends:
+      aeson
+    , aeson-casing
+    , base >=4.7 && <5
+    , bytestring
+    , directory
+    , exercises-for-programmer-in-haskell
+    , gi-gdkpixbuf
+    , gi-gio
+    , gi-gtk
+    , haskell-gi-base
     , lucid
     , scotty
     , string-interpolate
@@ -140,6 +180,9 @@ executable ex56
     , bytestring
     , directory
     , exercises-for-programmer-in-haskell
+    , gi-gdkpixbuf
+    , gi-gio
+    , gi-gtk
     , lucid
     , scotty
     , string-interpolate
@@ -165,6 +208,9 @@ test-suite ex03-test
     , bytestring
     , directory
     , exercises-for-programmer-in-haskell
+    , gi-gdkpixbuf
+    , gi-gio
+    , gi-gtk
     , lucid
     , scotty
     , string-interpolate
@@ -190,6 +236,9 @@ test-suite ex07-test
     , bytestring
     , directory
     , exercises-for-programmer-in-haskell
+    , gi-gdkpixbuf
+    , gi-gio
+    , gi-gtk
     , lucid
     , scotty
     , string-interpolate
