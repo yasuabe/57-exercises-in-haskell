@@ -86,7 +86,7 @@ A personal project to solve the exercises from the book *Exercises for Programme
 | Ex53 [ ] [Todo List](ex53/Main.hs)          | | |
 | Ex54 [ ] [URL Shortener](ex54/Main.hs)      | | |
 | Ex55 [ ] [Text Sharing](ex55/Main.hs)       | | |
-| Ex56 [ ] [Tracking Inventory](ex56/Main.hs) | | |
+| Ex56 [x] [Tracking Inventory](ex56/Main.hs) |scotty, lucid, text, aeson, aeson-casing, bytestring, directory | Web App |
 | Ex57 [ ] [Trivia App](ex57/Main.hs)         | | |
 
 ※ [ ] Completed, [ ] Pending
@@ -97,6 +97,13 @@ A personal project to solve the exercises from the book *Exercises for Programme
 ### Dependency
 - string-interpolate
 - transformers
+- scotty
+- lucid
+- text
+- aeson
+- aeson-casing
+- bytestring
+- directory
 
 ## How to Run
 Run the following directly under the project.

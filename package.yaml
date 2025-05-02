@@ -10,6 +10,13 @@ dependencies:
   - base >= 4.7 && < 5
   - string-interpolate
   - transformers
+  - scotty
+  - lucid
+  - text
+  - aeson
+  - aeson-casing
+  - bytestring
+  - directory
 
 library:
   source-dirs: src
@@ -41,6 +48,12 @@ executables:
   ex07:
     main: Main.hs
     source-dirs: ex07
+    ghc-options: -Wall
+    dependencies:
+      - exercises-for-programmer-in-haskell
+  ex56:
+    main: Main.hs
+    source-dirs: ex56
     ghc-options: -Wall
     dependencies:
       - exercises-for-programmer-in-haskell
