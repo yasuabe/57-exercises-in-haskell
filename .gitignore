@@ -16,6 +16,7 @@ cabal.sandbox.config.lock
 *.hie
 *.hie-bios
 *.ghc.environment.*
+.vscode/
 
 # Ignore test and coverage artifacts
 *.tix

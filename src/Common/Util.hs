@@ -1,4 +1,4 @@
-module Common.Util (promptInput, readWithPrompt, readDouble) where
+module Common.Util (promptInput, readWithPrompt, readDouble, divRatio) where
 
 import System.IO (hFlush, stdout)
 import Control.Monad.Trans.Except
@@ -22,3 +22,6 @@ readWithPrompt prompt msg =
 
 readDouble :: String -> ExceptT String IO Double
 readDouble prompt = readWithPrompt prompt "Invalid number"
+
+divRatio :: (Fractional c, Real a, Real b) => a -> b -> c
+divRatio a b = realToFrac a / realToFrac b

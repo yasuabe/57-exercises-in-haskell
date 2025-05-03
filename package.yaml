@@ -70,10 +70,11 @@ executables:
       - haskell-gi-base
       - gi-gio
       - gi-gdkpixbuf
-      - http-conduit
-      - http-client
-      - http-client-tls
       - gi-glib
+      - http-client
+      - aeson
+      - bytestring
+      - text
 
   ex56:
     main: Main.hs

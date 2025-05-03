@@ -1,47 +1,75 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE OverloadedLabels #-}
 {-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE LambdaCase #-}
 
-import qualified GI.Gtk as Gtk
-import Data.GI.Base
-import Data.Text (pack)
-import Data.Text (Text)
-import qualified GI.GdkPixbuf as GdkPixbuf
-import GI.Gtk.Objects.Image (imageNewFromPixbuf)
-import qualified GI.Gio as Gio
-import qualified GI.GLib as GLib
+-- # Ex49: Flickr Photo Search
+--
+-- - Take in a search string via GUI.
+-- - Fetch Flickr’s public photo feed matching the search.
+-- - Display resulting photos visually.
 
-import Control.Monad (forM_)
-import Control.Concurrent (forkIO)
-import Control.Exception (handle, SomeException)
-
-import Data.Int (Int32)
-import Data.Word (Word32)
-import Network.HTTP.Simple (httpBS, getResponseBody, parseRequest)
+import Data.Aeson (FromJSON, eitherDecode)
+import Data.Bifunctor (bimap)
+import Data.ByteString.Char8 (ByteString)
 import qualified Data.ByteString.Char8 as BSC
 import qualified Data.ByteString.Lazy as BL
-import Data.ByteString.Char8 (ByteString)
-
-import Data.Aeson
+import Data.GI.Base (on, AttrOp((:=)), new)
+import Data.Text (pack, unpack, Text)
 import GHC.Generics (Generic)
-import System.IO (hPutStrLn, stderr)
+import Control.Concurrent (forkIO)
+import Control.Monad (void)
+import qualified GI.GdkPixbuf as GdkPixbuf
+import qualified GI.Gio as Gio
+import qualified GI.GLib as GLib
+import GI.GLib.Callbacks (SourceFunc)
+import qualified GI.Gtk as Gtk
+import GI.Gtk.Objects.Image (imageNewFromPixbuf)
+import Network.HTTP.Simple (httpBS, getResponseBody, parseRequest)
 
--- Flickr JSON types
-data Feed = Feed { items :: [Item] } deriving (Show, Generic)
-data Item = Item { media :: Media } deriving (Show, Generic)
-data Media = Media { m :: String } deriving (Show, Generic)
+import Common.Util (divRatio)
+
+imageSize :: Int
+imageSize = 200
+
+newtype Feed = Feed { items :: [Item] } deriving (Show, Generic)
+newtype Item = Item { media :: Media } deriving (Show, Generic)
+newtype Media = Media { m :: String } deriving (Show, Generic)
 
 instance FromJSON Feed
 instance FromJSON Item
 instance FromJSON Media
 
-stripJsonFlickrFeedWrapper :: ByteString -> ByteString
-stripJsonFlickrFeedWrapper raw =
+stripFlickrWrapper :: ByteString -> ByteString
+stripFlickrWrapper raw =
   BSC.dropEnd 1 $ BSC.drop prefixLen raw
   where
     prefix = "jsonFlickrFeed("
     prefixLen = BSC.length prefix
 
+idleAdd :: SourceFunc -> IO ()
+idleAdd func = void $ GLib.idleAdd GLib.PRIORITY_DEFAULT_IDLE func
+
+byteStringToImage :: ByteString -> IO (Maybe Gtk.Image)
+byteStringToImage imgBytes = do
+  stream      <- Gio.memoryInputStreamNewFromData imgBytes Nothing
+  maybePixbuf <- GdkPixbuf.pixbufNewFromStream stream (Nothing :: Maybe Gio.Cancellable)
+  traverse pixbufToImage maybePixbuf 
+  where
+    scaleImage pixbuf = do
+      origW <- GdkPixbuf.getPixbufWidth  pixbuf
+      origH <- GdkPixbuf.getPixbufHeight pixbuf
+
+      let factor  = min (imageSize `divRatio` origW) (imageSize `divRatio` origH) :: Double
+          scale x = floor (fromIntegral x * factor)
+          scaledW = scale origW
+          scaledH = scale origH
+
+      GdkPixbuf.pixbufScaleSimple pixbuf scaledW scaledH GdkPixbuf.InterpTypeBilinear
+
+    pixbufToImage pixbuf = scaleImage pixbuf >>= imageNewFromPixbuf
+
+-- UI構築
 data UI = UI
   { uiEntry     :: Gtk.Entry
   , uiButton    :: Gtk.Button
@@ -52,25 +80,25 @@ data UI = UI
 buildUI :: IO (Gtk.Window, UI)
 buildUI = do
   window <- new Gtk.Window
-    [ #title := pack "Image Search App"
-    , #defaultWidth := 800
+    [ #title         := pack "Image Search App"
+    , #defaultWidth  := 800
     , #defaultHeight := 600
     ]
 
   vbox <- new Gtk.Box [ #orientation := Gtk.OrientationVertical ]
 
   -- Toolbar
-  toolbar <- new Gtk.Box [ #orientation := Gtk.OrientationHorizontal, #spacing := 5, #margin := 5 ]
-  label <- new Gtk.Label [ #label := "tags: " ]
-  entry <- new Gtk.Entry [ #widthChars := 50 ]
-  inputBox <- new Gtk.Box [ #orientation := Gtk.OrientationHorizontal, #spacing := 0 ]
-  #packStart inputBox label False False 0
-  #packStart inputBox entry False False 0
-  button <- new Gtk.Button [ #label := "Search" ]
-  spacer <- new Gtk.Box [ #hexpand := True ]
-  #packStart toolbar spacer True True 0
-  #packStart toolbar inputBox False False 0
-  #packStart toolbar button False False 0
+  toolbar  <- new Gtk.Box    [ #orientation := Gtk.OrientationHorizontal, #spacing := 2, #margin := 2 ]
+  label    <- new Gtk.Label  [ #label := "tags: " ]
+  entry    <- new Gtk.Entry  [ #widthChars := 50 ]
+  inputBox <- new Gtk.Box    [ #orientation := Gtk.OrientationHorizontal, #spacing := 0 ]
+  button   <- new Gtk.Button [ #label := "Search" ]
+  spacer   <- new Gtk.Box    [ #hexpand := True ]
+  #packStart inputBox label    False False 0
+  #packStart inputBox entry    False False 0
+  #packStart toolbar  spacer   True  True  0
+  #packStart toolbar  inputBox False False 0
+  #packStart toolbar  button   False False 0
 
   -- Main area
   mainArea <- new Gtk.FlowBox []
@@ -81,11 +109,11 @@ buildUI = do
 
   -- Status bar
   statusbar <- new Gtk.Statusbar []
-  _ <- #push statusbar 0 (pack "tags: (none)")
+  _         <- #push statusbar 0 (pack "tags: (none)")
 
   -- Compose UI
-  #packStart vbox toolbar False False 0
-  #packStart vbox scrolled True True 0
+  #packStart vbox toolbar   False False 0
+  #packStart vbox scrolled  True  True  0
   #packStart vbox statusbar False False 0
   #add window vbox
 
@@ -94,45 +122,7 @@ buildUI = do
 setupHandlers :: UI -> IO ()
 setupHandlers ui = do
   let button = uiButton ui
-  _ <- on button #clicked (onSearchClicked ui)
-  return ()
-
-
-
-
-fetchFeedAndSpawnWorkers
-  :: Text
-  -> Gtk.FlowBox
-  -> Gtk.Statusbar
-  -> Word32
-  -> IO ()
-fetchFeedAndSpawnWorkers tag mainArea statusbar contextId = do
-  handle (\e -> putStrLn $ "Error in worker thread: " ++ show (e :: SomeException)) $ do
-    let tagStr = BSC.unpack (BSC.pack (show tag))
-        feedUrl = "https://www.flickr.com/services/feeds/photos_public.gne?format=json&tags=" ++ tagStr
-
-    feedReq <- parseRequest feedUrl
-    feedRes <- httpBS feedReq
-    let feedRaw = getResponseBody feedRes
-        feedStripped = stripJsonFlickrFeedWrapper feedRaw
-
-    case eitherDecode (BL.fromStrict feedStripped) :: Either String Feed of
-      Left err -> putStrLn $ "JSON parse error: " ++ err
-      Right parsedFeed -> do
-        let urls = take 20 $ map (m . media) (items parsedFeed)
-        forM_ urls $ \imgUrl -> forkIO $ do
-          fetchAndDisplayImage mainArea statusbar contextId imgUrl
-
-        _ <- GLib.idleAdd GLib.PRIORITY_DEFAULT_IDLE $ do
-               #showAll mainArea
-               _ <- #push statusbar contextId (pack ("tags: " ++ show tag))
-               return False
-        return ()
-
-
-
-
-
+  void $ on button #clicked (onSearchClicked ui)
 
 onSearchClicked :: UI -> IO ()
 onSearchClicked ui = do
@@ -141,84 +131,67 @@ onSearchClicked ui = do
       mainArea  = uiMainArea ui
 
   contextId <- #getContextId statusbar "search"
-  tag <- #getText entry
-  _ <- #push statusbar contextId (pack "Fetching...")
+  tag       <- #getText entry
+  _         <- #push statusbar contextId (pack "Fetching...")
 
-  children <- Gtk.containerGetChildren mainArea
-  forM_ children $ \child -> Gtk.containerRemove mainArea child
+  Gtk.containerGetChildren mainArea >>= mapM_ (Gtk.containerRemove mainArea)
 
-  _ <- forkIO $ fetchFeedAndSpawnWorkers tag mainArea statusbar contextId
-  return ()
+  void $ forkIO $ fetchFeedAndSpawnWorkers ui tag
 
+fetchFeedAndSpawnWorkers :: UI -> Text -> IO ()
+fetchFeedAndSpawnWorkers ui tag = do
+  feedRes <- fmap getResponseBody (parseRequest feedUrl >>= httpBS)
+  case extractUrls feedRes of
+    Left err   -> putStrLn err
+    Right urls -> mapM_ forkImageFetcher urls >> idleAdd updateUI
 
+  where
+    feedUrl = "https://www.flickr.com/services/feeds/photos_public.gne?format=json&tags=" <> unpack tag
 
+    extractUrls = bimap ("JSON parse error: " ++) (take 20 . map (m . media) . items)
+                . eitherDecode
+                . BL.fromStrict
+                . stripFlickrWrapper
 
+    mainArea  = uiMainArea ui
+    statusbar = uiStatusbar ui
+    forkImageFetcher = void
+                     . forkIO
+                     . fetchAndDisplayImage mainArea
+    updateUI = do
+      contextId <- #getContextId statusbar "initial"
+      #showAll mainArea
+      _ <- #push statusbar contextId (pack ("tags: " ++ show tag))
+      return False
 
+fetchAndDisplayImage :: Gtk.FlowBox -> String -> IO ()
+fetchAndDisplayImage mainArea imageUrl = do
+  imageRequest  <- parseRequest imageUrl
+  imageResponse <- httpBS imageRequest
+  (byteStringToImage . getResponseBody) imageResponse >>= \case
+    Just img -> idleAdd (addImageToMainArea img)
+    Nothing  -> putStrLn $ "Failed to decode: " ++ imageUrl
+  where
+    addImageToMainArea :: Gtk.Image -> IO Bool
+    addImageToMainArea img = do
+      #add mainArea img
+      #show img
+      return False
 
-
-
-
-
-
-
-divRatio :: Int -> Int32 -> Double
-divRatio a b = fromIntegral a / fromIntegral b
+showInitialImages :: UI -> IO ()
+showInitialImages ui = do
+  contextId <- #getContextId (uiStatusbar ui) "initial"
+  _         <- #push (uiStatusbar ui) contextId (pack "Loading initial images...")
+  void $ forkIO $ fetchFeedAndSpawnWorkers ui ""
 
 main :: IO ()
 main = do
-  Gtk.init Nothing
+  _ <- Gtk.init Nothing
   (window, ui) <- buildUI
-  setupHandlers ui
 
-  contextId <- #getContextId (uiStatusbar ui) "initial"
-  _ <- #push (uiStatusbar ui) contextId (pack "Loading initial images...")
-  _ <- forkIO $ fetchFeedAndSpawnWorkers "" (uiMainArea ui) (uiStatusbar ui) contextId
+  setupHandlers ui
+  showInitialImages ui
 
   _ <- on window #destroy Gtk.mainQuit
   #showAll window
   Gtk.main
-
-
-
-
-
-
-
-
-
-
-
-
-
-fetchAndDisplayImage
-  :: Gtk.FlowBox
-  -> Gtk.Statusbar
-  -> Word32
-  -> String
-  -> IO ()
-fetchAndDisplayImage mainArea statusbar contextId imgUrl = do
-  putStrLn $ "Fetching image: " ++ imgUrl
-  imgReq <- parseRequest imgUrl
-  imgRes <- httpBS imgReq
-  let imgBytes = getResponseBody imgRes
-  putStrLn $ "Image fetched: " ++ imgUrl
-  stream <- Gio.memoryInputStreamNewFromData imgBytes Nothing
-  mbPixbuf <- GdkPixbuf.pixbufNewFromStream stream (Nothing :: Maybe Gio.Cancellable)
-  case mbPixbuf of
-    Nothing -> putStrLn $ "Failed to decode: " ++ imgUrl
-    Just pixbufOrig -> do
-      origWidth  <- GdkPixbuf.getPixbufWidth pixbufOrig
-      origHeight <- GdkPixbuf.getPixbufHeight pixbufOrig
-
-      let scaleFactor = min (200 `divRatio` origWidth) (200 `divRatio` origHeight)
-          scaledW = floor (fromIntegral origWidth * scaleFactor)
-          scaledH = floor (fromIntegral origHeight * scaleFactor)
-
-      pixbuf <- GdkPixbuf.pixbufScaleSimple pixbufOrig scaledW scaledH GdkPixbuf.InterpTypeBilinear
-      img <- imageNewFromPixbuf pixbuf
-
-      _ <- GLib.idleAdd GLib.PRIORITY_DEFAULT_IDLE $ do
-             #add mainArea img
-             #show img
-             return False
-      return ()

@@ -76,7 +76,7 @@ A personal project to solve the exercises from the book *Exercises for Programme
 | -------- | -------------| ----- |
 | Ex47 [ ] [Who’s in Space?](ex47/Main.hs)                | |     
 | Ex48 [ ] [Grabbing the Weather](ex48/Main.hs)           | |          
-| Ex49 [ ] [Flickr Photo Search](ex49/Main.hs)            | |  |        
+| Ex49 [x] [Flickr Photo Search](ex49/Main.hs)            | aeson, gi-gtk, http-client, bytestring, text | GUI/GTK3, HTTP client, multi-thread |        
 | Ex50 [ ] [Movie Recommendations](ex50/Main.hs)          | |           
 | Ex51 [ ] [Pushing Notes to Firebase](ex51/Main.hs)      | | 
 | Ex52 [ ] [Creating Your Own Time Service](ex52/Main.hs) | |  |
