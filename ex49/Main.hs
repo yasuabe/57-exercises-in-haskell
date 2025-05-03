@@ -169,6 +169,11 @@ main = do
   Gtk.init Nothing
   (window, ui) <- buildUI
   setupHandlers ui
+
+  contextId <- #getContextId (uiStatusbar ui) "initial"
+  _ <- #push (uiStatusbar ui) contextId (pack "Loading initial images...")
+  _ <- forkIO $ fetchFeedAndSpawnWorkers "" (uiMainArea ui) (uiStatusbar ui) contextId
+
   _ <- on window #destroy Gtk.mainQuit
   #showAll window
   Gtk.main
