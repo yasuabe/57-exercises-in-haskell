@@ -20,7 +20,9 @@ dependencies:
   - gi-gtk
   - gi-gdkpixbuf
   - gi-gio
-
+  - http-conduit
+  - http-client
+  - http-client-tls
 library:
   source-dirs: src
   exposed-modules:
@@ -59,13 +61,19 @@ executables:
   ex49:
     main: Main.hs
     source-dirs: ex49
-    ghc-options: -Wall
+    ghc-options:
+      - -Wall
+      - -threaded
     dependencies:
       - exercises-for-programmer-in-haskell
       - gi-gtk
       - haskell-gi-base
       - gi-gio
       - gi-gdkpixbuf
+      - http-conduit
+      - http-client
+      - http-client-tls
+      - gi-glib
 
   ex56:
     main: Main.hs

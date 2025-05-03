@@ -1,15 +1,44 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE OverloadedLabels #-}
+{-# LANGUAGE DeriveGeneric #-}
+
 import qualified GI.Gtk as Gtk
 import Data.GI.Base
 import Data.Text (pack)
 import qualified GI.GdkPixbuf as GdkPixbuf
 import GI.Gtk.Objects.Image (imageNewFromPixbuf)
-import Control.Monad (replicateM_)
-import Data.Int (Int32)
+import qualified GI.Gio as Gio
+import qualified GI.GLib as GLib
 
-url :: FilePath
-url = "ex49/Oyster_dubai.jpg"
+import Control.Monad (forM_)
+import Control.Concurrent (forkIO)
+import Control.Exception (handle, SomeException)
+
+import Data.Int (Int32)
+import Network.HTTP.Simple (httpBS, getResponseBody, parseRequest)
+import qualified Data.ByteString.Char8 as BSC
+import qualified Data.ByteString.Lazy as BL
+import Data.ByteString.Char8 (ByteString)
+
+import Data.Aeson
+import GHC.Generics (Generic)
+import System.IO (hPutStrLn, stderr)
+
+-- Flickr JSON types
+data Feed = Feed { items :: [Item] } deriving (Show, Generic)
+data Item = Item { media :: Media } deriving (Show, Generic)
+data Media = Media { m :: String } deriving (Show, Generic)
+
+instance FromJSON Feed
+instance FromJSON Item
+instance FromJSON Media
+
+stripJsonFlickrFeedWrapper :: ByteString -> ByteString
+stripJsonFlickrFeedWrapper raw =
+  BSC.dropEnd 1 $ BSC.drop prefixLen raw
+  where
+    prefix = "jsonFlickrFeed("
+    prefixLen = BSC.length prefix
 
 data UI = UI
   { uiEntry     :: Gtk.Entry
@@ -42,7 +71,8 @@ buildUI = do
   #packStart toolbar button False False 0
 
   -- Main area
-  mainArea <- new Gtk.FlowBox [ #margin := 5 ]
+  mainArea <- new Gtk.FlowBox []
+
   scrolled <- new Gtk.ScrolledWindow []
   #setPolicy scrolled Gtk.PolicyTypeAutomatic Gtk.PolicyTypeAutomatic
   #add scrolled mainArea
@@ -61,39 +91,77 @@ buildUI = do
 
 setupHandlers :: UI -> IO ()
 setupHandlers ui = do
+  let button = uiButton ui
+  _ <- on button #clicked (onSearchClicked ui)
+  return ()
+
+onSearchClicked :: UI -> IO ()
+onSearchClicked ui = do
   let entry     = uiEntry ui
-      button    = uiButton ui
       statusbar = uiStatusbar ui
       mainArea  = uiMainArea ui
 
   contextId <- #getContextId statusbar "search"
+  tag <- #getText entry
+  _ <- #push statusbar contextId (pack "Fetching...")
 
-  _ <- on button #clicked $ do
-    text <- #getText entry
-    _ <- #push statusbar contextId (pack ("tags: " ++ show text))
+  -- Clear previous images (main thread)
+  children <- Gtk.containerGetChildren mainArea
+  forM_ children $ \child -> Gtk.containerRemove mainArea child
 
-    Just pixbufOrig <- GdkPixbuf.pixbufNewFromFile url
-    origWidth  <- GdkPixbuf.getPixbufWidth pixbufOrig
-    origHeight <- GdkPixbuf.getPixbufHeight pixbufOrig
+  -- Run fetch in worker thread
+  _ <- forkIO $ do
+    handle (\e -> putStrLn $ "Error in worker thread: " ++ show (e :: SomeException)) $ do
+      let tagStr = BSC.unpack (BSC.pack (show tag))
+          feedUrl = "https://www.flickr.com/services/feeds/photos_public.gne?format=json&tags=" ++ tagStr
 
-    let scaleFactor = min (200 `divRatio` origWidth) (200 `divRatio` origHeight)
-        scaledW = floor (fromIntegral origWidth * scaleFactor)
-        scaledH = floor (fromIntegral origHeight * scaleFactor)
+      feedReq <- parseRequest feedUrl
+      feedRes <- httpBS feedReq
+      let feedRaw = getResponseBody feedRes
+          feedStripped = stripJsonFlickrFeedWrapper feedRaw
 
-    pixbuf <- GdkPixbuf.pixbufScaleSimple pixbufOrig scaledW scaledH GdkPixbuf.InterpTypeBilinear
+      case eitherDecode (BL.fromStrict feedStripped) :: Either String Feed of
+        Left err -> putStrLn $ "JSON parse error: " ++ err
+        Right parsedFeed -> do
+          let urls = take 20 $ map (m . media) (items parsedFeed)
+          forM_ urls $ \imgUrl -> do
+            putStrLn $ "Fetching image: " ++ imgUrl
+            imgReq <- parseRequest imgUrl
+            imgRes <- httpBS imgReq
+            let imgBytes = getResponseBody imgRes
+            putStrLn $ "Image fetched: " ++ imgUrl
+            stream <- Gio.memoryInputStreamNewFromData imgBytes Nothing
+            mbPixbuf <- GdkPixbuf.pixbufNewFromStream stream (Nothing :: Maybe Gio.Cancellable)
+            case mbPixbuf of
+              Nothing -> putStrLn $ "Failed to decode: " ++ imgUrl
+              Just pixbufOrig -> do
+                origWidth  <- GdkPixbuf.getPixbufWidth pixbufOrig
+                origHeight <- GdkPixbuf.getPixbufHeight pixbufOrig
 
-    replicateM_ 20 $ do
-      img <- imageNewFromPixbuf pixbuf
-      #add mainArea img
+                let scaleFactor = min (200 `divRatio` origWidth) (200 `divRatio` origHeight)
+                    scaledW = floor (fromIntegral origWidth * scaleFactor)
+                    scaledH = floor (fromIntegral origHeight * scaleFactor)
 
-    #showAll mainArea
+                pixbuf <- GdkPixbuf.pixbufScaleSimple pixbufOrig scaledW scaledH GdkPixbuf.InterpTypeBilinear
+                img <- imageNewFromPixbuf pixbuf
 
-    return ()
+                result <- GLib.idleAdd GLib.PRIORITY_DEFAULT_IDLE $ do
+                  #add mainArea img
+                  return False
+                putStrLn $ "GLib.idleAdd result: " ++ show result
+
+          -- final UI update (statusbar, showAll)
+          _ <- GLib.idleAdd GLib.PRIORITY_DEFAULT_IDLE $ do
+                 #showAll mainArea
+                 _ <- #push statusbar contextId (pack ("tags: " ++ show tag))
+                 return False
+          return ()
   return ()
-  where
-    divRatio :: Int -> Int32 -> Double
-    divRatio a b = fromIntegral a / fromIntegral b
 
+divRatio :: Int -> Int32 -> Double
+divRatio a b = fromIntegral a / fromIntegral b
+
+main :: IO ()
 main = do
   Gtk.init Nothing
   (window, ui) <- buildUI
