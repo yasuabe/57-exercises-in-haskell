@@ -5,6 +5,7 @@
 import qualified GI.Gtk as Gtk
 import Data.GI.Base
 import Data.Text (pack)
+import Data.Text (Text)
 import qualified GI.GdkPixbuf as GdkPixbuf
 import GI.Gtk.Objects.Image (imageNewFromPixbuf)
 import qualified GI.Gio as Gio
@@ -15,6 +16,7 @@ import Control.Concurrent (forkIO)
 import Control.Exception (handle, SomeException)
 
 import Data.Int (Int32)
+import Data.Word (Word32)
 import Network.HTTP.Simple (httpBS, getResponseBody, parseRequest)
 import qualified Data.ByteString.Char8 as BSC
 import qualified Data.ByteString.Lazy as BL
@@ -95,6 +97,43 @@ setupHandlers ui = do
   _ <- on button #clicked (onSearchClicked ui)
   return ()
 
+
+
+
+fetchFeedAndSpawnWorkers
+  :: Text
+  -> Gtk.FlowBox
+  -> Gtk.Statusbar
+  -> Word32
+  -> IO ()
+fetchFeedAndSpawnWorkers tag mainArea statusbar contextId = do
+  handle (\e -> putStrLn $ "Error in worker thread: " ++ show (e :: SomeException)) $ do
+    let tagStr = BSC.unpack (BSC.pack (show tag))
+        feedUrl = "https://www.flickr.com/services/feeds/photos_public.gne?format=json&tags=" ++ tagStr
+
+    feedReq <- parseRequest feedUrl
+    feedRes <- httpBS feedReq
+    let feedRaw = getResponseBody feedRes
+        feedStripped = stripJsonFlickrFeedWrapper feedRaw
+
+    case eitherDecode (BL.fromStrict feedStripped) :: Either String Feed of
+      Left err -> putStrLn $ "JSON parse error: " ++ err
+      Right parsedFeed -> do
+        let urls = take 20 $ map (m . media) (items parsedFeed)
+        forM_ urls $ \imgUrl -> forkIO $ do
+          fetchAndDisplayImage mainArea statusbar contextId imgUrl
+
+        _ <- GLib.idleAdd GLib.PRIORITY_DEFAULT_IDLE $ do
+               #showAll mainArea
+               _ <- #push statusbar contextId (pack ("tags: " ++ show tag))
+               return False
+        return ()
+
+
+
+
+
+
 onSearchClicked :: UI -> IO ()
 onSearchClicked ui = do
   let entry     = uiEntry ui
@@ -105,58 +144,22 @@ onSearchClicked ui = do
   tag <- #getText entry
   _ <- #push statusbar contextId (pack "Fetching...")
 
-  -- Clear previous images (main thread)
   children <- Gtk.containerGetChildren mainArea
   forM_ children $ \child -> Gtk.containerRemove mainArea child
 
-  -- Run fetch in worker thread
-  _ <- forkIO $ do
-    handle (\e -> putStrLn $ "Error in worker thread: " ++ show (e :: SomeException)) $ do
-      let tagStr = BSC.unpack (BSC.pack (show tag))
-          feedUrl = "https://www.flickr.com/services/feeds/photos_public.gne?format=json&tags=" ++ tagStr
-
-      feedReq <- parseRequest feedUrl
-      feedRes <- httpBS feedReq
-      let feedRaw = getResponseBody feedRes
-          feedStripped = stripJsonFlickrFeedWrapper feedRaw
-
-      case eitherDecode (BL.fromStrict feedStripped) :: Either String Feed of
-        Left err -> putStrLn $ "JSON parse error: " ++ err
-        Right parsedFeed -> do
-          let urls = take 20 $ map (m . media) (items parsedFeed)
-          forM_ urls $ \imgUrl -> do
-            putStrLn $ "Fetching image: " ++ imgUrl
-            imgReq <- parseRequest imgUrl
-            imgRes <- httpBS imgReq
-            let imgBytes = getResponseBody imgRes
-            putStrLn $ "Image fetched: " ++ imgUrl
-            stream <- Gio.memoryInputStreamNewFromData imgBytes Nothing
-            mbPixbuf <- GdkPixbuf.pixbufNewFromStream stream (Nothing :: Maybe Gio.Cancellable)
-            case mbPixbuf of
-              Nothing -> putStrLn $ "Failed to decode: " ++ imgUrl
-              Just pixbufOrig -> do
-                origWidth  <- GdkPixbuf.getPixbufWidth pixbufOrig
-                origHeight <- GdkPixbuf.getPixbufHeight pixbufOrig
-
-                let scaleFactor = min (200 `divRatio` origWidth) (200 `divRatio` origHeight)
-                    scaledW = floor (fromIntegral origWidth * scaleFactor)
-                    scaledH = floor (fromIntegral origHeight * scaleFactor)
-
-                pixbuf <- GdkPixbuf.pixbufScaleSimple pixbufOrig scaledW scaledH GdkPixbuf.InterpTypeBilinear
-                img <- imageNewFromPixbuf pixbuf
-
-                result <- GLib.idleAdd GLib.PRIORITY_DEFAULT_IDLE $ do
-                  #add mainArea img
-                  return False
-                putStrLn $ "GLib.idleAdd result: " ++ show result
-
-          -- final UI update (statusbar, showAll)
-          _ <- GLib.idleAdd GLib.PRIORITY_DEFAULT_IDLE $ do
-                 #showAll mainArea
-                 _ <- #push statusbar contextId (pack ("tags: " ++ show tag))
-                 return False
-          return ()
+  _ <- forkIO $ fetchFeedAndSpawnWorkers tag mainArea statusbar contextId
   return ()
+
+
+
+
+
+
+
+
+
+
+
 
 divRatio :: Int -> Int32 -> Double
 divRatio a b = fromIntegral a / fromIntegral b
@@ -169,3 +172,48 @@ main = do
   _ <- on window #destroy Gtk.mainQuit
   #showAll window
   Gtk.main
+
+
+
+
+
+
+
+
+
+
+
+
+
+fetchAndDisplayImage
+  :: Gtk.FlowBox
+  -> Gtk.Statusbar
+  -> Word32
+  -> String
+  -> IO ()
+fetchAndDisplayImage mainArea statusbar contextId imgUrl = do
+  putStrLn $ "Fetching image: " ++ imgUrl
+  imgReq <- parseRequest imgUrl
+  imgRes <- httpBS imgReq
+  let imgBytes = getResponseBody imgRes
+  putStrLn $ "Image fetched: " ++ imgUrl
+  stream <- Gio.memoryInputStreamNewFromData imgBytes Nothing
+  mbPixbuf <- GdkPixbuf.pixbufNewFromStream stream (Nothing :: Maybe Gio.Cancellable)
+  case mbPixbuf of
+    Nothing -> putStrLn $ "Failed to decode: " ++ imgUrl
+    Just pixbufOrig -> do
+      origWidth  <- GdkPixbuf.getPixbufWidth pixbufOrig
+      origHeight <- GdkPixbuf.getPixbufHeight pixbufOrig
+
+      let scaleFactor = min (200 `divRatio` origWidth) (200 `divRatio` origHeight)
+          scaledW = floor (fromIntegral origWidth * scaleFactor)
+          scaledH = floor (fromIntegral origHeight * scaleFactor)
+
+      pixbuf <- GdkPixbuf.pixbufScaleSimple pixbufOrig scaledW scaledH GdkPixbuf.InterpTypeBilinear
+      img <- imageNewFromPixbuf pixbuf
+
+      _ <- GLib.idleAdd GLib.PRIORITY_DEFAULT_IDLE $ do
+             #add mainArea img
+             #show img
+             return False
+      return ()
