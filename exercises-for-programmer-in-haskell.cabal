@@ -39,6 +39,7 @@ library
     , http-client-tls
     , http-conduit
     , lucid
+    , regex-tdfa
     , scotty
     , string-interpolate
     , text
@@ -67,6 +68,7 @@ executable ex01
     , http-client-tls
     , http-conduit
     , lucid
+    , regex-tdfa
     , scotty
     , string-interpolate
     , text
@@ -95,6 +97,7 @@ executable ex02
     , http-client-tls
     , http-conduit
     , lucid
+    , regex-tdfa
     , scotty
     , string-interpolate
     , text
@@ -124,6 +127,7 @@ executable ex03
     , http-client-tls
     , http-conduit
     , lucid
+    , regex-tdfa
     , scotty
     , string-interpolate
     , text
@@ -152,6 +156,7 @@ executable ex06
     , http-client-tls
     , http-conduit
     , lucid
+    , regex-tdfa
     , scotty
     , string-interpolate
     , text
@@ -181,6 +186,36 @@ executable ex07
     , http-client-tls
     , http-conduit
     , lucid
+    , regex-tdfa
+    , scotty
+    , string-interpolate
+    , text
+    , time
+    , transformers
+  default-language: Haskell2010
+
+executable ex14
+  main-is: Main.hs
+  other-modules:
+      Paths_exercises_for_programmer_in_haskell
+  hs-source-dirs:
+      ex14
+  ghc-options: -Wall
+  build-depends:
+      aeson
+    , aeson-casing
+    , base >=4.7 && <5
+    , bytestring
+    , directory
+    , exercises-for-programmer-in-haskell
+    , gi-gdkpixbuf
+    , gi-gio
+    , gi-gtk
+    , http-client
+    , http-client-tls
+    , http-conduit
+    , lucid
+    , regex-tdfa
     , scotty
     , string-interpolate
     , text
@@ -211,6 +246,7 @@ executable ex49
     , http-client-tls
     , http-conduit
     , lucid
+    , regex-tdfa
     , scotty
     , string-interpolate
     , text
@@ -240,6 +276,7 @@ executable ex56
     , http-client-tls
     , http-conduit
     , lucid
+    , regex-tdfa
     , scotty
     , string-interpolate
     , text
@@ -272,6 +309,7 @@ test-suite ex03-test
     , http-client-tls
     , http-conduit
     , lucid
+    , regex-tdfa
     , scotty
     , string-interpolate
     , text
@@ -304,6 +342,7 @@ test-suite ex07-test
     , http-client-tls
     , http-conduit
     , lucid
+    , regex-tdfa
     , scotty
     , string-interpolate
     , text

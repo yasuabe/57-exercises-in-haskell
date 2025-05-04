@@ -24,6 +24,7 @@ dependencies:
   - http-client
   - http-client-tls
   - time
+  - regex-tdfa
 
 library:
   source-dirs: src
@@ -64,6 +65,13 @@ executables:
   ex07:
     main: Main.hs
     source-dirs: ex07
+    ghc-options: -Wall
+    dependencies:
+      - exercises-for-programmer-in-haskell
+
+  ex14:
+    main: Main.hs
+    source-dirs: ex14
     ghc-options: -Wall
     dependencies:
       - exercises-for-programmer-in-haskell
