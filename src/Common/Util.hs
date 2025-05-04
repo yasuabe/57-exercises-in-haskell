@@ -1,7 +1,7 @@
-module Common.Util (promptInput, readWithPrompt, readDouble, divRatio) where
+module Common.Util (promptInput, readWithPrompt, readIntegral, readDouble, divRatio) where
 
 import System.IO (hFlush, stdout)
-import Control.Monad.Trans.Except
+import Control.Monad.Trans.Except ( throwE, ExceptT )
 import Text.Read (readMaybe)
 import Control.Monad.IO.Class (liftIO)
 
@@ -11,7 +11,6 @@ promptInput promptText = do
   hFlush stdout
   getLine
 
-
 readWithPrompt :: Read a => String -> String -> ExceptT String IO a
 readWithPrompt prompt msg =
   liftIO (promptInput prompt) >>= convert
@@ -19,6 +18,9 @@ readWithPrompt prompt msg =
     convert line = case readMaybe line of
       Just x  -> return x
       Nothing -> throwE msg
+
+readIntegral :: (Integral a, Read a) => String -> ExceptT String IO a
+readIntegral prompt = readWithPrompt prompt "Invalid number"
 
 readDouble :: String -> ExceptT String IO Double
 readDouble prompt = readWithPrompt prompt "Invalid number"

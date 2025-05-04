@@ -23,6 +23,8 @@ dependencies:
   - http-conduit
   - http-client
   - http-client-tls
+  - time
+
 library:
   source-dirs: src
   exposed-modules:
@@ -50,6 +52,14 @@ executables:
     ghc-options: -Wall
     dependencies:
       - exercises-for-programmer-in-haskell
+
+  ex06:
+    main: Main.hs
+    source-dirs: ex06
+    ghc-options: -Wall
+    dependencies:
+      - exercises-for-programmer-in-haskell
+      - time
 
   ex07:
     main: Main.hs
