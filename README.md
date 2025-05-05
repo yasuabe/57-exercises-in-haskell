@@ -39,10 +39,10 @@ A personal project to solve the exercises from the book *Exercises for Programme
 #### Chapter 5: Functions
 | Exercise | dependencies | Memo  | Diff  |
 | -------- | -------------| ----- | -----:|
-| Ex24 [ ] [Anagram Checker](ex24/Main.hs)                 | |
-| Ex25 [ ] [Password Strength Indicator](ex25/Main.hs)     | |
-| Ex26 [ ] [Months to Pay Off a Credit Card](ex26/Main.hs) | |
-| Ex27 [ ] [Validating Inputs](ex27/Main.hs)               | |
+| Ex24 [x] [Anagram Checker](ex24/Main.hs)                 |string-interpolate, text, transformers, quickcheck | PBT |2|
+| Ex25 [ ] [Password Strength Indicator](ex25/Main.hs)     | | | |
+| Ex26 [ ] [Months to Pay Off a Credit Card](ex26/Main.hs) | | | |
+| Ex27 [ ] [Validating Inputs](ex27/Main.hs)               | | | |
 #### Chapter 6: Repetition
 | Exercise | dependencies | Memo  | Diff  |
 | -------- | -------------| ----- | -----:|
