@@ -10,24 +10,23 @@
 module Main where
 
 import Control.Monad  (replicateM)
-import Control.Monad.IO.Class (liftIO)
-import Data.Function ((&))
 import Data.String.Interpolate (i)
+import System.Console.Haskeline (InputT)
 
-import Common.App (AppType, run)
+import Common.App (runProgram)
 import Common.System (putTextLn, repeatUntilValid, readDouble)
 
-readFiveNumbers :: AppType [Double]
+readFiveNumbers :: InputT IO [Double]
 readFiveNumbers =
-    replicateM 5 readNumber & liftIO
+    replicateM 5 readNumber
   where
     readNumber = repeatUntilValid readDouble "Enter a number: " "Invalid number"
 
-program :: AppType ()
+program :: InputT IO ()
 program = do
   numbers <- readFiveNumbers
   let total = sum numbers
-  putTextLn [i|The total is #{total}.|] & liftIO
+  putTextLn [i|The total is #{total}.|]
 
 main :: IO ()
-main = run program
+main = runProgram program

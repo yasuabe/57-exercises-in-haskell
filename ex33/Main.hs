@@ -18,7 +18,7 @@ import Data.Text (Text)
 import System.Console.Haskeline (InputT)
 import System.Random (randomRIO)
 
-import Common.System2 (putTextLn, readLine)
+import Common.System (putTextLn, readLine)
 import Common.App (runProgram)
 
 answers :: [Text]

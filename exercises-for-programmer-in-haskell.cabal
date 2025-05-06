@@ -23,7 +23,6 @@ library
       Common.App
       Common.Function
       Common.System
-      Common.System2
       Common.Util
   other-modules:
       Paths_exercises_for_programmer_in_haskell

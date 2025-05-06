@@ -11,20 +11,20 @@
 module Main where
 
 import Control.Monad.IO.Class (liftIO)
-import Data.Function ((&))
 import Data.String.Interpolate (i)
 import Data.Text as T (Text, length, strip)
 
-import Common.App (AppType, run)
+import Common.App (runProgram)
 import Common.Function (maybeIf)
-import Common.System (promptInput, repeatUntilValid)
+import Common.System (repeatUntilValid, readLine)
 import Ex24 (isAnagram)
+import System.Console.Haskeline (InputT)
 
-program :: AppType ()
+program :: InputT IO ()
 program = do
   putTextT "Enter two strings and I'll tell you if they are anagrams:"
-  first  <- promptInput "Enter the first string: " & liftIO
-  second <- getSecondString first & liftIO
+  first  <- readLine "Enter the first string: "
+  second <- getSecondString first
 
   let notWord = if isAnagram first second then "" else "not " :: Text
 
@@ -42,4 +42,4 @@ program = do
       "The second string must be the same length as the first. Please try again."
 
 main :: IO ()
-main = run program
+main = runProgram program

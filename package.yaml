@@ -35,7 +35,6 @@ library:
     - Common.App
     - Common.Function
     - Common.System
-    - Common.System2
     - Common.Util
   ghc-options: -Wall
 

@@ -54,14 +54,14 @@ A personal project to solve the exercises from the book *Exercises for Programme
 #### Chapter 7: Data Structures
 | Exercise | dependencies | Memo  | Lv.  |
 | -------- | -------------| ----- | -----:|
-| Ex33 [ ] [Magic 8 Ball](ex33/Main.hs)
-| Ex34 [ ] [Employee List Removal](ex34/Main.hs)
-| Ex35 [ ] [Picking a Winner](ex35/Main.hs)
-| Ex36 [ ] [Computing Statistics](ex36/Main.hs)
-| Ex37 [ ] [Password Generator](ex37/Main.hs)
-| Ex38 [ ] [Filtering Values](ex39/Main.hs)
-| Ex39 [ ] [Sorting Records](ex39/Main.hs)
-| Ex40 [ ] [Filtering Records](ex40/Main.hs)
+| Ex33 [x] [Magic 8 Ball](ex33/Main.hs)          | exceptions, haskeline, random | |2|
+| Ex34 [ ] [Employee List Removal](ex34/Main.hs) | | | |
+| Ex35 [ ] [Picking a Winner](ex35/Main.hs)      | | | |
+| Ex36 [ ] [Computing Statistics](ex36/Main.hs)  | | | |
+| Ex37 [ ] [Password Generator](ex37/Main.hs)    | | | |
+| Ex38 [ ] [Filtering Values](ex39/Main.hs)      | | | |
+| Ex39 [ ] [Sorting Records](ex39/Main.hs)       | | | |
+| Ex40 [ ] [Filtering Records](ex40/Main.hs)     | | | |
 #### Chapter 8: Working with Files
 | Exercise | dependencies | Memo  | Lv.  |
 | -------- | -------------| ----- | -----:|
