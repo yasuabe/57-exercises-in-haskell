@@ -11,43 +11,14 @@
 module Main where
 
 import Control.Monad.IO.Class (liftIO)
-import Control.Monad.Trans.Except (ExceptT, runExceptT)
-import Data.Bool (bool)
 import Data.Function ((&))
 import Data.String.Interpolate (i)
-import Data.Text as T (Text, pack, unpack, length, strip)
-import System.IO (hFlush, stdout)
+import Data.Text as T (Text, length, strip)
 
+import Common.App (AppType, run)
+import Common.Function (maybeIf)
+import Common.System (promptInput, repeatUntilValid)
 import Ex24 (isAnagram)
-
-type AppType a = ExceptT String IO a
-type Converter a = Text -> Maybe a
-
-putText :: Text -> IO ()
-putText text = putStr (unpack text) >> hFlush stdout
-
-putTextLn :: Text -> IO ()
-putTextLn text = putStrLn (unpack text) >> hFlush stdout
-
-getTextLn :: IO Text
-getTextLn = pack <$> getLine
-
-promptInput :: Text -> IO Text
-promptInput promptText = do
-  putText promptText
-  T.strip . pack <$> getLine
-
-repeatUntilValid :: Converter a -> Text -> Text -> IO a
-repeatUntilValid converter prompt errorMessage = do
-  input <- promptInput prompt
-  case converter input of
-    Just value -> return value
-    Nothing    -> do
-      putTextLn errorMessage
-      repeatUntilValid converter prompt errorMessage
-
-maybeIf :: Bool -> a -> Maybe a
-maybeIf b a = if b then Just a else Nothing
 
 program :: AppType ()
 program = do
@@ -56,20 +27,19 @@ program = do
   second <- getSecondString first & liftIO
 
   let notWord = if isAnagram first second then "" else "not " :: Text
+
   putTextT [i|"#{first}" and "#{second}" are #{notWord}anagrams.|]
   where
     putTextT = liftIO . putStrLn
 
-    getSecond :: Text -> Text -> Maybe Text
     getSecond first text =
       let trimmed = T.strip text
       in maybeIf (T.length first == T.length trimmed) trimmed
 
-    getSecondString :: Text -> IO Text
     getSecondString first = repeatUntilValid
       (getSecond first)
       "Enter the second string: "
       "The second string must be the same length as the first. Please try again."
 
 main :: IO ()
-main = runExceptT program >>= either (putStrLn . ("Error: " ++)) (const (return ()))
+main = run program

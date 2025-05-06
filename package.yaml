@@ -30,6 +30,9 @@ library:
   source-dirs: src
   exposed-modules:
     - Common.Util
+    - Common.System
+    - Common.Function
+    - Common.App
   ghc-options: -Wall
 
 executables:

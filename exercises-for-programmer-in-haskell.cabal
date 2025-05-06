@@ -21,6 +21,9 @@ source-repository head
 library
   exposed-modules:
       Common.Util
+      Common.System
+      Common.Function
+      Common.App
   other-modules:
       Paths_exercises_for_programmer_in_haskell
   hs-source-dirs:
@@ -256,7 +259,6 @@ executable ex24
 executable ex28
   main-is: Main.hs
   other-modules:
-      Ex24
       Paths_exercises_for_programmer_in_haskell
   hs-source-dirs:
       ex28
