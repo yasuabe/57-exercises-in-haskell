@@ -7,16 +7,16 @@ A personal project to solve the exercises from the book *Exercises for Programme
 #### Chapter 2: Input, Processing, and Output
 | Exercise | dependencies | Memo  | Lv.  |
 | -------- | -------------| ----- | -----:|
-| Ex01 [x] [Saying Hello](ex01/Main.hs)                      | | |1
-| Ex02 [x] [Counting the Number of Characters](ex02/Main.hs) | string-interpolate | |1
-| Ex03 [x] [Printing Quotes](ex03/Main.hs)                   | | |1
+| Ex01 [x] [Saying Hello](ex01/Main.hs)                      | | |1(1)
+| Ex02 [x] [Counting the Number of Characters](ex02/Main.hs) | string-interpolate | |1(1)
+| Ex03 [x] [Printing Quotes](ex03/Main.hs)                   | | |1(1)
 | Ex04 [ ] [Mad Lib](ex04/Main.hs)                           | | |
 | Ex05 [ ] [Simple Math](ex05/Main.hs)                       | | |
-| Ex06 [x] [Retirement Calculator](ex06/Main.hs)             | time ||2
+| Ex06 [x] [Retirement Calculator](ex06/Main.hs)             | time ||2(1)
 #### Chapter 3: Calculations
 | Exercise | dependencies | Memo  | Lv.  |
 | -------- | -------------| ----- | -----:|
-| Ex07 [x] [Area of a Rectangular Room](ex07/Main.hs)    | transformers ||1
+| Ex07 [x] [Area of a Rectangular Room](ex07/Main.hs)    | transformers ||1(1)
 | Ex08 [ ] [Pizza Party](ex08/Main.hs)                   | |
 | Ex09 [ ] [Paint Calculator](ex09/Main.hs)              | |
 | Ex10 [ ] [Self-Checkout](ex10/Main.hs)                 | |
@@ -26,7 +26,7 @@ A personal project to solve the exercises from the book *Exercises for Programme
 #### Chapter 4: Making Decisions
 | Exercise | dependencies | Memo  | Lv.  |
 | -------- | -------------| ----- | -----:|
-| Ex14 [x] [Tax Calculator](ex14/Main.hs)                 |transformers, regex-tdfa, text |money, rounding |2|
+| Ex14 [x] [Tax Calculator](ex14/Main.hs)                 |transformers, regex-tdfa, text |money, rounding |2(1)|
 | Ex15 [ ] [Password Validation](ex15/Main.hs)            | | | |
 | Ex16 [ ] [Legal Driving Age](ex16/Main.hs)              | | | |
 | Ex17 [ ] [Blood Alcohol Calculator](ex17/Main.hs)       | | | |
@@ -39,14 +39,14 @@ A personal project to solve the exercises from the book *Exercises for Programme
 #### Chapter 5: Functions
 | Exercise | dependencies | Memo  | Lv.  |
 | -------- | -------------| ----- | -----:|
-| Ex24 [x] [Anagram Checker](ex24/Main.hs)                 | quickcheck | PBT |2|
+| Ex24 [x] [Anagram Checker](ex24/Main.hs)                 | quickcheck | PBT |2(1)|
 | Ex25 [ ] [Password Strength Indicator](ex25/Main.hs)     | | | |
 | Ex26 [ ] [Months to Pay Off a Credit Card](ex26/Main.hs) | | | |
 | Ex27 [ ] [Validating Inputs](ex27/Main.hs)               | | | |
 #### Chapter 6: Repetition
 | Exercise | dependencies | Memo  | Lv.  |
 | -------- | -------------| ----- | -----:|
-| Ex28 [x] [Adding Numbers](ex28/Main.hs)        | | |2|
+| Ex28 [x] [Adding Numbers](ex28/Main.hs)        | | |2(1)|
 | Ex29 [ ] [Handling Bad Input](ex29/Main.hs)    | | | |
 | Ex30 [ ] [Multiplication Table](ex30/Main.hs)  | | | |
 | Ex31 [ ] [Karvonen Heart Rate](ex31/Main.hs)   | | | |
@@ -54,7 +54,7 @@ A personal project to solve the exercises from the book *Exercises for Programme
 #### Chapter 7: Data Structures
 | Exercise | dependencies | Memo  | Lv.  |
 | -------- | -------------| ----- | -----:|
-| Ex33 [x] [Magic 8 Ball](ex33/Main.hs)          | exceptions, haskeline, random | |2|
+| Ex33 [x] [Magic 8 Ball](ex33/Main.hs)          | exceptions, haskeline, random | |2(1)|
 | Ex34 [ ] [Employee List Removal](ex34/Main.hs) | | | |
 | Ex35 [ ] [Picking a Winner](ex35/Main.hs)      | | | |
 | Ex36 [ ] [Computing Statistics](ex36/Main.hs)  | | | |
@@ -65,18 +65,18 @@ A personal project to solve the exercises from the book *Exercises for Programme
 #### Chapter 8: Working with Files
 | Exercise | dependencies | Memo  | Lv.  |
 | -------- | -------------| ----- | -----:|
-| Ex41 [ ] [Name Sorter](ex41/Main.hs)
-| Ex42 [ ] [Parsing a Data File](ex42/Main.hs)
-| Ex43 [ ] [Website Generator](ex43/Main.hs)
-| Ex44 [ ] [Product Search](ex44/Main.hs)
-| Ex45 [ ] [Word Finder](ex45/Main.hs)
-| Ex46 [ ] [Word Frequency Finder](ex46/Main.hs)
+| Ex41 [x] [Name Sorter](ex41/Main.hs)           | | |2(2)|
+| Ex42 [ ] [Parsing a Data File](ex42/Main.hs)   | | | |
+| Ex43 [ ] [Website Generator](ex43/Main.hs)     | | | |
+| Ex44 [ ] [Product Search](ex44/Main.hs)        | | | |
+| Ex45 [ ] [Word Finder](ex45/Main.hs)           | | | |
+| Ex46 [ ] [Word Frequency Finder](ex46/Main.hs) | | | |
 #### Chapter 9: Working with External Services
 | Exercise | dependencies | Memo  | Lv.  |
 | -------- | -------------| ----- | -----:|
 | Ex47 [ ] [Who’s in Space?](ex47/Main.hs)                | |     
 | Ex48 [ ] [Grabbing the Weather](ex48/Main.hs)           | |          
-| Ex49 [x] [Flickr Photo Search](ex49/Main.hs)            | aeson, gi-gtk, http-client, bytestring, text | GUI/GTK3, HTTP client, multi-thread |5       
+| Ex49 [x] [Flickr Photo Search](ex49/Main.hs)            | aeson, gi-gtk, http-client, bytestring, text | GUI/GTK3, HTTP client, multi-thread |5(4)
 | Ex50 [ ] [Movie Recommendations](ex50/Main.hs)          | |           
 | Ex51 [ ] [Pushing Notes to Firebase](ex51/Main.hs)      | | 
 | Ex52 [ ] [Creating Your Own Time Service](ex52/Main.hs) | |  |
@@ -86,11 +86,15 @@ A personal project to solve the exercises from the book *Exercises for Programme
 | Ex53 [ ] [Todo List](ex53/Main.hs)          | | |
 | Ex54 [ ] [URL Shortener](ex54/Main.hs)      | | |
 | Ex55 [ ] [Text Sharing](ex55/Main.hs)       | | |
-| Ex56 [x] [Tracking Inventory](ex56/Main.hs) |scotty, lucid, text, aeson, aeson-casing, bytestring, directory | Web App | 4
+| Ex56 [x] [Tracking Inventory](ex56/Main.hs) |scotty, lucid, text, aeson, aeson-casing, bytestring, directory | Web App | 4(3)
 | Ex57 [ ] [Trivia App](ex57/Main.hs)         | | |
 
 - ※ [x] Completed, [ ] Pending
-- ※ Lv.... level: 1 ~ 5
+- ※ Lv. (level): p(q), where:
+  - p: Programming skill level used to solve the exercise (1 = beginner, 5 = advanced).
+  - q: Complexity of the exercise requirements (1 = simple, 5 = complex).
+
+  Note: Even if the requirement level (q) is low, the programming level (p) might be higher if advanced techniques are intentionally used for learning purposes.
 
 ## Technologies Used
 - ghc 9.8.4
@@ -116,6 +120,7 @@ $ stack run ex[nn]
 ```
 $ stack test :ex[nn]-test
 ```
+----
 Individual details are described in the README.md file of each respective folder.
 
 ### Example

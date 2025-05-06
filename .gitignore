@@ -10,6 +10,7 @@ cabal.sandbox.config.lock
 *.so
 *.dyn_o
 *.dyn_hi
+*/output/
 
 # Ignore Haskell IDE files
 .idea/
