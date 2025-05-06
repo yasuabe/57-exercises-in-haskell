@@ -25,14 +25,18 @@ dependencies:
   - http-client-tls
   - time
   - regex-tdfa
+  - exceptions
+  - haskeline
+  - random
 
 library:
   source-dirs: src
   exposed-modules:
-    - Common.Util
-    - Common.System
-    - Common.Function
     - Common.App
+    - Common.Function
+    - Common.System
+    - Common.System2
+    - Common.Util
   ghc-options: -Wall
 
 executables:
@@ -89,6 +93,13 @@ executables:
   ex28:
     main: Main.hs
     source-dirs: ex28
+    ghc-options: -Wall
+    dependencies:
+      - exercises-for-programmer-in-haskell
+
+  ex33:
+    main: Main.hs
+    source-dirs: ex33
     ghc-options: -Wall
     dependencies:
       - exercises-for-programmer-in-haskell
