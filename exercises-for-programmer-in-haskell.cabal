@@ -44,6 +44,7 @@ library
     , http-client-tls
     , http-conduit
     , lucid
+    , mtl
     , random
     , regex-tdfa
     , scotty
@@ -51,6 +52,7 @@ library
     , text
     , time
     , transformers
+    , unordered-containers
   default-language: Haskell2010
 
 executable ex01
@@ -76,6 +78,7 @@ executable ex01
     , http-client-tls
     , http-conduit
     , lucid
+    , mtl
     , random
     , regex-tdfa
     , scotty
@@ -83,6 +86,7 @@ executable ex01
     , text
     , time
     , transformers
+    , unordered-containers
   default-language: Haskell2010
 
 executable ex02
@@ -108,6 +112,7 @@ executable ex02
     , http-client-tls
     , http-conduit
     , lucid
+    , mtl
     , random
     , regex-tdfa
     , scotty
@@ -115,6 +120,7 @@ executable ex02
     , text
     , time
     , transformers
+    , unordered-containers
   default-language: Haskell2010
 
 executable ex03
@@ -141,6 +147,7 @@ executable ex03
     , http-client-tls
     , http-conduit
     , lucid
+    , mtl
     , random
     , regex-tdfa
     , scotty
@@ -148,6 +155,7 @@ executable ex03
     , text
     , time
     , transformers
+    , unordered-containers
   default-language: Haskell2010
 
 executable ex06
@@ -173,6 +181,7 @@ executable ex06
     , http-client-tls
     , http-conduit
     , lucid
+    , mtl
     , random
     , regex-tdfa
     , scotty
@@ -180,6 +189,7 @@ executable ex06
     , text
     , time
     , transformers
+    , unordered-containers
   default-language: Haskell2010
 
 executable ex07
@@ -206,6 +216,7 @@ executable ex07
     , http-client-tls
     , http-conduit
     , lucid
+    , mtl
     , random
     , regex-tdfa
     , scotty
@@ -213,6 +224,7 @@ executable ex07
     , text
     , time
     , transformers
+    , unordered-containers
   default-language: Haskell2010
 
 executable ex14
@@ -238,6 +250,7 @@ executable ex14
     , http-client-tls
     , http-conduit
     , lucid
+    , mtl
     , random
     , regex-tdfa
     , scotty
@@ -245,6 +258,7 @@ executable ex14
     , text
     , time
     , transformers
+    , unordered-containers
   default-language: Haskell2010
 
 executable ex24
@@ -271,6 +285,7 @@ executable ex24
     , http-client-tls
     , http-conduit
     , lucid
+    , mtl
     , random
     , regex-tdfa
     , scotty
@@ -278,6 +293,7 @@ executable ex24
     , text
     , time
     , transformers
+    , unordered-containers
   default-language: Haskell2010
 
 executable ex28
@@ -303,6 +319,7 @@ executable ex28
     , http-client-tls
     , http-conduit
     , lucid
+    , mtl
     , random
     , regex-tdfa
     , scotty
@@ -310,6 +327,7 @@ executable ex28
     , text
     , time
     , transformers
+    , unordered-containers
   default-language: Haskell2010
 
 executable ex33
@@ -335,6 +353,7 @@ executable ex33
     , http-client-tls
     , http-conduit
     , lucid
+    , mtl
     , random
     , regex-tdfa
     , scotty
@@ -342,6 +361,7 @@ executable ex33
     , text
     , time
     , transformers
+    , unordered-containers
   default-language: Haskell2010
 
 executable ex41
@@ -367,6 +387,7 @@ executable ex41
     , http-client-tls
     , http-conduit
     , lucid
+    , mtl
     , random
     , regex-tdfa
     , scotty
@@ -374,6 +395,7 @@ executable ex41
     , text
     , time
     , transformers
+    , unordered-containers
   default-language: Haskell2010
 
 executable ex49
@@ -401,6 +423,7 @@ executable ex49
     , http-client-tls
     , http-conduit
     , lucid
+    , mtl
     , random
     , regex-tdfa
     , scotty
@@ -408,6 +431,48 @@ executable ex49
     , text
     , time
     , transformers
+    , unordered-containers
+  default-language: Haskell2010
+
+executable ex51
+  main-is: Main.hs
+  other-modules:
+      AddNoteReq
+      Config
+      GetNotesRes
+      IdTokenRequest
+      Note
+      TokenInfo
+      TokenInfoRes
+      Paths_exercises_for_programmer_in_haskell
+  hs-source-dirs:
+      ex51
+  ghc-options: -Wall
+  build-depends:
+      aeson
+    , aeson-casing
+    , base >=4.7 && <5
+    , bytestring
+    , directory
+    , exceptions
+    , exercises-for-programmer-in-haskell
+    , gi-gdkpixbuf
+    , gi-gio
+    , gi-gtk
+    , haskeline
+    , http-client
+    , http-client-tls
+    , http-conduit
+    , lucid
+    , mtl
+    , random
+    , regex-tdfa
+    , scotty
+    , string-interpolate
+    , text
+    , time
+    , transformers
+    , unordered-containers
   default-language: Haskell2010
 
 executable ex56
@@ -434,6 +499,7 @@ executable ex56
     , http-client-tls
     , http-conduit
     , lucid
+    , mtl
     , random
     , regex-tdfa
     , scotty
@@ -441,6 +507,7 @@ executable ex56
     , text
     , time
     , transformers
+    , unordered-containers
   default-language: Haskell2010
 
 test-suite ex03-test
@@ -454,7 +521,8 @@ test-suite ex03-test
       test/ex03
       ex03
   build-depends:
-      QuickCheck
+      HUnit
+    , QuickCheck
     , aeson
     , aeson-casing
     , base
@@ -470,6 +538,7 @@ test-suite ex03-test
     , http-client-tls
     , http-conduit
     , lucid
+    , mtl
     , random
     , regex-tdfa
     , scotty
@@ -477,6 +546,7 @@ test-suite ex03-test
     , text
     , time
     , transformers
+    , unordered-containers
   default-language: Haskell2010
 
 test-suite ex07-test
@@ -506,6 +576,7 @@ test-suite ex07-test
     , http-client-tls
     , http-conduit
     , lucid
+    , mtl
     , random
     , regex-tdfa
     , scotty
@@ -513,6 +584,7 @@ test-suite ex07-test
     , text
     , time
     , transformers
+    , unordered-containers
   default-language: Haskell2010
 
 test-suite ex24-test
@@ -542,6 +614,7 @@ test-suite ex24-test
     , http-client-tls
     , http-conduit
     , lucid
+    , mtl
     , random
     , regex-tdfa
     , scotty
@@ -549,4 +622,53 @@ test-suite ex24-test
     , text
     , time
     , transformers
+    , unordered-containers
+  default-language: Haskell2010
+
+test-suite ex51-test
+  type: exitcode-stdio-1.0
+  main-is: Test.hs
+  other-modules:
+      AddNoteReqTest
+      GetNotesResTest
+      TokenInfoResTest
+      TokenInfoTest
+      AddNoteReq
+      Config
+      GetNotesRes
+      IdTokenRequest
+      Main
+      Note
+      TokenInfo
+      TokenInfoRes
+      Paths_exercises_for_programmer_in_haskell
+  hs-source-dirs:
+      test/ex51
+      ex51
+  build-depends:
+      HUnit
+    , aeson
+    , aeson-casing
+    , base
+    , bytestring
+    , directory
+    , exceptions
+    , exercises-for-programmer-in-haskell
+    , gi-gdkpixbuf
+    , gi-gio
+    , gi-gtk
+    , haskeline
+    , http-client
+    , http-client-tls
+    , http-conduit
+    , lucid
+    , mtl
+    , random
+    , regex-tdfa
+    , scotty
+    , string-interpolate
+    , text
+    , time
+    , transformers
+    , unordered-containers
   default-language: Haskell2010

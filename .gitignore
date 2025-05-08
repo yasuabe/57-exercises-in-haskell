@@ -10,7 +10,6 @@ cabal.sandbox.config.lock
 *.so
 *.dyn_o
 *.dyn_hi
-*/output/
 
 # Ignore Haskell IDE files
 .idea/
@@ -44,3 +43,8 @@ TAGS
 # Ignore OS-specific files
 .DS_Store
 Thumbs.db
+
+# Ignore config files/work files
+*/output/
+*/cache/*.json
+*/config/*.json

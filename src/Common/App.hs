@@ -1,4 +1,4 @@
-module Common.App (AppType, run, runProgram) where
+module Common.App (AppType, AppError(..), run, runProgram) where
 
 import Control.Exception (Exception)
 import Control.Monad.Catch (catch)
@@ -17,8 +17,8 @@ run app = runExceptT app >>= either (putStrLn . ("Error: " ++)) (const (return (
 
 runProgram :: InputT IO () -> IO ()
 runProgram app =
-  runInputT defaultSettings loop
+  runInputT defaultSettings app'
   where
-    loop = app `catch` handler
+    app' = app `catch` handler
     handler :: AppError -> InputT IO ()
     handler (AppError msg) = outputStrLn $ "Caught exception: " ++ msg

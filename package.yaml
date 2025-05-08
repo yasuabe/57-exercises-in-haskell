@@ -28,6 +28,8 @@ dependencies:
   - exceptions
   - haskeline
   - random
+  - mtl
+  - unordered-containers
 
 library:
   source-dirs: src
@@ -128,6 +130,13 @@ executables:
       - bytestring
       - text
 
+  ex51:
+    main: Main.hs
+    source-dirs: ex51
+    ghc-options: -Wall
+    dependencies:
+      - exercises-for-programmer-in-haskell
+
   ex56:
     main: Main.hs
     source-dirs: ex56
@@ -144,6 +153,7 @@ tests:
     dependencies:
       - base
       - QuickCheck
+      - HUnit
       - exercises-for-programmer-in-haskell
 
   ex07-test:
@@ -164,4 +174,14 @@ tests:
     dependencies:
       - base
       - QuickCheck
+      - exercises-for-programmer-in-haskell
+
+  ex51-test:
+    main: Test.hs
+    source-dirs:
+      - test/ex51
+      - ex51
+    dependencies:
+      - base
+      - HUnit
       - exercises-for-programmer-in-haskell
