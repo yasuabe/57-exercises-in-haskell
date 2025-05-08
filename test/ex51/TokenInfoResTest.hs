@@ -8,7 +8,7 @@ import qualified Data.ByteString.Lazy.Char8 as BL
 import Data.String.Interpolate (i)
 import Test.HUnit
 
-import TokenInfoRes (TokenInfoRes(..), decodeSnakeCaseTokenInfoRes)
+import TokenInfoRes (TokenInfoRes(..), decodeSnakeCaseRes)
 
 exampleJson :: BL.ByteString
 exampleJson = BL.pack [i|
@@ -43,7 +43,7 @@ testSnakeCaseDeserialization :: Test
 testSnakeCaseDeserialization = TestCase $
   assertEqual "Deserialization of TokenInfoRes with snake_case JSON"
     (Just expectedTokenInfoRes)
-    (decodeSnakeCaseTokenInfoRes exampleSnakeCaseJson)
+    (decodeSnakeCaseRes exampleSnakeCaseJson)
 
 main :: IO ()
 main = runTestTTAndExit $ TestList

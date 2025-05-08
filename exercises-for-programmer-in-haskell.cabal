@@ -36,6 +36,7 @@ library
     , bytestring
     , directory
     , exceptions
+    , extra
     , gi-gdkpixbuf
     , gi-gio
     , gi-gtk
@@ -70,6 +71,7 @@ executable ex01
     , directory
     , exceptions
     , exercises-for-programmer-in-haskell
+    , extra
     , gi-gdkpixbuf
     , gi-gio
     , gi-gtk
@@ -104,6 +106,7 @@ executable ex02
     , directory
     , exceptions
     , exercises-for-programmer-in-haskell
+    , extra
     , gi-gdkpixbuf
     , gi-gio
     , gi-gtk
@@ -139,6 +142,7 @@ executable ex03
     , directory
     , exceptions
     , exercises-for-programmer-in-haskell
+    , extra
     , gi-gdkpixbuf
     , gi-gio
     , gi-gtk
@@ -173,6 +177,7 @@ executable ex06
     , directory
     , exceptions
     , exercises-for-programmer-in-haskell
+    , extra
     , gi-gdkpixbuf
     , gi-gio
     , gi-gtk
@@ -208,6 +213,7 @@ executable ex07
     , directory
     , exceptions
     , exercises-for-programmer-in-haskell
+    , extra
     , gi-gdkpixbuf
     , gi-gio
     , gi-gtk
@@ -242,6 +248,7 @@ executable ex14
     , directory
     , exceptions
     , exercises-for-programmer-in-haskell
+    , extra
     , gi-gdkpixbuf
     , gi-gio
     , gi-gtk
@@ -277,6 +284,7 @@ executable ex24
     , directory
     , exceptions
     , exercises-for-programmer-in-haskell
+    , extra
     , gi-gdkpixbuf
     , gi-gio
     , gi-gtk
@@ -311,6 +319,7 @@ executable ex28
     , directory
     , exceptions
     , exercises-for-programmer-in-haskell
+    , extra
     , gi-gdkpixbuf
     , gi-gio
     , gi-gtk
@@ -345,6 +354,7 @@ executable ex33
     , directory
     , exceptions
     , exercises-for-programmer-in-haskell
+    , extra
     , gi-gdkpixbuf
     , gi-gio
     , gi-gtk
@@ -379,6 +389,7 @@ executable ex41
     , directory
     , exceptions
     , exercises-for-programmer-in-haskell
+    , extra
     , gi-gdkpixbuf
     , gi-gio
     , gi-gtk
@@ -413,6 +424,7 @@ executable ex49
     , directory
     , exceptions
     , exercises-for-programmer-in-haskell
+    , extra
     , gi-gdkpixbuf
     , gi-gio
     , gi-glib
@@ -456,6 +468,7 @@ executable ex51
     , directory
     , exceptions
     , exercises-for-programmer-in-haskell
+    , extra
     , gi-gdkpixbuf
     , gi-gio
     , gi-gtk
@@ -491,6 +504,7 @@ executable ex56
     , directory
     , exceptions
     , exercises-for-programmer-in-haskell
+    , extra
     , gi-gdkpixbuf
     , gi-gio
     , gi-gtk
@@ -530,6 +544,7 @@ test-suite ex03-test
     , directory
     , exceptions
     , exercises-for-programmer-in-haskell
+    , extra
     , gi-gdkpixbuf
     , gi-gio
     , gi-gtk
@@ -568,6 +583,7 @@ test-suite ex07-test
     , directory
     , exceptions
     , exercises-for-programmer-in-haskell
+    , extra
     , gi-gdkpixbuf
     , gi-gio
     , gi-gtk
@@ -606,6 +622,7 @@ test-suite ex24-test
     , directory
     , exceptions
     , exercises-for-programmer-in-haskell
+    , extra
     , gi-gdkpixbuf
     , gi-gio
     , gi-gtk
@@ -654,6 +671,7 @@ test-suite ex51-test
     , directory
     , exceptions
     , exercises-for-programmer-in-haskell
+    , extra
     , gi-gdkpixbuf
     , gi-gio
     , gi-gtk

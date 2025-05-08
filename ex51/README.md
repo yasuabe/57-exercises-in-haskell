@@ -37,7 +37,7 @@ Saved in the format below.
 }
 ```
 
-## API
+## Authentication API
 
 ### signupNewUser endpoint.
 https://cloud.google.com/identity-platform/docs/use-rest-api#section-create-email-password

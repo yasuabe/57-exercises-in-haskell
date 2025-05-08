@@ -16,8 +16,8 @@ data TokenInfoRes = TokenInfoRes
   , expiresIn    :: Text
   } deriving (Show, Eq, Generic, FromJSON, ToJSON)
 
-decodeSnakeCaseTokenInfoRes :: ByteString -> Maybe TokenInfoRes
-decodeSnakeCaseTokenInfoRes s =
+decodeSnakeCaseRes :: ByteString -> Maybe TokenInfoRes
+decodeSnakeCaseRes s =
   case eitherDecode s of
     Right (Object obj) -> parseMaybe parseSnakeCaseTokenInfoRes obj
     _                  -> Nothing
