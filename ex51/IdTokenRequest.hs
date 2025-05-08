@@ -2,9 +2,9 @@
 
 module IdTokenRequest where
 
-import GHC.Generics (Generic)
+import Data.Aeson (FromJSON(..), ToJSON(..), defaultOptions, genericParseJSON, genericToJSON)
 import Data.Text (Text)
-import Data.Aeson (FromJSON(..), ToJSON(..), genericParseJSON, genericToJSON, defaultOptions)
+import GHC.Generics (Generic)
 
 data IdTokenRequest = IdTokenRequest
   { email             :: Text
@@ -12,10 +12,8 @@ data IdTokenRequest = IdTokenRequest
   , returnSecureToken :: Bool
   } deriving (Generic)
 
--- Define FromJSON instance
 instance FromJSON IdTokenRequest where
   parseJSON = genericParseJSON defaultOptions
 
--- Define ToJSON instance
 instance ToJSON IdTokenRequest where
   toJSON = genericToJSON defaultOptions

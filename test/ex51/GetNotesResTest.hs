@@ -3,19 +3,20 @@
 
 module GetNotesResTest where
 
+import Data.Aeson (decode)
+import qualified Data.ByteString.Lazy.Char8 as BL
+import Data.String.Interpolate (i)
+import Data.Text (Text)
+import Debug.Trace (trace)
+import qualified Data.HashMap.Strict as HM
 import Test.HUnit
     ( assertEqual,
       assertFailure,
       runTestTTAndExit,
       Test(TestList, TestCase) )
-import qualified Data.ByteString.Lazy.Char8 as BL
-import Data.String.Interpolate (i)
-import Data.Aeson (decode)
-import Data.Text (Text)
+
 import GetNotesRes (GetNotesRes(..), NoteRes(..), toNotes)
-import Note ( Note(Note) )
-import qualified Data.HashMap.Strict as HM
-import Debug.Trace (trace)
+import Note (Note(Note))
 
 exampleJson :: BL.ByteString
 exampleJson = BL.pack [i|
@@ -36,8 +37,8 @@ testDeserialization = TestCase $
         [ ("key1", NoteRes "2025-04-28" "hello")
         , ("key2", NoteRes "2025-04-29" "goodbye")
         ]
-  in case (decode exampleJson:: Maybe GetNotesRes ) of
-    Just actual -> assertEqual   "deserialize Firebase response and make array of notes" expectedNotes actual
+  in case (decode exampleJson :: Maybe GetNotesRes) of
+    Just actual -> assertEqual "deserialize Firebase response and make array of notes" expectedNotes actual
     Nothing     -> assertFailure "Failed to decode GetNotesRes JSON"
 
 testToNotes :: Test

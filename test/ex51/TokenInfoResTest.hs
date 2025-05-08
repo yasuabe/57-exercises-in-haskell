@@ -3,11 +3,12 @@
 
 module TokenInfoResTest where
 
-import Test.HUnit
-import TokenInfoRes (TokenInfoRes(..), decodeSnakeCaseTokenInfoRes)
 import Data.Aeson (decode)
 import qualified Data.ByteString.Lazy.Char8 as BL
 import Data.String.Interpolate (i)
+import Test.HUnit
+
+import TokenInfoRes (TokenInfoRes(..), decodeSnakeCaseTokenInfoRes)
 
 exampleJson :: BL.ByteString
 exampleJson = BL.pack [i|

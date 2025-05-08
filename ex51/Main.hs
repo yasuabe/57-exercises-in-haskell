@@ -15,42 +15,38 @@
 -- ・Use a config file to store the Firebase API key (not hardcoded).
 -- ・Communicate via raw HTTP requests to Firebase's REST endpoint.
 
-import Data.Aeson (eitherDecode, encode, Value (Object), Value (String))
-import qualified Data.ByteString.Lazy as BL
-import Data.Text (pack, unpack, Text)
-import Network.HTTP.Simple (httpBS, getResponseBody, parseRequest, setRequestBodyJSON)
-import Network.HTTP.Client (method, requestBody, requestHeaders, RequestBody(..))
-import System.Console.Haskeline (InputT, runInputT, defaultSettings)
+import Control.Monad.Catch (throwM)
 import Control.Monad.IO.Class (liftIO)
-import System.Environment (getArgs)
+import Control.Monad.Reader (ask, asks)
+import Control.Monad.Trans (lift)
+import Control.Monad.Trans.Reader (ReaderT (runReaderT))
+import Data.Aeson (eitherDecode, encode, Value (Object), Value (String))
+import Data.Aeson.Decoding (decode)
+import Data.Aeson.Types (Value)
+import qualified Data.Aeson.KeyMap as KM
+import qualified Data.ByteString.Lazy as BL
+import Data.Function ((&))
+import qualified Data.HashMap.Strict as HM
 import Data.String.Interpolate (i)
+import Data.Text (pack, unpack, Text)
 import qualified Data.Text.Lazy as TL
 import qualified Data.Text.Lazy.Encoding as TLE
-import Common.App (AppError (..))
-import Control.Monad.Trans.Reader (ReaderT (runReaderT))
-import Control.Monad.Catch (throwM)
-import Data.Function ((&))
-import Control.Monad.Reader (ask)
 import Debug.Trace (trace)
-import Control.Monad.Trans (lift)
-import qualified Config         as C
-import qualified IdTokenRequest as I
-
-import qualified TokenInfo as TI
-import qualified TokenInfoRes as TIR
-import qualified GetNotesRes as GNR
-import qualified AddNoteReq as ANR
-import qualified Note as N
+import Network.HTTP.Client (method, requestBody, requestHeaders, RequestBody(..))
+import Network.HTTP.Simple (httpBS, getResponseBody, parseRequest, setRequestBodyJSON)
+import System.Console.Haskeline (InputT, runInputT, defaultSettings)
 import System.Directory (doesFileExist)
-import TokenInfo (makeTokenInfoIO, isExpiredIO)
-import Control.Monad.Reader (asks)
+import System.Environment (getArgs)
+
+import Common.App (AppError (..))
 import Common.System (putTextLn)
 import qualified AddNoteReq as ANR
-import Data.Aeson.Types (Value)
-import Data.Aeson.Decoding (decode)
-import qualified Control.Monad.Accum as HM
-import qualified Data.HashMap.Strict as HM
-import qualified Data.Aeson.KeyMap as KM
+import qualified Config as C
+import qualified GetNotesRes as GNR
+import qualified IdTokenRequest as I
+import qualified Note as N
+import qualified TokenInfo as TI
+import qualified TokenInfoRes as TIR
 
 configFilePath :: FilePath
 configFilePath = "ex51/config/config.json"
@@ -81,14 +77,10 @@ saveNote text = do
     Nothing -> error $ "Failed to extract ID from response: " ++ show body
     Just name -> do
       lift $ putTextLn [i|Your note was saved. (id: #{name})|]
-      -- print body & liftIO
-      -- lift $ putTextLn [i|Your note was saved. (id: #{name})|]
-  -- print body & liftIO
-  -- lift $ putTextLn [i|Your note was saved. (id: #{name})|]
   where
     extractId :: BL.ByteString -> Maybe Text
     extractId body = do
-      res  <- decode body :: Maybe Value 
+      res  <- decode body :: Maybe Value
       case res of
         Object obj -> case KM.lookup "name" obj of
           Just (Data.Aeson.String name) -> Just name
@@ -101,7 +93,7 @@ tryGetCachedIdToken = do
   if fileExists
     then do
       tokenInfo <- readIdTokenFromCache
-      isExpired <- isExpiredIO tokenInfo & liftIO
+      isExpired <- TI.isExpiredIO tokenInfo & liftIO
       if isExpired
         then do
           tokenInfo <- refreshIdToken (TI.refreshToken tokenInfo)
@@ -142,7 +134,7 @@ refreshIdToken refreshToken = do
   response <- liftIO $ httpBS request
   let body = BL.fromStrict $ getResponseBody response
   case TIR.decodeSnakeCaseTokenInfoRes body of
-    Just tokenInfo -> liftIO $ makeTokenInfoIO tokenInfo
+    Just tokenInfo -> liftIO $ TI.makeTokenInfoIO tokenInfo
     Nothing        -> throwM $ trace (show body) $ AppError "Failed to decode token info"
 
 retrieveIdToken :: C.Config -> App TI.TokenInfo
@@ -156,7 +148,7 @@ retrieveIdToken config = do
   let body = BL.fromStrict $ getResponseBody response
   case eitherDecode body of
     Left err -> error $ "Failed to retrieve ID token: " ++ err ++ "\nResponse body: " ++ show body
-    Right token -> liftIO $ makeTokenInfoIO token
+    Right token -> liftIO $ TI.makeTokenInfoIO token
 
 showNotes :: App ()
 showNotes = do
@@ -179,23 +171,11 @@ showNotes = do
     printNote noteRes = lift $ putTextLn [i|#{N.date noteRes} - #{N.note noteRes}|]
 
 program :: App ()
-program = do
-  args <- liftIO getArgs
-  case args of
-    ("new" : texts) -> saveNote (pack $ unwords texts)
-    ["show"]        -> showNotes
-    ["retrieve"]        -> do
-      config <- ask
-      token <- retrieveIdToken config
-      print token & liftIO
-    ["refresh", token]        -> do
-      tokenInfo <- refreshIdToken (pack token)
-      print tokenInfo & liftIO
-    ["test"]        -> do
-      token <- tryGetCachedIdToken
-      print token & liftIO
-    _               -> liftIO $ putStrLn "Usage: mynotes new <text> | mynotes show"
-
+program = liftIO getArgs >>= \case
+  ("new" : texts) -> saveNote (unwords texts & pack)
+  ["show"]        -> showNotes
+  _               -> putStrLn "Usage: mynotes new <text> | mynotes show"
+                   & liftIO 
 main :: IO ()
 main = do
   config <- loadConfig

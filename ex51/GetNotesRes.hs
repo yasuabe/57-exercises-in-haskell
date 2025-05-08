@@ -3,13 +3,14 @@
 
 module GetNotesRes where
 
-import Data.Aeson ( FromJSON, ToJSON )
-import GHC.Generics (Generic)
-import Data.Text (Text)
-import qualified Data.HashMap.Strict as HM
-import qualified Note as N
-import Data.List (sortBy)
+import Data.Aeson (FromJSON, ToJSON)
 import Data.Function ((&))
+import Data.List (sortBy)
+import Data.Text (Text)
+import GHC.Generics (Generic)
+import qualified Data.HashMap.Strict as HM
+
+import qualified Note as N
 
 data NoteRes = NoteRes
   { date :: Text

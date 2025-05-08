@@ -2,12 +2,13 @@
 {-# LANGUAGE DeriveAnyClass #-}
 
 module AddNoteReq where
-import Data.Time.Clock.POSIX (posixSecondsToUTCTime, getPOSIXTime)
-import Data.Time.Format (formatTime, defaultTimeLocale)
-import Data.Aeson ( FromJSON, ToJSON )
-import GHC.Generics (Generic)
-import Data.Text (Text, pack)
+
+import Data.Aeson (FromJSON, ToJSON)
 import Data.Function ((&))
+import Data.Text (Text, pack)
+import Data.Time.Clock.POSIX (getPOSIXTime, posixSecondsToUTCTime)
+import Data.Time.Format (defaultTimeLocale, formatTime)
+import GHC.Generics (Generic)
 
 data AddNoteReq = AddNoteReq
   { date :: Text
@@ -25,4 +26,3 @@ noteNow timeFunc note' = do
 
 noteNowIO :: Text -> IO AddNoteReq
 noteNowIO = noteNow (round <$> getPOSIXTime)
-  

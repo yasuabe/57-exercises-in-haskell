@@ -4,10 +4,10 @@
 
 module Config where
 
-import GHC.Generics (Generic)
-import Data.Text (Text)
 import Data.Aeson (FromJSON(..), defaultOptions, genericParseJSON)
 import Data.String.Interpolate (i)
+import Data.Text (Text)
+import GHC.Generics (Generic)
 
 data Config = Config
   { projectId :: Text

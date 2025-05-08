@@ -3,15 +3,16 @@
 
 module TokenInfo where
 
-import Data.Aeson ( FromJSON, ToJSON )
-import GHC.Generics (Generic)
+import Control.Exception (Exception)
+import Control.Monad.Catch (throwM)
+import Data.Aeson (FromJSON, ToJSON)
 import Data.Text (Text)
 import qualified Data.Text as T
-import Text.Read (readMaybe)
 import Data.Time.Clock.POSIX (getPOSIXTime)
+import GHC.Generics (Generic)
+import Text.Read (readMaybe)
+
 import qualified TokenInfoRes as TI
-import Control.Monad.Catch (throwM)
-import Control.Exception (Exception)
 
 data TokenInfo = TokenInfo
   { idToken      :: Text

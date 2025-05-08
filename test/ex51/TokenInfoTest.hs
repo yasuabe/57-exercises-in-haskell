@@ -3,13 +3,14 @@
 
 module TokenInfoTest where
 
-import Test.HUnit
-import TokenInfoRes as TIR
-import TokenInfo (TokenInfo(..), makeTokenInfo, isExpired)
+import Data.Aeson (decode)
 import qualified Data.ByteString.Lazy.Char8 as BL
 import Data.String.Interpolate (i)
-import Data.Aeson (decode)
 import Data.Text (Text)
+import Test.HUnit
+
+import TokenInfo (TokenInfo(..), makeTokenInfo, isExpired)
+import TokenInfoRes as TIR
 
 inputTokenInfoRes :: TokenInfoRes
 inputTokenInfoRes = TokenInfoRes

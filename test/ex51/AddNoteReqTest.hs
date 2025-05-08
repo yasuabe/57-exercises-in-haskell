@@ -3,13 +3,14 @@
 
 module AddNoteReqTest where
 
-import Test.HUnit
+import Data.Aeson (decode)
 import qualified Data.ByteString.Lazy.Char8 as BL
 import Data.String.Interpolate (i)
-import Data.Aeson (decode)
 import Data.Text (Text)
-import GetNotesRes (GetNotesRes(..), NoteRes(..), toNotes)
+import Test.HUnit
+
 import AddNoteReq
+import GetNotesRes (GetNotesRes(..), NoteRes(..), toNotes)
 
 exampleJson :: BL.ByteString
 exampleJson = BL.pack [i|

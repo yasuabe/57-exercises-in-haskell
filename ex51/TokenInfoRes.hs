@@ -7,8 +7,8 @@ module TokenInfoRes where
 import Data.Aeson
 import Data.Aeson.Types (Object, Parser, (.:), parseMaybe)
 import Data.ByteString.Lazy.Char8 (ByteString)
-import GHC.Generics (Generic)
 import Data.Text (Text)
+import GHC.Generics (Generic)
 
 data TokenInfoRes = TokenInfoRes
   { idToken      :: Text
