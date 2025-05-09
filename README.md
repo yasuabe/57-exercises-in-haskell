@@ -22,7 +22,7 @@ A personal project to solve the exercises from the book *Exercises for Programme
 | Ex10 [ ] [Self-Checkout](ex10/Main.hs)                 | |
 | Ex11 [ ] [Currency Conversion](ex11/Main.hs)           | |
 | Ex12 [ ] [Computing Simple Interest](ex12/Main.hs)     | |
-| Ex13 [ ] [Determining Compound Interest](ex13/Main.hs) | |
+| Ex13 [x] [Determining Compound Interest](ex13/Main.hs) | regex-tdfa | money calculation | 3(2) |
 #### Chapter 4: Making Decisions
 | Exercise | dependencies | Memo  | Lv.  |
 | -------- | -------------| ----- | -----:|

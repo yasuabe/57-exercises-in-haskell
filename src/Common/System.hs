@@ -1,6 +1,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE QuasiQuotes #-}
-module Common.System (putTextLn, repeatUntilValid, readLine, readDouble) where
+
+module Common.System (Converter, putTextLn, repeatUntilValid, readLine, readDouble) where
 
 import Control.Monad.Catch (MonadMask)
 import Control.Monad.IO.Class (MonadIO)

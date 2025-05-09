@@ -1,4 +1,4 @@
-module Main where
+module Spec where
 
 import Data.Text as T ( Text, pack, unpack, length )
 import Test.QuickCheck ( quickCheck, Property, forAll, Gen, elements, vectorOf, (==>), shuffle )

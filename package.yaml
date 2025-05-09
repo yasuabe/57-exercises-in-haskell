@@ -78,6 +78,13 @@ executables:
     dependencies:
       - exercises-for-programmer-in-haskell
 
+  ex13:
+    main: Main.hs
+    source-dirs: ex13
+    ghc-options: -Wall
+    dependencies:
+      - exercises-for-programmer-in-haskell
+
   ex14:
     main: Main.hs
     source-dirs: ex14
@@ -162,6 +169,16 @@ tests:
     source-dirs:
       - test/ex07
       - ex07
+    dependencies:
+      - base
+      - QuickCheck
+      - exercises-for-programmer-in-haskell
+
+  ex13-test:
+    main: Spec.hs
+    source-dirs:
+      - test/ex13
+      - ex13
     dependencies:
       - base
       - QuickCheck
