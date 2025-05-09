@@ -304,6 +304,41 @@ executable ex14
     , unordered-containers
   default-language: Haskell2010
 
+executable ex23
+  main-is: Main.hs
+  other-modules:
+      Paths_exercises_for_programmer_in_haskell
+  hs-source-dirs:
+      ex23
+  ghc-options: -Wall
+  build-depends:
+      aeson
+    , aeson-casing
+    , base >=4.7 && <5
+    , bytestring
+    , directory
+    , exceptions
+    , exercises-for-programmer-in-haskell
+    , extra
+    , gi-gdkpixbuf
+    , gi-gio
+    , gi-gtk
+    , haskeline
+    , http-client
+    , http-client-tls
+    , http-conduit
+    , lucid
+    , mtl
+    , random
+    , regex-tdfa
+    , scotty
+    , string-interpolate
+    , text
+    , time
+    , transformers
+    , unordered-containers
+  default-language: Haskell2010
+
 executable ex24
   main-is: Main.hs
   other-modules:
