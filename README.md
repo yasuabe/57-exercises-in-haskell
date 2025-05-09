@@ -42,7 +42,7 @@ A personal project to solve the exercises from the book *Exercises for Programme
 | Ex24 [x] [Anagram Checker](ex24/Main.hs)                 | quickcheck | PBT |2(1)|
 | Ex25 [ ] [Password Strength Indicator](ex25/Main.hs)     | | | |
 | Ex26 [ ] [Months to Pay Off a Credit Card](ex26/Main.hs) | | | |
-| Ex27 [ ] [Validating Inputs](ex27/Main.hs)               | | | |
+| Ex27 [x] [Validating Inputs](ex27/Main.hs)               | validation | Validation, Applicative |3(2) |
 #### Chapter 6: Repetition
 | Exercise | dependencies | Memo  | Lv.  |
 | -------- | -------------| ----- | -----:|
@@ -91,8 +91,8 @@ A personal project to solve the exercises from the book *Exercises for Programme
 
 - ※ [x] Completed, [ ] Pending
 - ※ Lv. (level): p(q), where:
-  - p: Programming skill level used to solve the exercise (1 = beginner, 5 = advanced).
-  - q: Complexity of the exercise requirements (1 = simple, 5 = complex).
+  - p: Relative programming skill level used to solve the exercise (1 = beginner, 5 = advanced).
+  - q: Relative complexity of the exercise requirements (1 = simple, 5 = complex).
 
   Note: Even if the requirement level (q) is low, the programming level (p) might be higher if advanced techniques are intentionally used for learning purposes.
 
