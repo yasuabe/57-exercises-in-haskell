@@ -1,9 +1,10 @@
-module Common.Util (promptInput, readWithPrompt, readIntegral, readDouble, divRatio) where
+module Common.Util (promptInput, randomPositive, readWithPrompt, readIntegral, readDouble, divRatio) where
 
-import System.IO (hFlush, stdout)
 import Control.Monad.Trans.Except ( throwE, ExceptT )
+import Control.Monad.IO.Class (liftIO, MonadIO(..))
+import System.IO (hFlush, stdout)
+import System.Random (getStdGen, uniformR)
 import Text.Read (readMaybe)
-import Control.Monad.IO.Class (liftIO)
 
 promptInput :: String -> IO String
 promptInput promptText = do
@@ -27,3 +28,6 @@ readDouble prompt = readWithPrompt prompt "Invalid number"
 
 divRatio :: (Fractional c, Real a, Real b) => a -> b -> c
 divRatio a b = realToFrac a / realToFrac b
+
+randomPositive :: (MonadIO m) => Int -> m Int
+randomPositive upperBound = fst . uniformR (1, upperBound) <$> getStdGen

@@ -16,7 +16,6 @@
 
 module Main where
 
-import Control.Monad.IO.Class ( MonadIO(..) )
 import Control.Monad.Writer.Class (tell)
 import Control.Monad.RWS ( RWST, lift, execRWST )
 import Control.Monad.RWS.Lazy (ask)
@@ -25,58 +24,47 @@ import Data.Functor ((<&>))
 import Data.Monoid (Sum(..))
 import Data.String.Interpolate (i)
 import Data.Text (Text, unpack)
-import Debug.Trace (trace)
 import System.Console.Haskeline (InputT)
-import System.Random (getStdGen, uniformR)
 import Text.Read (readMaybe)
 
 import Common.App (runProgram)
 import Common.System (YesNo(..), askYesNo, readLine, putText, putTextLn)
+import Common.Util (randomPositive)
 
 type App = InputT IO
 
 type Session = RWST Int (Sum Int) () App
 
-randomPositive :: (MonadIO m) => Int -> m Int
-randomPositive upperBound = fst . uniformR (1, upperBound) <$> getStdGen
-
-evaluateInput :: Int -> Text -> Maybe Ordering
-evaluateInput answer input = do
-  readMaybe (unpack input) & \case
-    Just guess -> compare guess answer & Just
-    Nothing    -> trace (show input) Nothing
+evaluateGuess :: Int -> Text -> Maybe Ordering
+evaluateGuess answer input =
+  readMaybe (unpack input) <&> (`compare` answer)
 
 sessionLoop :: Session ()
 sessionLoop = do
   answer <- ask
-  input  <- lift $ readLine "Enter a number: "
+  input  <- readLine "Enter a number: " & lift
   tell 1
-  evaluateInput answer input & \case
-    Just LT -> whenLT
-    Just GT -> whenGT
+  evaluateGuess answer input & \case
+    Just LT -> proceed "Too low. Guess again: "
+    Just GT -> proceed "Too High. Guess again: "
     Just EQ -> return ()
-    Nothing -> whenInvalid
+    Nothing -> proceed "Invalid. Guess again: "
   where
     proceed :: Text -> Session ()
-    proceed reply = do
-      putText reply & lift 
-      sessionLoop
-    whenLT      = proceed "Too low. Guess again: "
-    whenGT      = proceed "Too High. Guess again: "
-    whenInvalid = proceed "Invalid. Guess again: "
+    proceed reply = putText reply & lift >> sessionLoop
 
-readLevel :: InputT IO Int
+readLevel :: App Int
 readLevel = tryReadLevel >>= \case
   Just n | n >= 1 && n <= 3 -> return $ 10 ^ n
   _                         -> do
     putTextLn "Invalid choice. Please try again."
     readLevel
   where
-    tryReadLevel :: InputT IO (Maybe Int)
+    tryReadLevel :: App (Maybe Int)
     tryReadLevel =   readLine "Pick a difficulty level (1, 2, or 3): "
                  <&> readMaybe . unpack
 
-programLoop :: InputT IO ()
+programLoop :: App ()
 programLoop = do
   answer <- initSession
   count  <- runSession answer
