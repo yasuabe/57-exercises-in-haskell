@@ -50,12 +50,12 @@ import qualified TokenInfoRes as TIR
 import Data.Functor ((<&>))
 import IdTokenRequest (IdTokenRequest)
 
+type App = ReaderT C.Config (InputT IO)
+
 configFilePath :: FilePath
 configFilePath = "ex51/config/config.json"
 tokenInfoCachePath :: FilePath
 tokenInfoCachePath = "ex51/cache/id_token.json"
-
-type App = ReaderT C.Config (InputT IO)
 
 loadConfig :: IO C.Config
 loadConfig = do

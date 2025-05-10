@@ -10,12 +10,11 @@
 
 module Main where
 
-import Data.Function ((&))
-import Data.Text (Text, unpack, strip, toLower)
+import Data.Text (Text)
 import System.Console.Haskeline (InputT)
 
 import Common.App (runProgram)
-import Common.System (putTextLn, repeatUntilValid)
+import Common.System (YesNo(..), askYesNo, putTextLn)
 
 data Tree a = Leaf a
             | Node a (Tree a) (Tree a)
@@ -40,22 +39,6 @@ decisionTree = Node
           (Leaf "Get it in for service.")
           (Leaf "Check to ensure the choke is opening and closing."))
         (Leaf "---"))))
-
-data YesNo = Yes | No
-
-askYesNo :: Text -> InputT IO YesNo
-askYesNo prompt =
-  repeatUntilValid convertToYesNo
-                   prompt
-                   "Enter yes/no or y/n (not case sensitive)."
-  where
-    convertToYesNo :: Text -> Maybe YesNo
-    convertToYesNo t
-      | t' == "yes" || t' == "y" = Just Yes
-      | t' == "no"  || t' == "n" = Just No
-      | otherwise                = Nothing
-      where
-        t' = t & strip & toLower
 
 iterateTree :: Tree Text -> InputT IO ()
 iterateTree (Leaf answer) = putTextLn answer

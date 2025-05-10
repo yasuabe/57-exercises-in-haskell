@@ -50,7 +50,7 @@ A personal project to solve the exercises from the book *Exercises for Programme
 | Ex29 [ ] [Handling Bad Input](ex29/Main.hs)    | | | |
 | Ex30 [ ] [Multiplication Table](ex30/Main.hs)  | | | |
 | Ex31 [ ] [Karvonen Heart Rate](ex31/Main.hs)   | | | |
-| Ex32 [ ] [Guess the Number Game](ex32/Main.hs) | | | |
+| Ex32 [x] [Guess the Number Game](ex32/Main.hs) | | RWST monad |4(3) |
 #### Chapter 7: Data Structures
 | Exercise | dependencies | Memo  | Lv.  |
 | -------- | -------------| ----- | -----:|
