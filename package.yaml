@@ -135,6 +135,13 @@ executables:
     dependencies:
       - exercises-for-programmer-in-haskell
 
+  ex40:
+    main: Main.hs
+    source-dirs: ex40
+    ghc-options: -Wall
+    dependencies:
+      - exercises-for-programmer-in-haskell
+
   ex41:
     main: Main.hs
     source-dirs: ex41
@@ -224,6 +231,18 @@ tests:
     dependencies:
       - base
       - HUnit
+      - exercises-for-programmer-in-haskell
+
+  ex40-test:
+    main: Test.hs
+    source-dirs:
+      - test/ex40
+      - ex40
+    dependencies:
+      - base
+      - QuickCheck >= 2.14
+      - quickcheck-classes >= 0.6
+      - quickcheck-classes-base >= 0.6
       - exercises-for-programmer-in-haskell
 
   ex51-test:

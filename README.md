@@ -61,7 +61,7 @@ A personal project to solve the exercises from the book *Exercises for Programme
 | Ex37 [ ] [Password Generator](ex37/Main.hs)    | | | |
 | Ex38 [ ] [Filtering Values](ex39/Main.hs)      | | | |
 | Ex39 [ ] [Sorting Records](ex39/Main.hs)       | | | |
-| Ex40 [ ] [Filtering Records](ex40/Main.hs)     | | | |
+| Ex40 [x] [Filtering Records](ex40/Main.hs)     | quickcheck-classes | Custom Monoid, 'law' check | 3(1) |
 #### Chapter 8: Working with Files
 | Exercise | dependencies | Memo  | Lv.  |
 | -------- | -------------| ----- | -----:|

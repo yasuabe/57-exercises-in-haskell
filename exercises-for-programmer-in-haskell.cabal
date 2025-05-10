@@ -530,6 +530,43 @@ executable ex33
     , validation
   default-language: Haskell2010
 
+executable ex40
+  main-is: Main.hs
+  other-modules:
+      Ex40
+      Paths_exercises_for_programmer_in_haskell
+  hs-source-dirs:
+      ex40
+  ghc-options: -Wall
+  build-depends:
+      aeson
+    , aeson-casing
+    , base >=4.7 && <5
+    , bytestring
+    , directory
+    , exceptions
+    , exercises-for-programmer-in-haskell
+    , extra
+    , gi-gdkpixbuf
+    , gi-gio
+    , gi-gtk
+    , haskeline
+    , http-client
+    , http-client-tls
+    , http-conduit
+    , lucid
+    , mtl
+    , random
+    , regex-tdfa
+    , scotty
+    , string-interpolate
+    , text
+    , time
+    , transformers
+    , unordered-containers
+    , validation
+  default-language: Haskell2010
+
 executable ex41
   main-is: Main.hs
   other-modules:
@@ -875,6 +912,49 @@ test-suite ex27-test
     , http-conduit
     , lucid
     , mtl
+    , random
+    , regex-tdfa
+    , scotty
+    , string-interpolate
+    , text
+    , time
+    , transformers
+    , unordered-containers
+    , validation
+  default-language: Haskell2010
+
+test-suite ex40-test
+  type: exitcode-stdio-1.0
+  main-is: Test.hs
+  other-modules:
+      Spec
+      Ex40
+      Main
+      Paths_exercises_for_programmer_in_haskell
+  hs-source-dirs:
+      test/ex40
+      ex40
+  build-depends:
+      QuickCheck >=2.14
+    , aeson
+    , aeson-casing
+    , base
+    , bytestring
+    , directory
+    , exceptions
+    , exercises-for-programmer-in-haskell
+    , extra
+    , gi-gdkpixbuf
+    , gi-gio
+    , gi-gtk
+    , haskeline
+    , http-client
+    , http-client-tls
+    , http-conduit
+    , lucid
+    , mtl
+    , quickcheck-classes >=0.6
+    , quickcheck-classes-base >=0.6
     , random
     , regex-tdfa
     , scotty
