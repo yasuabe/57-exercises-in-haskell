@@ -79,7 +79,7 @@ A personal project to solve the exercises from the book *Exercises for Programme
 | Ex49 [x] [Flickr Photo Search](ex49/Main.hs)            | aeson, gi-gtk, http-client, bytestring, text | GUI/GTK3, HTTP client, multi-thread |5(4)
 | Ex50 [ ] [Movie Recommendations](ex50/Main.hs)          | |           
 | Ex51 [x] [Pushing Notes to Firebase](ex51/Main.hs)      | base, string-interpolate, transformers, text, aeson, bytestring, http-client, http-client-tls, exceptions, haskeline, mtl, unordered-containers, extra, | Firebase, id token caching |5(5) | 
-| Ex52 [ ] [Creating Your Own Time Service](ex52/Main.hs) | |  |
+| Ex52 [x] [Creating Your Own Time Service](ex52/) | Scotty, http-conduit, aeson, time | Server & Client | 3(3)
 #### Chapter 10: Full Programs
 | Exercise | dependencies | Memo  | Lv.  |
 | -------- | -------------| ----- | -----:|

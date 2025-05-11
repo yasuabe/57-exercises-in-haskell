@@ -185,6 +185,20 @@ executables:
     dependencies:
       - exercises-for-programmer-in-haskell
 
+  ex52:
+    main: Main.hs
+    source-dirs: ex52/Server
+    ghc-options: -Wall
+    dependencies:
+      - exercises-for-programmer-in-haskell
+
+  ex52-client:
+    main: Main.hs
+    source-dirs: ex52/Client
+    ghc-options: -Wall
+    dependencies:
+      - exercises-for-programmer-in-haskell
+
   ex56:
     main: Main.hs
     source-dirs: ex56
