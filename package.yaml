@@ -32,6 +32,7 @@ dependencies:
   - unordered-containers
   - extra
   - validation
+  - pipes
 
 library:
   source-dirs: src

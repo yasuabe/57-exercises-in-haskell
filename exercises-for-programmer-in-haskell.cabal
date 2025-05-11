@@ -46,6 +46,7 @@ library
     , http-conduit
     , lucid
     , mtl
+    , pipes
     , random
     , regex-tdfa
     , scotty
@@ -82,6 +83,7 @@ executable ex01
     , http-conduit
     , lucid
     , mtl
+    , pipes
     , random
     , regex-tdfa
     , scotty
@@ -118,6 +120,7 @@ executable ex02
     , http-conduit
     , lucid
     , mtl
+    , pipes
     , random
     , regex-tdfa
     , scotty
@@ -155,6 +158,7 @@ executable ex03
     , http-conduit
     , lucid
     , mtl
+    , pipes
     , random
     , regex-tdfa
     , scotty
@@ -191,6 +195,7 @@ executable ex06
     , http-conduit
     , lucid
     , mtl
+    , pipes
     , random
     , regex-tdfa
     , scotty
@@ -228,6 +233,7 @@ executable ex07
     , http-conduit
     , lucid
     , mtl
+    , pipes
     , random
     , regex-tdfa
     , scotty
@@ -265,6 +271,7 @@ executable ex13
     , http-conduit
     , lucid
     , mtl
+    , pipes
     , random
     , regex-tdfa
     , scotty
@@ -301,6 +308,7 @@ executable ex14
     , http-conduit
     , lucid
     , mtl
+    , pipes
     , random
     , regex-tdfa
     , scotty
@@ -337,6 +345,7 @@ executable ex23
     , http-conduit
     , lucid
     , mtl
+    , pipes
     , random
     , regex-tdfa
     , scotty
@@ -374,6 +383,7 @@ executable ex24
     , http-conduit
     , lucid
     , mtl
+    , pipes
     , random
     , regex-tdfa
     , scotty
@@ -411,6 +421,7 @@ executable ex27
     , http-conduit
     , lucid
     , mtl
+    , pipes
     , random
     , regex-tdfa
     , scotty
@@ -447,6 +458,7 @@ executable ex28
     , http-conduit
     , lucid
     , mtl
+    , pipes
     , random
     , regex-tdfa
     , scotty
@@ -483,6 +495,7 @@ executable ex32
     , http-conduit
     , lucid
     , mtl
+    , pipes
     , random
     , regex-tdfa
     , scotty
@@ -519,6 +532,7 @@ executable ex33
     , http-conduit
     , lucid
     , mtl
+    , pipes
     , random
     , regex-tdfa
     , scotty
@@ -556,6 +570,7 @@ executable ex40
     , http-conduit
     , lucid
     , mtl
+    , pipes
     , random
     , regex-tdfa
     , scotty
@@ -592,6 +607,7 @@ executable ex41
     , http-conduit
     , lucid
     , mtl
+    , pipes
     , random
     , regex-tdfa
     , scotty
@@ -630,6 +646,7 @@ executable ex49
     , http-conduit
     , lucid
     , mtl
+    , pipes
     , random
     , regex-tdfa
     , scotty
@@ -673,6 +690,7 @@ executable ex51
     , http-conduit
     , lucid
     , mtl
+    , pipes
     , random
     , regex-tdfa
     , scotty
@@ -710,6 +728,7 @@ executable ex56
     , http-conduit
     , lucid
     , mtl
+    , pipes
     , random
     , regex-tdfa
     , scotty
@@ -751,6 +770,7 @@ test-suite ex03-test
     , http-conduit
     , lucid
     , mtl
+    , pipes
     , random
     , regex-tdfa
     , scotty
@@ -791,6 +811,7 @@ test-suite ex07-test
     , http-conduit
     , lucid
     , mtl
+    , pipes
     , random
     , regex-tdfa
     , scotty
@@ -831,6 +852,7 @@ test-suite ex13-test
     , http-conduit
     , lucid
     , mtl
+    , pipes
     , random
     , regex-tdfa
     , scotty
@@ -871,6 +893,7 @@ test-suite ex24-test
     , http-conduit
     , lucid
     , mtl
+    , pipes
     , random
     , regex-tdfa
     , scotty
@@ -912,6 +935,7 @@ test-suite ex27-test
     , http-conduit
     , lucid
     , mtl
+    , pipes
     , random
     , regex-tdfa
     , scotty
@@ -953,6 +977,7 @@ test-suite ex40-test
     , http-conduit
     , lucid
     , mtl
+    , pipes
     , quickcheck-classes >=0.6
     , quickcheck-classes-base >=0.6
     , random
@@ -1005,6 +1030,7 @@ test-suite ex51-test
     , http-conduit
     , lucid
     , mtl
+    , pipes
     , random
     , regex-tdfa
     , scotty
