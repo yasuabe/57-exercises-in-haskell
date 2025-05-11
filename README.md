@@ -70,7 +70,7 @@ A personal project to solve the exercises from the book *Exercises for Programme
 | Ex43 [ ] [Website Generator](ex43/Main.hs)     | | | |
 | Ex44 [ ] [Product Search](ex44/Main.hs)        | | | |
 | Ex45 [ ] [Word Finder](ex45/Main.hs)           | | | |
-| Ex46 [ ] [Word Frequency Finder](ex46/Main.hs) | | | |
+| Ex46 [x] [Word Frequency Finder](ex46/Main.hs) | conduit, hashtables | Stream processing |3(1)|
 #### Chapter 9: Working with External Services
 | Exercise | dependencies | Memo  | Lv.  |
 | -------- | -------------| ----- | -----:|

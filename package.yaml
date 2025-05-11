@@ -32,7 +32,10 @@ dependencies:
   - unordered-containers
   - extra
   - validation
-  - pipes
+  - containers
+  - conduit
+  - conduit-extra
+  - hashtables
 
 library:
   source-dirs: src
@@ -146,6 +149,13 @@ executables:
   ex41:
     main: Main.hs
     source-dirs: ex41
+    ghc-options: -Wall
+    dependencies:
+      - exercises-for-programmer-in-haskell
+
+  ex46:
+    main: Main.hs
+    source-dirs: ex46
     ghc-options: -Wall
     dependencies:
       - exercises-for-programmer-in-haskell
