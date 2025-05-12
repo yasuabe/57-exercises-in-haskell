@@ -1,0 +1,27 @@
+[
+  {
+    "question": "What is the capital of Japan?",
+    "correct": "Tokyo",
+    "distractors": ["Osaka", "Kyoto", "Sapporo"]
+  },
+  {
+    "question": "Which planet is known as the Red Planet?",
+    "correct": "Mars",
+    "distractors": ["Venus", "Jupiter", "Saturn"]
+  },
+  {
+    "question": "What is the largest ocean on Earth?",
+    "correct": "Pacific Ocean",
+    "distractors": ["Atlantic Ocean", "Indian Ocean", "Arctic Ocean"]
+  },
+  {
+    "question": "Who wrote 'Hamlet'?",
+    "correct": "William Shakespeare",
+    "distractors": ["Charles Dickens", "Leo Tolstoy", "Mark Twain"]
+  },
+  {
+    "question": "What is the chemical symbol for water?",
+    "correct": "H2O",
+    "distractors": ["CO2", "O2", "NaCl"]
+  }
+]

@@ -1,7 +1,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE QuasiQuotes #-}
 
-module Common.System (Converter, YesNo(..), askYesNo, putText, putTextLn, repeatUntilValid, readLine, readDouble) where
+module Common.System (Converter, YesNo(..), askYesNo, putText, putTextLn, repeatUntilValid, readLine, readInt, readDouble) where
 
 import Control.Monad.Catch (MonadMask)
 import Control.Monad.IO.Class (MonadIO)
@@ -31,6 +31,12 @@ repeatUntilValid converter prompt errorMessage = do
     Nothing    -> do
       putTextLn errorMessage
       repeatUntilValid converter prompt errorMessage
+
+readInt :: Text -> Maybe Int
+readInt input =
+  case input & T.strip & unpack & reads of
+    [(x, "")] -> Just x
+    _         -> Nothing
 
 readDouble :: Text -> Maybe Double
 readDouble input =

@@ -206,6 +206,13 @@ executables:
     dependencies:
       - exercises-for-programmer-in-haskell
 
+  ex57:
+    main: Main.hs
+    source-dirs: ex57
+    ghc-options: -Wall
+    dependencies:
+      - exercises-for-programmer-in-haskell
+
 tests:
   ex03-test:
     main: Spec.hs

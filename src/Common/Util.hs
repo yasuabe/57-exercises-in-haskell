@@ -1,9 +1,9 @@
-module Common.Util (promptInput, randomPositive, readWithPrompt, readIntegral, readDouble, divRatio) where
+module Common.Util (promptInput, randomPositive, readWithPrompt, readIntegral, readDouble, divRatio, shuffle) where
 
 import Control.Monad.Trans.Except ( throwE, ExceptT )
 import Control.Monad.IO.Class (liftIO, MonadIO(..))
 import System.IO (hFlush, stdout)
-import System.Random (getStdGen, uniformR)
+import System.Random ( getStdGen, uniformR, randomRIO )
 import Text.Read (readMaybe)
 
 promptInput :: String -> IO String
@@ -31,3 +31,13 @@ divRatio a b = realToFrac a / realToFrac b
 
 randomPositive :: (MonadIO m) => Int -> m Int
 randomPositive upperBound = fst . uniformR (1, upperBound) <$> getStdGen
+
+shuffle :: (MonadIO m) =>[a] -> m [a]
+shuffle xs = go xs []
+  where
+    go [] acc = return acc
+    go ys acc = do
+      i <- randomRIO (0, length ys - 1)
+      case splitAt i ys of
+        (_,    []     ) -> error "Unreachable: This case should never occur."
+        (left, x:right) -> go (left ++ right) (x : acc)
