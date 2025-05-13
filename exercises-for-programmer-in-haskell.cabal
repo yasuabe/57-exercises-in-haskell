@@ -45,6 +45,7 @@ library
     , gi-gtk
     , hashtables
     , haskeline
+    , hedis
     , http-client
     , http-client-tls
     , http-conduit
@@ -85,6 +86,7 @@ executable ex01
     , gi-gtk
     , hashtables
     , haskeline
+    , hedis
     , http-client
     , http-client-tls
     , http-conduit
@@ -125,6 +127,7 @@ executable ex02
     , gi-gtk
     , hashtables
     , haskeline
+    , hedis
     , http-client
     , http-client-tls
     , http-conduit
@@ -166,6 +169,7 @@ executable ex03
     , gi-gtk
     , hashtables
     , haskeline
+    , hedis
     , http-client
     , http-client-tls
     , http-conduit
@@ -206,6 +210,7 @@ executable ex06
     , gi-gtk
     , hashtables
     , haskeline
+    , hedis
     , http-client
     , http-client-tls
     , http-conduit
@@ -247,6 +252,7 @@ executable ex07
     , gi-gtk
     , hashtables
     , haskeline
+    , hedis
     , http-client
     , http-client-tls
     , http-conduit
@@ -288,6 +294,7 @@ executable ex13
     , gi-gtk
     , hashtables
     , haskeline
+    , hedis
     , http-client
     , http-client-tls
     , http-conduit
@@ -328,6 +335,7 @@ executable ex14
     , gi-gtk
     , hashtables
     , haskeline
+    , hedis
     , http-client
     , http-client-tls
     , http-conduit
@@ -368,6 +376,7 @@ executable ex23
     , gi-gtk
     , hashtables
     , haskeline
+    , hedis
     , http-client
     , http-client-tls
     , http-conduit
@@ -409,6 +418,7 @@ executable ex24
     , gi-gtk
     , hashtables
     , haskeline
+    , hedis
     , http-client
     , http-client-tls
     , http-conduit
@@ -450,6 +460,7 @@ executable ex27
     , gi-gtk
     , hashtables
     , haskeline
+    , hedis
     , http-client
     , http-client-tls
     , http-conduit
@@ -490,6 +501,7 @@ executable ex28
     , gi-gtk
     , hashtables
     , haskeline
+    , hedis
     , http-client
     , http-client-tls
     , http-conduit
@@ -530,6 +542,7 @@ executable ex32
     , gi-gtk
     , hashtables
     , haskeline
+    , hedis
     , http-client
     , http-client-tls
     , http-conduit
@@ -570,6 +583,7 @@ executable ex33
     , gi-gtk
     , hashtables
     , haskeline
+    , hedis
     , http-client
     , http-client-tls
     , http-conduit
@@ -611,6 +625,7 @@ executable ex40
     , gi-gtk
     , hashtables
     , haskeline
+    , hedis
     , http-client
     , http-client-tls
     , http-conduit
@@ -651,6 +666,7 @@ executable ex41
     , gi-gtk
     , hashtables
     , haskeline
+    , hedis
     , http-client
     , http-client-tls
     , http-conduit
@@ -691,6 +707,7 @@ executable ex46
     , gi-gtk
     , hashtables
     , haskeline
+    , hedis
     , http-client
     , http-client-tls
     , http-conduit
@@ -733,6 +750,7 @@ executable ex49
     , hashtables
     , haskeline
     , haskell-gi-base
+    , hedis
     , http-client
     , http-client-tls
     , http-conduit
@@ -780,6 +798,7 @@ executable ex51
     , gi-gtk
     , hashtables
     , haskeline
+    , hedis
     , http-client
     , http-client-tls
     , http-conduit
@@ -820,6 +839,7 @@ executable ex52
     , gi-gtk
     , hashtables
     , haskeline
+    , hedis
     , http-client
     , http-client-tls
     , http-conduit
@@ -860,6 +880,49 @@ executable ex52-client
     , gi-gtk
     , hashtables
     , haskeline
+    , hedis
+    , http-client
+    , http-client-tls
+    , http-conduit
+    , lucid
+    , mtl
+    , random
+    , regex-tdfa
+    , scotty
+    , string-interpolate
+    , text
+    , time
+    , transformers
+    , unordered-containers
+    , validation
+  default-language: Haskell2010
+
+executable ex53
+  main-is: Main.hs
+  other-modules:
+      Command
+      Paths_exercises_for_programmer_in_haskell
+  hs-source-dirs:
+      ex53
+  ghc-options: -Wall
+  build-depends:
+      aeson
+    , aeson-casing
+    , base >=4.7 && <5
+    , bytestring
+    , conduit
+    , conduit-extra
+    , containers
+    , directory
+    , exceptions
+    , exercises-for-programmer-in-haskell
+    , extra
+    , gi-gdkpixbuf
+    , gi-gio
+    , gi-gtk
+    , hashtables
+    , haskeline
+    , hedis
     , http-client
     , http-client-tls
     , http-conduit
@@ -901,6 +964,7 @@ executable ex56
     , gi-gtk
     , hashtables
     , haskeline
+    , hedis
     , http-client
     , http-client-tls
     , http-conduit
@@ -941,6 +1005,7 @@ executable ex57
     , gi-gtk
     , hashtables
     , haskeline
+    , hedis
     , http-client
     , http-client-tls
     , http-conduit
@@ -986,6 +1051,7 @@ test-suite ex03-test
     , gi-gtk
     , hashtables
     , haskeline
+    , hedis
     , http-client
     , http-client-tls
     , http-conduit
@@ -1030,6 +1096,7 @@ test-suite ex07-test
     , gi-gtk
     , hashtables
     , haskeline
+    , hedis
     , http-client
     , http-client-tls
     , http-conduit
@@ -1074,6 +1141,7 @@ test-suite ex13-test
     , gi-gtk
     , hashtables
     , haskeline
+    , hedis
     , http-client
     , http-client-tls
     , http-conduit
@@ -1118,6 +1186,7 @@ test-suite ex24-test
     , gi-gtk
     , hashtables
     , haskeline
+    , hedis
     , http-client
     , http-client-tls
     , http-conduit
@@ -1163,6 +1232,7 @@ test-suite ex27-test
     , gi-gtk
     , hashtables
     , haskeline
+    , hedis
     , http-client
     , http-client-tls
     , http-conduit
@@ -1208,6 +1278,7 @@ test-suite ex40-test
     , gi-gtk
     , hashtables
     , haskeline
+    , hedis
     , http-client
     , http-client-tls
     , http-conduit
@@ -1264,6 +1335,53 @@ test-suite ex51-test
     , gi-gtk
     , hashtables
     , haskeline
+    , hedis
+    , http-client
+    , http-client-tls
+    , http-conduit
+    , lucid
+    , mtl
+    , random
+    , regex-tdfa
+    , scotty
+    , string-interpolate
+    , text
+    , time
+    , transformers
+    , unordered-containers
+    , validation
+  default-language: Haskell2010
+
+test-suite ex53-test
+  type: exitcode-stdio-1.0
+  main-is: Test.hs
+  other-modules:
+      CommandTest
+      Command
+      Main
+      Paths_exercises_for_programmer_in_haskell
+  hs-source-dirs:
+      test/ex53
+      ex53
+  build-depends:
+      HUnit
+    , aeson
+    , aeson-casing
+    , base
+    , bytestring
+    , conduit
+    , conduit-extra
+    , containers
+    , directory
+    , exceptions
+    , exercises-for-programmer-in-haskell
+    , extra
+    , gi-gdkpixbuf
+    , gi-gio
+    , gi-gtk
+    , hashtables
+    , haskeline
+    , hedis
     , http-client
     , http-client-tls
     , http-conduit

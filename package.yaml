@@ -36,6 +36,7 @@ dependencies:
   - conduit
   - conduit-extra
   - hashtables
+  - hedis
 
 library:
   source-dirs: src
@@ -199,6 +200,13 @@ executables:
     dependencies:
       - exercises-for-programmer-in-haskell
 
+  ex53:
+    main: Main.hs
+    source-dirs: ex53
+    ghc-options: -Wall
+    dependencies:
+      - exercises-for-programmer-in-haskell
+
   ex56:
     main: Main.hs
     source-dirs: ex56
@@ -282,6 +290,16 @@ tests:
     source-dirs:
       - test/ex51
       - ex51
+    dependencies:
+      - base
+      - HUnit
+      - exercises-for-programmer-in-haskell
+
+  ex53-test:
+    main: Test.hs
+    source-dirs:
+      - test/ex53
+      - ex53
     dependencies:
       - base
       - HUnit
