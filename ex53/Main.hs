@@ -31,45 +31,45 @@ import Common.System (putTextLn, repeatUntilValid)
 import Common.App (runProgram)
 import Command (Command(..), parseText)
 
-type AppType = ReaderT R.Connection (InputT IO)
+type TodoApp = ReaderT R.Connection (InputT IO)
 
 newtype RedisException = RedisException R.Reply
   deriving (Show)
 
 instance Exception RedisException
 
-runCommand :: Redis (Either R.Reply a) -> AppType a
+runCommand :: Redis (Either R.Reply a) -> TodoApp a
 runCommand action = do
   conn <- ask
   liftIO $ R.runRedis conn action >>= \case
     Left err -> throwM (RedisException err)
     Right a  -> return a
 
-fromText :: Text -> BS.ByteString
-fromText = TE.encodeUtf8
+toByteString :: Text -> BS.ByteString
+toByteString = TE.encodeUtf8
 
-onAddTask :: Text -> AppType ()
+onAddTask :: Text -> TodoApp ()
 onAddTask task = do
   id <- runCommand (R.incr "ex53:taskid") <&> (BS.pack . show)
-  void $ runCommand (R.hset "ex53:tasks" id $ fromText task)
+  void $ runCommand (R.hset "ex53:tasks" id $ toByteString task)
 
-onListTasks :: AppType ()
+onListTasks :: TodoApp ()
 onListTasks = do
   tasks <- runCommand (R.hgetall "ex53:tasks")
-  mapM_ (\(a, b) -> putTextLn [i|#{a}, #{b}|] & lift) tasks
+  mapM_ (\(a, b) -> putTextLn [i|#{a}) #{b}|] & lift) tasks
 
-onRemoveTasks :: Text -> AppType ()
-onRemoveTasks id =
-  runCommand (R.hdel "ex53:tasks" [fromText id]) & void
+onRemoveTasks :: Text -> TodoApp ()
+onRemoveTasks taskId =
+  runCommand (R.hdel "ex53:tasks" [toByteString taskId]) & void
 
-commandLoop :: AppType ()
+commandLoop :: TodoApp ()
 commandLoop = readCommand >>= \case
   AddTask   task -> onAddTask task   >> commandLoop
   ListTasks      -> onListTasks      >> commandLoop
   RemoveTask id  -> onRemoveTasks id >> commandLoop
   Exit           -> putTextLn "Bye." & lift
   where
-    readCommand :: AppType Command
+    readCommand :: TodoApp Command
     readCommand = lift
                 $ repeatUntilValid parseText "> " "Invalid command."
 
