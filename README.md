@@ -83,7 +83,7 @@ A personal project to solve the exercises from the book *Exercises for Programme
 #### Chapter 10: Full Programs
 | Exercise | dependencies | Memo  | Lv.  |
 | -------- | -------------| ----- | -----:|
-| Ex53 [x] [Todo List](ex53/Main.hs)          |hedis | Redis | 4(2) |
+| Ex53 [x] [Todo List](ex53/Main.hs)          |hedis, resource-pool | Redis | 4(2) |
 | Ex54 [ ] [URL Shortener](ex54/Main.hs)      | | |
 | Ex55 [ ] [Text Sharing](ex55/Main.hs)       | | |
 | Ex56 [x] [Tracking Inventory](ex56/Main.hs) |scotty, lucid, text, aeson, aeson-casing, bytestring, directory | Web App | 4(3)
@@ -113,6 +113,7 @@ A personal project to solve the exercises from the book *Exercises for Programme
 - conduit
 - quickcheck
 - HUnit
+- resource-pool
 
 ## How to Run
 Run the following directly under the project.

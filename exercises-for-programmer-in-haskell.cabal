@@ -53,6 +53,7 @@ library
     , mtl
     , random
     , regex-tdfa
+    , resource-pool
     , scotty
     , string-interpolate
     , text
@@ -94,6 +95,7 @@ executable ex01
     , mtl
     , random
     , regex-tdfa
+    , resource-pool
     , scotty
     , string-interpolate
     , text
@@ -135,6 +137,7 @@ executable ex02
     , mtl
     , random
     , regex-tdfa
+    , resource-pool
     , scotty
     , string-interpolate
     , text
@@ -177,6 +180,7 @@ executable ex03
     , mtl
     , random
     , regex-tdfa
+    , resource-pool
     , scotty
     , string-interpolate
     , text
@@ -218,6 +222,7 @@ executable ex06
     , mtl
     , random
     , regex-tdfa
+    , resource-pool
     , scotty
     , string-interpolate
     , text
@@ -260,6 +265,7 @@ executable ex07
     , mtl
     , random
     , regex-tdfa
+    , resource-pool
     , scotty
     , string-interpolate
     , text
@@ -302,6 +308,7 @@ executable ex13
     , mtl
     , random
     , regex-tdfa
+    , resource-pool
     , scotty
     , string-interpolate
     , text
@@ -343,6 +350,7 @@ executable ex14
     , mtl
     , random
     , regex-tdfa
+    , resource-pool
     , scotty
     , string-interpolate
     , text
@@ -384,6 +392,7 @@ executable ex23
     , mtl
     , random
     , regex-tdfa
+    , resource-pool
     , scotty
     , string-interpolate
     , text
@@ -426,6 +435,7 @@ executable ex24
     , mtl
     , random
     , regex-tdfa
+    , resource-pool
     , scotty
     , string-interpolate
     , text
@@ -468,6 +478,7 @@ executable ex27
     , mtl
     , random
     , regex-tdfa
+    , resource-pool
     , scotty
     , string-interpolate
     , text
@@ -509,6 +520,7 @@ executable ex28
     , mtl
     , random
     , regex-tdfa
+    , resource-pool
     , scotty
     , string-interpolate
     , text
@@ -550,6 +562,7 @@ executable ex32
     , mtl
     , random
     , regex-tdfa
+    , resource-pool
     , scotty
     , string-interpolate
     , text
@@ -591,6 +604,7 @@ executable ex33
     , mtl
     , random
     , regex-tdfa
+    , resource-pool
     , scotty
     , string-interpolate
     , text
@@ -633,6 +647,7 @@ executable ex40
     , mtl
     , random
     , regex-tdfa
+    , resource-pool
     , scotty
     , string-interpolate
     , text
@@ -674,6 +689,7 @@ executable ex41
     , mtl
     , random
     , regex-tdfa
+    , resource-pool
     , scotty
     , string-interpolate
     , text
@@ -715,6 +731,7 @@ executable ex46
     , mtl
     , random
     , regex-tdfa
+    , resource-pool
     , scotty
     , string-interpolate
     , text
@@ -758,6 +775,7 @@ executable ex49
     , mtl
     , random
     , regex-tdfa
+    , resource-pool
     , scotty
     , string-interpolate
     , text
@@ -806,6 +824,7 @@ executable ex51
     , mtl
     , random
     , regex-tdfa
+    , resource-pool
     , scotty
     , string-interpolate
     , text
@@ -847,6 +866,7 @@ executable ex52
     , mtl
     , random
     , regex-tdfa
+    , resource-pool
     , scotty
     , string-interpolate
     , text
@@ -888,6 +908,7 @@ executable ex52-client
     , mtl
     , random
     , regex-tdfa
+    , resource-pool
     , scotty
     , string-interpolate
     , text
@@ -930,6 +951,7 @@ executable ex53
     , mtl
     , random
     , regex-tdfa
+    , resource-pool
     , scotty
     , string-interpolate
     , text
@@ -972,6 +994,7 @@ executable ex56
     , mtl
     , random
     , regex-tdfa
+    , resource-pool
     , scotty
     , string-interpolate
     , text
@@ -1013,6 +1036,7 @@ executable ex57
     , mtl
     , random
     , regex-tdfa
+    , resource-pool
     , scotty
     , string-interpolate
     , text
@@ -1059,6 +1083,7 @@ test-suite ex03-test
     , mtl
     , random
     , regex-tdfa
+    , resource-pool
     , scotty
     , string-interpolate
     , text
@@ -1104,6 +1129,7 @@ test-suite ex07-test
     , mtl
     , random
     , regex-tdfa
+    , resource-pool
     , scotty
     , string-interpolate
     , text
@@ -1149,6 +1175,7 @@ test-suite ex13-test
     , mtl
     , random
     , regex-tdfa
+    , resource-pool
     , scotty
     , string-interpolate
     , text
@@ -1194,6 +1221,7 @@ test-suite ex24-test
     , mtl
     , random
     , regex-tdfa
+    , resource-pool
     , scotty
     , string-interpolate
     , text
@@ -1240,6 +1268,7 @@ test-suite ex27-test
     , mtl
     , random
     , regex-tdfa
+    , resource-pool
     , scotty
     , string-interpolate
     , text
@@ -1288,6 +1317,7 @@ test-suite ex40-test
     , quickcheck-classes-base >=0.6
     , random
     , regex-tdfa
+    , resource-pool
     , scotty
     , string-interpolate
     , text
@@ -1343,6 +1373,7 @@ test-suite ex51-test
     , mtl
     , random
     , regex-tdfa
+    , resource-pool
     , scotty
     , string-interpolate
     , text
@@ -1389,6 +1420,7 @@ test-suite ex53-test
     , mtl
     , random
     , regex-tdfa
+    , resource-pool
     , scotty
     , string-interpolate
     , text
