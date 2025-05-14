@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Ex 55: Text Sharing
+    <style>
+      #snippet {
+          width: 500px;
+          min-height: 500px;
+          white-space: pre-wrap;
+          word-wrap: break-word;
+          border: 1px #555 solid;
+      }
+  <body>
+    <h1>Ex 55: Text Sharing
+    <section>
+      <form method=post action=@{ShareR}>
+        <textarea id=snippet name=snippet required>#{content}
+        <button type=submit>Share

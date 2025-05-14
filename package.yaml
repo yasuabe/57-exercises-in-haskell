@@ -38,6 +38,18 @@ dependencies:
   - hashtables
   - hedis
   - resource-pool
+  - yesod
+  - yesod-core
+  - yesod-form
+  - shakespeare
+  - template-haskell 
+  - persistent
+  - persistent-mongoDB
+  - mongoDB
+  - memory 
+  - uuid
+  - cryptohash-md5
+  - base16-bytestring
 
 library:
   source-dirs: src
@@ -207,6 +219,15 @@ executables:
     ghc-options: -Wall
     dependencies:
       - exercises-for-programmer-in-haskell
+
+  ex55:
+    main: Main.hs
+    source-dirs: ex55
+    ghc-options: -Wall
+    dependencies:
+      - exercises-for-programmer-in-haskell
+    extra-source-files:
+      - ex55/templates/*.hamlet
 
   ex56:
     main: Main.hs

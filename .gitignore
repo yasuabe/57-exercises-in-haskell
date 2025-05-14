@@ -11,6 +11,7 @@ cabal.sandbox.config.lock
 *.dyn_o
 *.dyn_hi
 
+
 # Ignore Haskell IDE files
 .idea/
 *.hie
@@ -35,6 +36,7 @@ cabal.sandbox.config.lock
 *.tmp
 *.bak
 *.orig
+*.aes
 
 # Ignore tags and ctags files
 tags

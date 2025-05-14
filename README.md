@@ -85,7 +85,7 @@ A personal project to solve the exercises from the book *Exercises for Programme
 | -------- | -------------| ----- | -----:|
 | Ex53 [x] [Todo List](ex53/Main.hs)          |hedis, resource-pool | Redis | 4(2) |
 | Ex54 [ ] [URL Shortener](ex54/Main.hs)      | | |
-| Ex55 [ ] [Text Sharing](ex55/Main.hs)       | | |
+| Ex55 [x] [Text Sharing](ex55/Main.hs)       |yesod, shakespeare, mongoDB, uuid, cryptohash-md5, base16-bytestring, memory | Yesod, MongoDB, UUID/MD5| 4(3)
 | Ex56 [x] [Tracking Inventory](ex56/Main.hs) |scotty, lucid, text, aeson, aeson-casing, bytestring, directory | Web App | 4(3)
 | Ex57 [x] [Trivia App](ex57/Main.hs)         | aeson | WriterT, Monoid, random number, list shuffling | 4(2) |
 
@@ -114,6 +114,14 @@ A personal project to solve the exercises from the book *Exercises for Programme
 - quickcheck
 - HUnit
 - resource-pool
+- yesod
+- shakespeare
+- mongoDB
+- uuid
+- cryptohash-md5
+- base16-bytestring
+- memory
+
 
 ## How to Run
 Run the following directly under the project.
