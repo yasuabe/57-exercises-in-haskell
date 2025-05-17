@@ -10,6 +10,10 @@ cabal.sandbox.config.lock
 *.so
 *.dyn_o
 *.dyn_hi
+elm-stuff/
+elm.js
+*.db
+
 
 
 # Ignore Haskell IDE files
@@ -50,3 +54,4 @@ Thumbs.db
 */output/
 */cache/*.json
 */config/*.json
+ex54/urlShortner.db

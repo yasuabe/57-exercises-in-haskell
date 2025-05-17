@@ -50,6 +50,14 @@ dependencies:
   - uuid
   - cryptohash-md5
   - base16-bytestring
+  - beam-core
+  - beam-sqlite
+  - sqlite-simple
+  - servant
+  - servant-server
+  - wai
+  - warp
+  - wai-cors
 
 library:
   source-dirs: src
@@ -216,6 +224,13 @@ executables:
   ex53:
     main: Main.hs
     source-dirs: ex53
+    ghc-options: -Wall
+    dependencies:
+      - exercises-for-programmer-in-haskell
+
+  ex54:
+    main: Main.hs
+    source-dirs: ex54
     ghc-options: -Wall
     dependencies:
       - exercises-for-programmer-in-haskell

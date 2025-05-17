@@ -34,6 +34,8 @@ library
     , aeson-casing
     , base >=4.7 && <5
     , base16-bytestring
+    , beam-core
+    , beam-sqlite
     , bytestring
     , conduit
     , conduit-extra
@@ -61,7 +63,10 @@ library
     , regex-tdfa
     , resource-pool
     , scotty
+    , servant
+    , servant-server
     , shakespeare
+    , sqlite-simple
     , string-interpolate
     , template-haskell
     , text
@@ -70,6 +75,9 @@ library
     , unordered-containers
     , uuid
     , validation
+    , wai
+    , wai-cors
+    , warp
     , yesod
     , yesod-core
     , yesod-form
@@ -87,6 +95,8 @@ executable ex01
     , aeson-casing
     , base >=4.7 && <5
     , base16-bytestring
+    , beam-core
+    , beam-sqlite
     , bytestring
     , conduit
     , conduit-extra
@@ -115,7 +125,10 @@ executable ex01
     , regex-tdfa
     , resource-pool
     , scotty
+    , servant
+    , servant-server
     , shakespeare
+    , sqlite-simple
     , string-interpolate
     , template-haskell
     , text
@@ -124,6 +137,9 @@ executable ex01
     , unordered-containers
     , uuid
     , validation
+    , wai
+    , wai-cors
+    , warp
     , yesod
     , yesod-core
     , yesod-form
@@ -141,6 +157,8 @@ executable ex02
     , aeson-casing
     , base >=4.7 && <5
     , base16-bytestring
+    , beam-core
+    , beam-sqlite
     , bytestring
     , conduit
     , conduit-extra
@@ -169,7 +187,10 @@ executable ex02
     , regex-tdfa
     , resource-pool
     , scotty
+    , servant
+    , servant-server
     , shakespeare
+    , sqlite-simple
     , string-interpolate
     , template-haskell
     , text
@@ -178,6 +199,9 @@ executable ex02
     , unordered-containers
     , uuid
     , validation
+    , wai
+    , wai-cors
+    , warp
     , yesod
     , yesod-core
     , yesod-form
@@ -196,6 +220,8 @@ executable ex03
     , aeson-casing
     , base >=4.7 && <5
     , base16-bytestring
+    , beam-core
+    , beam-sqlite
     , bytestring
     , conduit
     , conduit-extra
@@ -224,7 +250,10 @@ executable ex03
     , regex-tdfa
     , resource-pool
     , scotty
+    , servant
+    , servant-server
     , shakespeare
+    , sqlite-simple
     , string-interpolate
     , template-haskell
     , text
@@ -233,6 +262,9 @@ executable ex03
     , unordered-containers
     , uuid
     , validation
+    , wai
+    , wai-cors
+    , warp
     , yesod
     , yesod-core
     , yesod-form
@@ -250,6 +282,8 @@ executable ex06
     , aeson-casing
     , base >=4.7 && <5
     , base16-bytestring
+    , beam-core
+    , beam-sqlite
     , bytestring
     , conduit
     , conduit-extra
@@ -278,7 +312,10 @@ executable ex06
     , regex-tdfa
     , resource-pool
     , scotty
+    , servant
+    , servant-server
     , shakespeare
+    , sqlite-simple
     , string-interpolate
     , template-haskell
     , text
@@ -287,6 +324,9 @@ executable ex06
     , unordered-containers
     , uuid
     , validation
+    , wai
+    , wai-cors
+    , warp
     , yesod
     , yesod-core
     , yesod-form
@@ -305,6 +345,8 @@ executable ex07
     , aeson-casing
     , base >=4.7 && <5
     , base16-bytestring
+    , beam-core
+    , beam-sqlite
     , bytestring
     , conduit
     , conduit-extra
@@ -333,7 +375,10 @@ executable ex07
     , regex-tdfa
     , resource-pool
     , scotty
+    , servant
+    , servant-server
     , shakespeare
+    , sqlite-simple
     , string-interpolate
     , template-haskell
     , text
@@ -342,6 +387,9 @@ executable ex07
     , unordered-containers
     , uuid
     , validation
+    , wai
+    , wai-cors
+    , warp
     , yesod
     , yesod-core
     , yesod-form
@@ -360,6 +408,8 @@ executable ex13
     , aeson-casing
     , base >=4.7 && <5
     , base16-bytestring
+    , beam-core
+    , beam-sqlite
     , bytestring
     , conduit
     , conduit-extra
@@ -388,7 +438,10 @@ executable ex13
     , regex-tdfa
     , resource-pool
     , scotty
+    , servant
+    , servant-server
     , shakespeare
+    , sqlite-simple
     , string-interpolate
     , template-haskell
     , text
@@ -397,6 +450,9 @@ executable ex13
     , unordered-containers
     , uuid
     , validation
+    , wai
+    , wai-cors
+    , warp
     , yesod
     , yesod-core
     , yesod-form
@@ -414,6 +470,8 @@ executable ex14
     , aeson-casing
     , base >=4.7 && <5
     , base16-bytestring
+    , beam-core
+    , beam-sqlite
     , bytestring
     , conduit
     , conduit-extra
@@ -442,7 +500,10 @@ executable ex14
     , regex-tdfa
     , resource-pool
     , scotty
+    , servant
+    , servant-server
     , shakespeare
+    , sqlite-simple
     , string-interpolate
     , template-haskell
     , text
@@ -451,6 +512,9 @@ executable ex14
     , unordered-containers
     , uuid
     , validation
+    , wai
+    , wai-cors
+    , warp
     , yesod
     , yesod-core
     , yesod-form
@@ -468,6 +532,8 @@ executable ex23
     , aeson-casing
     , base >=4.7 && <5
     , base16-bytestring
+    , beam-core
+    , beam-sqlite
     , bytestring
     , conduit
     , conduit-extra
@@ -496,7 +562,10 @@ executable ex23
     , regex-tdfa
     , resource-pool
     , scotty
+    , servant
+    , servant-server
     , shakespeare
+    , sqlite-simple
     , string-interpolate
     , template-haskell
     , text
@@ -505,6 +574,9 @@ executable ex23
     , unordered-containers
     , uuid
     , validation
+    , wai
+    , wai-cors
+    , warp
     , yesod
     , yesod-core
     , yesod-form
@@ -523,6 +595,8 @@ executable ex24
     , aeson-casing
     , base >=4.7 && <5
     , base16-bytestring
+    , beam-core
+    , beam-sqlite
     , bytestring
     , conduit
     , conduit-extra
@@ -551,7 +625,10 @@ executable ex24
     , regex-tdfa
     , resource-pool
     , scotty
+    , servant
+    , servant-server
     , shakespeare
+    , sqlite-simple
     , string-interpolate
     , template-haskell
     , text
@@ -560,6 +637,9 @@ executable ex24
     , unordered-containers
     , uuid
     , validation
+    , wai
+    , wai-cors
+    , warp
     , yesod
     , yesod-core
     , yesod-form
@@ -578,6 +658,8 @@ executable ex27
     , aeson-casing
     , base >=4.7 && <5
     , base16-bytestring
+    , beam-core
+    , beam-sqlite
     , bytestring
     , conduit
     , conduit-extra
@@ -606,7 +688,10 @@ executable ex27
     , regex-tdfa
     , resource-pool
     , scotty
+    , servant
+    , servant-server
     , shakespeare
+    , sqlite-simple
     , string-interpolate
     , template-haskell
     , text
@@ -615,6 +700,9 @@ executable ex27
     , unordered-containers
     , uuid
     , validation
+    , wai
+    , wai-cors
+    , warp
     , yesod
     , yesod-core
     , yesod-form
@@ -632,6 +720,8 @@ executable ex28
     , aeson-casing
     , base >=4.7 && <5
     , base16-bytestring
+    , beam-core
+    , beam-sqlite
     , bytestring
     , conduit
     , conduit-extra
@@ -660,7 +750,10 @@ executable ex28
     , regex-tdfa
     , resource-pool
     , scotty
+    , servant
+    , servant-server
     , shakespeare
+    , sqlite-simple
     , string-interpolate
     , template-haskell
     , text
@@ -669,6 +762,9 @@ executable ex28
     , unordered-containers
     , uuid
     , validation
+    , wai
+    , wai-cors
+    , warp
     , yesod
     , yesod-core
     , yesod-form
@@ -686,6 +782,8 @@ executable ex32
     , aeson-casing
     , base >=4.7 && <5
     , base16-bytestring
+    , beam-core
+    , beam-sqlite
     , bytestring
     , conduit
     , conduit-extra
@@ -714,7 +812,10 @@ executable ex32
     , regex-tdfa
     , resource-pool
     , scotty
+    , servant
+    , servant-server
     , shakespeare
+    , sqlite-simple
     , string-interpolate
     , template-haskell
     , text
@@ -723,6 +824,9 @@ executable ex32
     , unordered-containers
     , uuid
     , validation
+    , wai
+    , wai-cors
+    , warp
     , yesod
     , yesod-core
     , yesod-form
@@ -740,6 +844,8 @@ executable ex33
     , aeson-casing
     , base >=4.7 && <5
     , base16-bytestring
+    , beam-core
+    , beam-sqlite
     , bytestring
     , conduit
     , conduit-extra
@@ -768,7 +874,10 @@ executable ex33
     , regex-tdfa
     , resource-pool
     , scotty
+    , servant
+    , servant-server
     , shakespeare
+    , sqlite-simple
     , string-interpolate
     , template-haskell
     , text
@@ -777,6 +886,9 @@ executable ex33
     , unordered-containers
     , uuid
     , validation
+    , wai
+    , wai-cors
+    , warp
     , yesod
     , yesod-core
     , yesod-form
@@ -795,6 +907,8 @@ executable ex40
     , aeson-casing
     , base >=4.7 && <5
     , base16-bytestring
+    , beam-core
+    , beam-sqlite
     , bytestring
     , conduit
     , conduit-extra
@@ -823,7 +937,10 @@ executable ex40
     , regex-tdfa
     , resource-pool
     , scotty
+    , servant
+    , servant-server
     , shakespeare
+    , sqlite-simple
     , string-interpolate
     , template-haskell
     , text
@@ -832,6 +949,9 @@ executable ex40
     , unordered-containers
     , uuid
     , validation
+    , wai
+    , wai-cors
+    , warp
     , yesod
     , yesod-core
     , yesod-form
@@ -849,6 +969,8 @@ executable ex41
     , aeson-casing
     , base >=4.7 && <5
     , base16-bytestring
+    , beam-core
+    , beam-sqlite
     , bytestring
     , conduit
     , conduit-extra
@@ -877,7 +999,10 @@ executable ex41
     , regex-tdfa
     , resource-pool
     , scotty
+    , servant
+    , servant-server
     , shakespeare
+    , sqlite-simple
     , string-interpolate
     , template-haskell
     , text
@@ -886,6 +1011,9 @@ executable ex41
     , unordered-containers
     , uuid
     , validation
+    , wai
+    , wai-cors
+    , warp
     , yesod
     , yesod-core
     , yesod-form
@@ -903,6 +1031,8 @@ executable ex46
     , aeson-casing
     , base >=4.7 && <5
     , base16-bytestring
+    , beam-core
+    , beam-sqlite
     , bytestring
     , conduit
     , conduit-extra
@@ -931,7 +1061,10 @@ executable ex46
     , regex-tdfa
     , resource-pool
     , scotty
+    , servant
+    , servant-server
     , shakespeare
+    , sqlite-simple
     , string-interpolate
     , template-haskell
     , text
@@ -940,6 +1073,9 @@ executable ex46
     , unordered-containers
     , uuid
     , validation
+    , wai
+    , wai-cors
+    , warp
     , yesod
     , yesod-core
     , yesod-form
@@ -957,6 +1093,8 @@ executable ex49
     , aeson-casing
     , base >=4.7 && <5
     , base16-bytestring
+    , beam-core
+    , beam-sqlite
     , bytestring
     , conduit
     , conduit-extra
@@ -987,7 +1125,10 @@ executable ex49
     , regex-tdfa
     , resource-pool
     , scotty
+    , servant
+    , servant-server
     , shakespeare
+    , sqlite-simple
     , string-interpolate
     , template-haskell
     , text
@@ -996,6 +1137,9 @@ executable ex49
     , unordered-containers
     , uuid
     , validation
+    , wai
+    , wai-cors
+    , warp
     , yesod
     , yesod-core
     , yesod-form
@@ -1020,6 +1164,8 @@ executable ex51
     , aeson-casing
     , base >=4.7 && <5
     , base16-bytestring
+    , beam-core
+    , beam-sqlite
     , bytestring
     , conduit
     , conduit-extra
@@ -1048,7 +1194,10 @@ executable ex51
     , regex-tdfa
     , resource-pool
     , scotty
+    , servant
+    , servant-server
     , shakespeare
+    , sqlite-simple
     , string-interpolate
     , template-haskell
     , text
@@ -1057,6 +1206,9 @@ executable ex51
     , unordered-containers
     , uuid
     , validation
+    , wai
+    , wai-cors
+    , warp
     , yesod
     , yesod-core
     , yesod-form
@@ -1074,6 +1226,8 @@ executable ex52
     , aeson-casing
     , base >=4.7 && <5
     , base16-bytestring
+    , beam-core
+    , beam-sqlite
     , bytestring
     , conduit
     , conduit-extra
@@ -1102,7 +1256,10 @@ executable ex52
     , regex-tdfa
     , resource-pool
     , scotty
+    , servant
+    , servant-server
     , shakespeare
+    , sqlite-simple
     , string-interpolate
     , template-haskell
     , text
@@ -1111,6 +1268,9 @@ executable ex52
     , unordered-containers
     , uuid
     , validation
+    , wai
+    , wai-cors
+    , warp
     , yesod
     , yesod-core
     , yesod-form
@@ -1128,6 +1288,8 @@ executable ex52-client
     , aeson-casing
     , base >=4.7 && <5
     , base16-bytestring
+    , beam-core
+    , beam-sqlite
     , bytestring
     , conduit
     , conduit-extra
@@ -1156,7 +1318,10 @@ executable ex52-client
     , regex-tdfa
     , resource-pool
     , scotty
+    , servant
+    , servant-server
     , shakespeare
+    , sqlite-simple
     , string-interpolate
     , template-haskell
     , text
@@ -1165,6 +1330,9 @@ executable ex52-client
     , unordered-containers
     , uuid
     , validation
+    , wai
+    , wai-cors
+    , warp
     , yesod
     , yesod-core
     , yesod-form
@@ -1183,6 +1351,8 @@ executable ex53
     , aeson-casing
     , base >=4.7 && <5
     , base16-bytestring
+    , beam-core
+    , beam-sqlite
     , bytestring
     , conduit
     , conduit-extra
@@ -1211,7 +1381,10 @@ executable ex53
     , regex-tdfa
     , resource-pool
     , scotty
+    , servant
+    , servant-server
     , shakespeare
+    , sqlite-simple
     , string-interpolate
     , template-haskell
     , text
@@ -1220,6 +1393,72 @@ executable ex53
     , unordered-containers
     , uuid
     , validation
+    , wai
+    , wai-cors
+    , warp
+    , yesod
+    , yesod-core
+    , yesod-form
+  default-language: Haskell2010
+
+executable ex54
+  main-is: Main.hs
+  other-modules:
+      DB
+      Paths_exercises_for_programmer_in_haskell
+  hs-source-dirs:
+      ex54
+  ghc-options: -Wall
+  build-depends:
+      aeson
+    , aeson-casing
+    , base >=4.7 && <5
+    , base16-bytestring
+    , beam-core
+    , beam-sqlite
+    , bytestring
+    , conduit
+    , conduit-extra
+    , containers
+    , cryptohash-md5
+    , directory
+    , exceptions
+    , exercises-for-programmer-in-haskell
+    , extra
+    , gi-gdkpixbuf
+    , gi-gio
+    , gi-gtk
+    , hashtables
+    , haskeline
+    , hedis
+    , http-client
+    , http-client-tls
+    , http-conduit
+    , lucid
+    , memory
+    , mongoDB
+    , mtl
+    , persistent
+    , persistent-mongoDB
+    , random
+    , regex-tdfa
+    , resource-pool
+    , scotty
+    , servant
+    , servant-server
+    , shakespeare
+    , sqlite-simple
+    , string-interpolate
+    , template-haskell
+    , text
+    , time
+    , transformers
+    , unordered-containers
+    , uuid
+    , validation
+    , wai
+    , wai-cors
+    , warp
     , yesod
     , yesod-core
     , yesod-form
@@ -1238,6 +1477,8 @@ executable ex55
     , aeson-casing
     , base >=4.7 && <5
     , base16-bytestring
+    , beam-core
+    , beam-sqlite
     , bytestring
     , conduit
     , conduit-extra
@@ -1266,7 +1507,10 @@ executable ex55
     , regex-tdfa
     , resource-pool
     , scotty
+    , servant
+    , servant-server
     , shakespeare
+    , sqlite-simple
     , string-interpolate
     , template-haskell
     , text
@@ -1275,6 +1519,9 @@ executable ex55
     , unordered-containers
     , uuid
     , validation
+    , wai
+    , wai-cors
+    , warp
     , yesod
     , yesod-core
     , yesod-form
@@ -1293,6 +1540,8 @@ executable ex56
     , aeson-casing
     , base >=4.7 && <5
     , base16-bytestring
+    , beam-core
+    , beam-sqlite
     , bytestring
     , conduit
     , conduit-extra
@@ -1321,7 +1570,10 @@ executable ex56
     , regex-tdfa
     , resource-pool
     , scotty
+    , servant
+    , servant-server
     , shakespeare
+    , sqlite-simple
     , string-interpolate
     , template-haskell
     , text
@@ -1330,6 +1582,9 @@ executable ex56
     , unordered-containers
     , uuid
     , validation
+    , wai
+    , wai-cors
+    , warp
     , yesod
     , yesod-core
     , yesod-form
@@ -1347,6 +1602,8 @@ executable ex57
     , aeson-casing
     , base >=4.7 && <5
     , base16-bytestring
+    , beam-core
+    , beam-sqlite
     , bytestring
     , conduit
     , conduit-extra
@@ -1375,7 +1632,10 @@ executable ex57
     , regex-tdfa
     , resource-pool
     , scotty
+    , servant
+    , servant-server
     , shakespeare
+    , sqlite-simple
     , string-interpolate
     , template-haskell
     , text
@@ -1384,6 +1644,9 @@ executable ex57
     , unordered-containers
     , uuid
     , validation
+    , wai
+    , wai-cors
+    , warp
     , yesod
     , yesod-core
     , yesod-form
@@ -1406,6 +1669,8 @@ test-suite ex03-test
     , aeson-casing
     , base
     , base16-bytestring
+    , beam-core
+    , beam-sqlite
     , bytestring
     , conduit
     , conduit-extra
@@ -1434,7 +1699,10 @@ test-suite ex03-test
     , regex-tdfa
     , resource-pool
     , scotty
+    , servant
+    , servant-server
     , shakespeare
+    , sqlite-simple
     , string-interpolate
     , template-haskell
     , text
@@ -1443,6 +1711,9 @@ test-suite ex03-test
     , unordered-containers
     , uuid
     , validation
+    , wai
+    , wai-cors
+    , warp
     , yesod
     , yesod-core
     , yesod-form
@@ -1464,6 +1735,8 @@ test-suite ex07-test
     , aeson-casing
     , base
     , base16-bytestring
+    , beam-core
+    , beam-sqlite
     , bytestring
     , conduit
     , conduit-extra
@@ -1492,7 +1765,10 @@ test-suite ex07-test
     , regex-tdfa
     , resource-pool
     , scotty
+    , servant
+    , servant-server
     , shakespeare
+    , sqlite-simple
     , string-interpolate
     , template-haskell
     , text
@@ -1501,6 +1777,9 @@ test-suite ex07-test
     , unordered-containers
     , uuid
     , validation
+    , wai
+    , wai-cors
+    , warp
     , yesod
     , yesod-core
     , yesod-form
@@ -1522,6 +1801,8 @@ test-suite ex13-test
     , aeson-casing
     , base
     , base16-bytestring
+    , beam-core
+    , beam-sqlite
     , bytestring
     , conduit
     , conduit-extra
@@ -1550,7 +1831,10 @@ test-suite ex13-test
     , regex-tdfa
     , resource-pool
     , scotty
+    , servant
+    , servant-server
     , shakespeare
+    , sqlite-simple
     , string-interpolate
     , template-haskell
     , text
@@ -1559,6 +1843,9 @@ test-suite ex13-test
     , unordered-containers
     , uuid
     , validation
+    , wai
+    , wai-cors
+    , warp
     , yesod
     , yesod-core
     , yesod-form
@@ -1580,6 +1867,8 @@ test-suite ex24-test
     , aeson-casing
     , base
     , base16-bytestring
+    , beam-core
+    , beam-sqlite
     , bytestring
     , conduit
     , conduit-extra
@@ -1608,7 +1897,10 @@ test-suite ex24-test
     , regex-tdfa
     , resource-pool
     , scotty
+    , servant
+    , servant-server
     , shakespeare
+    , sqlite-simple
     , string-interpolate
     , template-haskell
     , text
@@ -1617,6 +1909,9 @@ test-suite ex24-test
     , unordered-containers
     , uuid
     , validation
+    , wai
+    , wai-cors
+    , warp
     , yesod
     , yesod-core
     , yesod-form
@@ -1639,6 +1934,8 @@ test-suite ex27-test
     , aeson-casing
     , base
     , base16-bytestring
+    , beam-core
+    , beam-sqlite
     , bytestring
     , conduit
     , conduit-extra
@@ -1667,7 +1964,10 @@ test-suite ex27-test
     , regex-tdfa
     , resource-pool
     , scotty
+    , servant
+    , servant-server
     , shakespeare
+    , sqlite-simple
     , string-interpolate
     , template-haskell
     , text
@@ -1676,6 +1976,9 @@ test-suite ex27-test
     , unordered-containers
     , uuid
     , validation
+    , wai
+    , wai-cors
+    , warp
     , yesod
     , yesod-core
     , yesod-form
@@ -1698,6 +2001,8 @@ test-suite ex40-test
     , aeson-casing
     , base
     , base16-bytestring
+    , beam-core
+    , beam-sqlite
     , bytestring
     , conduit
     , conduit-extra
@@ -1728,7 +2033,10 @@ test-suite ex40-test
     , regex-tdfa
     , resource-pool
     , scotty
+    , servant
+    , servant-server
     , shakespeare
+    , sqlite-simple
     , string-interpolate
     , template-haskell
     , text
@@ -1737,6 +2045,9 @@ test-suite ex40-test
     , unordered-containers
     , uuid
     , validation
+    , wai
+    , wai-cors
+    , warp
     , yesod
     , yesod-core
     , yesod-form
@@ -1768,6 +2079,8 @@ test-suite ex51-test
     , aeson-casing
     , base
     , base16-bytestring
+    , beam-core
+    , beam-sqlite
     , bytestring
     , conduit
     , conduit-extra
@@ -1796,7 +2109,10 @@ test-suite ex51-test
     , regex-tdfa
     , resource-pool
     , scotty
+    , servant
+    , servant-server
     , shakespeare
+    , sqlite-simple
     , string-interpolate
     , template-haskell
     , text
@@ -1805,6 +2121,9 @@ test-suite ex51-test
     , unordered-containers
     , uuid
     , validation
+    , wai
+    , wai-cors
+    , warp
     , yesod
     , yesod-core
     , yesod-form
@@ -1827,6 +2146,8 @@ test-suite ex53-test
     , aeson-casing
     , base
     , base16-bytestring
+    , beam-core
+    , beam-sqlite
     , bytestring
     , conduit
     , conduit-extra
@@ -1855,7 +2176,10 @@ test-suite ex53-test
     , regex-tdfa
     , resource-pool
     , scotty
+    , servant
+    , servant-server
     , shakespeare
+    , sqlite-simple
     , string-interpolate
     , template-haskell
     , text
@@ -1864,6 +2188,9 @@ test-suite ex53-test
     , unordered-containers
     , uuid
     , validation
+    , wai
+    , wai-cors
+    , warp
     , yesod
     , yesod-core
     , yesod-form
