@@ -9,6 +9,10 @@
     <script src="/elm.js"></script>
     <script>
       var app = Elm.Main.init({ node: document.getElementById("elm") });
+
+      app.ports.alert.subscribe(function(message) {
+        alert(message);
+      });
     </script>
   </body>
 </html>

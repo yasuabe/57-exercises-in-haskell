@@ -1,4 +1,4 @@
-module Main exposing (main)
+port module Main exposing (main)
 
 import Browser
 import Browser.Navigation as Nav
@@ -10,6 +10,9 @@ import Json.Decode as Decode
 import Json.Encode as Encode
 import Url exposing (Url)
 import Url.Parser as Parser exposing ((</>), Parser, s, string)
+
+
+port alert : String -> Cmd msg
 
 
 main : Program () Model Msg
@@ -68,6 +71,11 @@ init _ url navKey =
             ( { navKey = navKey, page = InputPage, input = "" }, Cmd.none )
 
 
+isValidUrl : String -> Bool
+isValidUrl url =
+    String.startsWith "http://" url || String.startsWith "https://" url
+
+
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
@@ -75,7 +83,11 @@ update msg model =
             ( { model | input = s }, Cmd.none )
 
         Submit ->
-            ( model, sendShortenRequest model.input )
+            if isValidUrl model.input then
+                ( model, sendShortenRequest model.input )
+
+            else
+                ( model, alert "Invalid URL." )
 
         GotShorten (Ok short) ->
             ( model, Nav.pushUrl model.navKey ("/ex54/" ++ short ++ "/stats") )

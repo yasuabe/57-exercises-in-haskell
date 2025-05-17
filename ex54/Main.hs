@@ -24,8 +24,10 @@
 import Servant
 import Network.Wai.Handler.Warp (run)
 import Network.Wai.Middleware.Cors (cors, simpleCorsResourcePolicy, CorsResourcePolicy(..))
+import Network.URI (parseURI)
 
 import Data.Aeson (FromJSON, ToJSON)
+import Data.Maybe (isJust)
 import Data.Text.Encoding (encodeUtf8)
 import GHC.Generics (Generic)
 import Data.Text (Text, unpack, pack)
@@ -80,9 +82,14 @@ type API =  "ex54" :> ReqBody '[JSON] ShortenReq         :> Post '[JSON] Shorten
 
 shortenUrl :: ShortenReq -> AppEx54 ShortenRes
 shortenUrl (ShortenReq longUrl') = do
+  _         <- validateUrl longUrl'
   shortUrl' <- liftIO makeShortURL
   _         <- runSqlite $ insertUrl shortUrl' longUrl'
   return $ ShortenRes { shortUrl = shortUrl' }
+  where
+    validateUrl :: Text -> AppEx54 Text
+    validateUrl url = if isJust $ parseURI (unpack url) then return url
+                      else throwError $ err400 { errBody = "Invalid URL" }
 
 redirectUrl :: Text -> AppEx54 NoContent
 redirectUrl shortUrl' =

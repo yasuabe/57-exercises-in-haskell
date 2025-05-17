@@ -58,6 +58,7 @@ dependencies:
   - wai
   - warp
   - wai-cors
+  - network-uri
 
 library:
   source-dirs: src

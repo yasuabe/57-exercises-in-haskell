@@ -57,6 +57,7 @@ library
     , memory
     , mongoDB
     , mtl
+    , network-uri
     , persistent
     , persistent-mongoDB
     , random
@@ -119,6 +120,7 @@ executable ex01
     , memory
     , mongoDB
     , mtl
+    , network-uri
     , persistent
     , persistent-mongoDB
     , random
@@ -181,6 +183,7 @@ executable ex02
     , memory
     , mongoDB
     , mtl
+    , network-uri
     , persistent
     , persistent-mongoDB
     , random
@@ -244,6 +247,7 @@ executable ex03
     , memory
     , mongoDB
     , mtl
+    , network-uri
     , persistent
     , persistent-mongoDB
     , random
@@ -306,6 +310,7 @@ executable ex06
     , memory
     , mongoDB
     , mtl
+    , network-uri
     , persistent
     , persistent-mongoDB
     , random
@@ -369,6 +374,7 @@ executable ex07
     , memory
     , mongoDB
     , mtl
+    , network-uri
     , persistent
     , persistent-mongoDB
     , random
@@ -432,6 +438,7 @@ executable ex13
     , memory
     , mongoDB
     , mtl
+    , network-uri
     , persistent
     , persistent-mongoDB
     , random
@@ -494,6 +501,7 @@ executable ex14
     , memory
     , mongoDB
     , mtl
+    , network-uri
     , persistent
     , persistent-mongoDB
     , random
@@ -556,6 +564,7 @@ executable ex23
     , memory
     , mongoDB
     , mtl
+    , network-uri
     , persistent
     , persistent-mongoDB
     , random
@@ -619,6 +628,7 @@ executable ex24
     , memory
     , mongoDB
     , mtl
+    , network-uri
     , persistent
     , persistent-mongoDB
     , random
@@ -682,6 +692,7 @@ executable ex27
     , memory
     , mongoDB
     , mtl
+    , network-uri
     , persistent
     , persistent-mongoDB
     , random
@@ -744,6 +755,7 @@ executable ex28
     , memory
     , mongoDB
     , mtl
+    , network-uri
     , persistent
     , persistent-mongoDB
     , random
@@ -806,6 +818,7 @@ executable ex32
     , memory
     , mongoDB
     , mtl
+    , network-uri
     , persistent
     , persistent-mongoDB
     , random
@@ -868,6 +881,7 @@ executable ex33
     , memory
     , mongoDB
     , mtl
+    , network-uri
     , persistent
     , persistent-mongoDB
     , random
@@ -931,6 +945,7 @@ executable ex40
     , memory
     , mongoDB
     , mtl
+    , network-uri
     , persistent
     , persistent-mongoDB
     , random
@@ -993,6 +1008,7 @@ executable ex41
     , memory
     , mongoDB
     , mtl
+    , network-uri
     , persistent
     , persistent-mongoDB
     , random
@@ -1055,6 +1071,7 @@ executable ex46
     , memory
     , mongoDB
     , mtl
+    , network-uri
     , persistent
     , persistent-mongoDB
     , random
@@ -1119,6 +1136,7 @@ executable ex49
     , memory
     , mongoDB
     , mtl
+    , network-uri
     , persistent
     , persistent-mongoDB
     , random
@@ -1188,6 +1206,7 @@ executable ex51
     , memory
     , mongoDB
     , mtl
+    , network-uri
     , persistent
     , persistent-mongoDB
     , random
@@ -1250,6 +1269,7 @@ executable ex52
     , memory
     , mongoDB
     , mtl
+    , network-uri
     , persistent
     , persistent-mongoDB
     , random
@@ -1312,6 +1332,7 @@ executable ex52-client
     , memory
     , mongoDB
     , mtl
+    , network-uri
     , persistent
     , persistent-mongoDB
     , random
@@ -1375,6 +1396,7 @@ executable ex53
     , memory
     , mongoDB
     , mtl
+    , network-uri
     , persistent
     , persistent-mongoDB
     , random
@@ -1438,6 +1460,7 @@ executable ex54
     , memory
     , mongoDB
     , mtl
+    , network-uri
     , persistent
     , persistent-mongoDB
     , random
@@ -1501,6 +1524,7 @@ executable ex55
     , memory
     , mongoDB
     , mtl
+    , network-uri
     , persistent
     , persistent-mongoDB
     , random
@@ -1564,6 +1588,7 @@ executable ex56
     , memory
     , mongoDB
     , mtl
+    , network-uri
     , persistent
     , persistent-mongoDB
     , random
@@ -1626,6 +1651,7 @@ executable ex57
     , memory
     , mongoDB
     , mtl
+    , network-uri
     , persistent
     , persistent-mongoDB
     , random
@@ -1693,6 +1719,7 @@ test-suite ex03-test
     , memory
     , mongoDB
     , mtl
+    , network-uri
     , persistent
     , persistent-mongoDB
     , random
@@ -1759,6 +1786,7 @@ test-suite ex07-test
     , memory
     , mongoDB
     , mtl
+    , network-uri
     , persistent
     , persistent-mongoDB
     , random
@@ -1825,6 +1853,7 @@ test-suite ex13-test
     , memory
     , mongoDB
     , mtl
+    , network-uri
     , persistent
     , persistent-mongoDB
     , random
@@ -1891,6 +1920,7 @@ test-suite ex24-test
     , memory
     , mongoDB
     , mtl
+    , network-uri
     , persistent
     , persistent-mongoDB
     , random
@@ -1958,6 +1988,7 @@ test-suite ex27-test
     , memory
     , mongoDB
     , mtl
+    , network-uri
     , persistent
     , persistent-mongoDB
     , random
@@ -2025,6 +2056,7 @@ test-suite ex40-test
     , memory
     , mongoDB
     , mtl
+    , network-uri
     , persistent
     , persistent-mongoDB
     , quickcheck-classes >=0.6
@@ -2103,6 +2135,7 @@ test-suite ex51-test
     , memory
     , mongoDB
     , mtl
+    , network-uri
     , persistent
     , persistent-mongoDB
     , random
@@ -2170,6 +2203,7 @@ test-suite ex53-test
     , memory
     , mongoDB
     , mtl
+    , network-uri
     , persistent
     , persistent-mongoDB
     , random

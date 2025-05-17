@@ -48,3 +48,7 @@ main =
   </body>
 </html>
 ```
+----
+## Fontend Memo
+- `npx serve -s`
+- from browser
