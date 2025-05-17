@@ -1,12 +1,13 @@
+# Work Log
 
+## Initial Minimum Elm Project
 
-## Work Log
-1. Create project directory
+1. Create the project directory:
 ```
 $ mkdir frontend && cd frontend
 ```
 
-2. Initialize Elm project
+2. Initialize the Elm project:
 ```
 $ elm init
 $ tree
@@ -16,7 +17,7 @@ $ tree
 └── src
 ```
 
-3. Create src/Main.elm
+3. Create `src/Main.elm`:
 ```
 module Main exposing (main)
 
@@ -31,7 +32,7 @@ main =
         }
 ```
 
-4. Create index.html
+4. Create `index.html`:
 ```
 <!DOCTYPE html>
 <html>
@@ -48,7 +49,19 @@ main =
   </body>
 </html>
 ```
+
 ----
-## Fontend Memo
-- `npx serve -s`
-- from browser
+
+## How to Run & Test
+- Build
+```
+$ cd ex54/frontend
+$ elm make src/Main.elm --output=elm.js
+```
+- Start the development server:
+```
+$ npx serve -s
+```
+
+- Short URL Creation Page: `http://localhost:3000/ex54`  
+- Stats Page: `http://localhost:3000/ex54/{{short URL slug}}/stats`
