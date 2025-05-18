@@ -59,6 +59,7 @@ dependencies:
   - warp
   - wai-cors
   - network-uri
+  - streamly-core
 
 library:
   source-dirs: src
@@ -144,6 +145,13 @@ executables:
   ex28:
     main: Main.hs
     source-dirs: ex28
+    ghc-options: -Wall
+    dependencies:
+      - exercises-for-programmer-in-haskell
+
+  ex30:
+    main: Main.hs
+    source-dirs: ex30
     ghc-options: -Wall
     dependencies:
       - exercises-for-programmer-in-haskell

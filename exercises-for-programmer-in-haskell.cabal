@@ -68,6 +68,7 @@ library
     , servant-server
     , shakespeare
     , sqlite-simple
+    , streamly-core
     , string-interpolate
     , template-haskell
     , text
@@ -131,6 +132,7 @@ executable ex01
     , servant-server
     , shakespeare
     , sqlite-simple
+    , streamly-core
     , string-interpolate
     , template-haskell
     , text
@@ -194,6 +196,7 @@ executable ex02
     , servant-server
     , shakespeare
     , sqlite-simple
+    , streamly-core
     , string-interpolate
     , template-haskell
     , text
@@ -258,6 +261,7 @@ executable ex03
     , servant-server
     , shakespeare
     , sqlite-simple
+    , streamly-core
     , string-interpolate
     , template-haskell
     , text
@@ -321,6 +325,7 @@ executable ex06
     , servant-server
     , shakespeare
     , sqlite-simple
+    , streamly-core
     , string-interpolate
     , template-haskell
     , text
@@ -385,6 +390,7 @@ executable ex07
     , servant-server
     , shakespeare
     , sqlite-simple
+    , streamly-core
     , string-interpolate
     , template-haskell
     , text
@@ -449,6 +455,7 @@ executable ex13
     , servant-server
     , shakespeare
     , sqlite-simple
+    , streamly-core
     , string-interpolate
     , template-haskell
     , text
@@ -512,6 +519,7 @@ executable ex14
     , servant-server
     , shakespeare
     , sqlite-simple
+    , streamly-core
     , string-interpolate
     , template-haskell
     , text
@@ -575,6 +583,7 @@ executable ex23
     , servant-server
     , shakespeare
     , sqlite-simple
+    , streamly-core
     , string-interpolate
     , template-haskell
     , text
@@ -639,6 +648,7 @@ executable ex24
     , servant-server
     , shakespeare
     , sqlite-simple
+    , streamly-core
     , string-interpolate
     , template-haskell
     , text
@@ -703,6 +713,7 @@ executable ex27
     , servant-server
     , shakespeare
     , sqlite-simple
+    , streamly-core
     , string-interpolate
     , template-haskell
     , text
@@ -766,6 +777,71 @@ executable ex28
     , servant-server
     , shakespeare
     , sqlite-simple
+    , streamly-core
+    , string-interpolate
+    , template-haskell
+    , text
+    , time
+    , transformers
+    , unordered-containers
+    , uuid
+    , validation
+    , wai
+    , wai-cors
+    , warp
+    , yesod
+    , yesod-core
+    , yesod-form
+  default-language: Haskell2010
+
+executable ex30
+  main-is: Main.hs
+  other-modules:
+      Paths_exercises_for_programmer_in_haskell
+  hs-source-dirs:
+      ex30
+  ghc-options: -Wall
+  build-depends:
+      aeson
+    , aeson-casing
+    , base >=4.7 && <5
+    , base16-bytestring
+    , beam-core
+    , beam-sqlite
+    , bytestring
+    , conduit
+    , conduit-extra
+    , containers
+    , cryptohash-md5
+    , directory
+    , exceptions
+    , exercises-for-programmer-in-haskell
+    , extra
+    , gi-gdkpixbuf
+    , gi-gio
+    , gi-gtk
+    , hashtables
+    , haskeline
+    , hedis
+    , http-client
+    , http-client-tls
+    , http-conduit
+    , lucid
+    , memory
+    , mongoDB
+    , mtl
+    , network-uri
+    , persistent
+    , persistent-mongoDB
+    , random
+    , regex-tdfa
+    , resource-pool
+    , scotty
+    , servant
+    , servant-server
+    , shakespeare
+    , sqlite-simple
+    , streamly-core
     , string-interpolate
     , template-haskell
     , text
@@ -829,6 +905,7 @@ executable ex32
     , servant-server
     , shakespeare
     , sqlite-simple
+    , streamly-core
     , string-interpolate
     , template-haskell
     , text
@@ -892,6 +969,7 @@ executable ex33
     , servant-server
     , shakespeare
     , sqlite-simple
+    , streamly-core
     , string-interpolate
     , template-haskell
     , text
@@ -956,6 +1034,7 @@ executable ex40
     , servant-server
     , shakespeare
     , sqlite-simple
+    , streamly-core
     , string-interpolate
     , template-haskell
     , text
@@ -1019,6 +1098,7 @@ executable ex41
     , servant-server
     , shakespeare
     , sqlite-simple
+    , streamly-core
     , string-interpolate
     , template-haskell
     , text
@@ -1082,6 +1162,7 @@ executable ex46
     , servant-server
     , shakespeare
     , sqlite-simple
+    , streamly-core
     , string-interpolate
     , template-haskell
     , text
@@ -1147,6 +1228,7 @@ executable ex49
     , servant-server
     , shakespeare
     , sqlite-simple
+    , streamly-core
     , string-interpolate
     , template-haskell
     , text
@@ -1217,6 +1299,7 @@ executable ex51
     , servant-server
     , shakespeare
     , sqlite-simple
+    , streamly-core
     , string-interpolate
     , template-haskell
     , text
@@ -1280,6 +1363,7 @@ executable ex52
     , servant-server
     , shakespeare
     , sqlite-simple
+    , streamly-core
     , string-interpolate
     , template-haskell
     , text
@@ -1343,6 +1427,7 @@ executable ex52-client
     , servant-server
     , shakespeare
     , sqlite-simple
+    , streamly-core
     , string-interpolate
     , template-haskell
     , text
@@ -1407,6 +1492,7 @@ executable ex53
     , servant-server
     , shakespeare
     , sqlite-simple
+    , streamly-core
     , string-interpolate
     , template-haskell
     , text
@@ -1471,6 +1557,7 @@ executable ex54
     , servant-server
     , shakespeare
     , sqlite-simple
+    , streamly-core
     , string-interpolate
     , template-haskell
     , text
@@ -1535,6 +1622,7 @@ executable ex55
     , servant-server
     , shakespeare
     , sqlite-simple
+    , streamly-core
     , string-interpolate
     , template-haskell
     , text
@@ -1599,6 +1687,7 @@ executable ex56
     , servant-server
     , shakespeare
     , sqlite-simple
+    , streamly-core
     , string-interpolate
     , template-haskell
     , text
@@ -1662,6 +1751,7 @@ executable ex57
     , servant-server
     , shakespeare
     , sqlite-simple
+    , streamly-core
     , string-interpolate
     , template-haskell
     , text
@@ -1730,6 +1820,7 @@ test-suite ex03-test
     , servant-server
     , shakespeare
     , sqlite-simple
+    , streamly-core
     , string-interpolate
     , template-haskell
     , text
@@ -1797,6 +1888,7 @@ test-suite ex07-test
     , servant-server
     , shakespeare
     , sqlite-simple
+    , streamly-core
     , string-interpolate
     , template-haskell
     , text
@@ -1864,6 +1956,7 @@ test-suite ex13-test
     , servant-server
     , shakespeare
     , sqlite-simple
+    , streamly-core
     , string-interpolate
     , template-haskell
     , text
@@ -1931,6 +2024,7 @@ test-suite ex24-test
     , servant-server
     , shakespeare
     , sqlite-simple
+    , streamly-core
     , string-interpolate
     , template-haskell
     , text
@@ -1999,6 +2093,7 @@ test-suite ex27-test
     , servant-server
     , shakespeare
     , sqlite-simple
+    , streamly-core
     , string-interpolate
     , template-haskell
     , text
@@ -2069,6 +2164,7 @@ test-suite ex40-test
     , servant-server
     , shakespeare
     , sqlite-simple
+    , streamly-core
     , string-interpolate
     , template-haskell
     , text
@@ -2146,6 +2242,7 @@ test-suite ex51-test
     , servant-server
     , shakespeare
     , sqlite-simple
+    , streamly-core
     , string-interpolate
     , template-haskell
     , text
@@ -2214,6 +2311,7 @@ test-suite ex53-test
     , servant-server
     , shakespeare
     , sqlite-simple
+    , streamly-core
     , string-interpolate
     , template-haskell
     , text

@@ -48,7 +48,7 @@ A personal project to solve the exercises from the book *Exercises for Programme
 | -------- | -------------| ----- | -----:|
 | Ex28 [x] [Adding Numbers](ex28/Main.hs)        | | |2(1)|
 | Ex29 [ ] [Handling Bad Input](ex29/Main.hs)    | | | |
-| Ex30 [ ] [Multiplication Table](ex30/Main.hs)  | | | |
+| Ex30 [x] [Multiplication Table](ex30/Main.hs)  | streamly-core | PULL stream | 3(1) |
 | Ex31 [ ] [Karvonen Heart Rate](ex31/Main.hs)   | | | |
 | Ex32 [x] [Guess the Number Game](ex32/Main.hs) | | RWST monad |4(3) |
 #### Chapter 7: Data Structures
