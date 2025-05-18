@@ -7,6 +7,7 @@
 {-# LANGUAGE MultiParamTypeClasses #-}
 {-# LANGUAGE StandaloneDeriving #-}
 {-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE TypeApplications #-}
 
 module DB (lookupUrl, insertUrl, incrementVisitCount, PrimaryKey (UrlId), Url, UrlT(..)) where
 
@@ -48,14 +49,15 @@ deriving instance Eq Url
 incrementVisitCount :: Text -> Connection -> IO (Maybe Text)
 incrementVisitCount shortUrl conn
   = runBeamSqliteDebug putStrLn conn
-  $ do
-      runSelectReturningOne (lookup_ (_url urlShortnerDb) (UrlId shortUrl)) >>= \case
-        Just (Url _ longUrl count) -> do
-          runUpdate $ update (_url urlShortnerDb)
-                             (\url -> _urlVisitCount url <-. val_ count + 1)
-                             (\url -> _urlShortUrl url ==. val_ shortUrl)
-          return $ Just longUrl
-        Nothing -> return Nothing
+  $ runLookup >>= traverse runIncrement
+  where
+    runLookup = runSelectReturningOne
+              $ lookup_ (_url urlShortnerDb) (UrlId shortUrl)
+    runIncrement (Url _ longUrl count) = do 
+      runUpdate $ update (_url urlShortnerDb)
+                         (\url -> _urlVisitCount url <-. val_ count + 1)
+                         (\url -> _urlShortUrl url ==. val_ shortUrl)
+      return longUrl
 
 insertUrl :: Text -> Text -> Connection -> IO ()
 insertUrl short long conn

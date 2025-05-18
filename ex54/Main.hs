@@ -65,8 +65,8 @@ instance ToJSON StatsRes
 
 type AppEx54 = ReaderT Connection Handler
 
-type API =
-       "ex54" :> ReqBody '[JSON] ShortenReq         :> Post '[JSON] ShortenRes
+type API
+  =    "ex54" :> ReqBody '[JSON] ShortenReq         :> Post '[JSON] ShortenRes
   :<|> "ex54" :> Capture "shortUrl" Text            :> Get  '[JSON] NoContent
   :<|> "ex54" :> Capture "shortUrl" Text :> "stats" :> Get  '[JSON] StatsRes
 
