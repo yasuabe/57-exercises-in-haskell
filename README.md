@@ -66,7 +66,7 @@ A personal project to solve the exercises from the book *Exercises for Programme
 | Exercise | dependencies | Memo  | Lv.  |
 | -------- | -------------| ----- | -----:|
 | Ex41 [x] [Name Sorter](ex41/Main.hs)           | | |2(2)|
-| Ex42 [ ] [Parsing a Data File](ex42/Main.hs)   | | | |
+| Ex42 [x] [Parsing a Data File](ex42/Main.hs)   |streamly | file read, `NonEmpty` | 3(2)|
 | Ex43 [ ] [Website Generator](ex43/Main.hs)     | | | |
 | Ex44 [ ] [Product Search](ex44/Main.hs)        | | | |
 | Ex45 [ ] [Word Finder](ex45/Main.hs)           | | | |

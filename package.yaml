@@ -191,6 +191,13 @@ executables:
     dependencies:
       - exercises-for-programmer-in-haskell
 
+  ex42:
+    main: Main.hs
+    source-dirs: ex42
+    ghc-options: -Wall
+    dependencies:
+      - exercises-for-programmer-in-haskell
+
   ex46:
     main: Main.hs
     source-dirs: ex46
