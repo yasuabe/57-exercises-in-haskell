@@ -30,7 +30,7 @@ A personal project to solve the exercises from the book *Exercises for Programme
 | Ex15 [ ] [Password Validation](ex15/Main.hs)            | | | |
 | Ex16 [ ] [Legal Driving Age](ex16/Main.hs)              | | | |
 | Ex17 [ ] [Blood Alcohol Calculator](ex17/Main.hs)       | | | |
-| Ex18 [ ] [Temperature Converter](ex18/Main.hs)          | | | |
+| Ex18 [x] [Temperature Converter](ex18/Main.hs)          | | |1(1) |
 | Ex19 [ ] [BMI Calculator](ex19/Main.hs)                 | | | |
 | Ex20 [ ] [Multistate Sales Tax Calculator](ex20/Main.hs)| | | |
 | Ex21 [ ] [Numbers to Names](ex21/Main.hs)               | | | |

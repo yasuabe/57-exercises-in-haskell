@@ -68,6 +68,7 @@ library:
     - Common.Function
     - Common.System
     - Common.Util
+    - Common.Math
   ghc-options: -Wall
 
 executables:
@@ -124,6 +125,13 @@ executables:
   ex14:
     main: Main.hs
     source-dirs: ex14
+    ghc-options: -Wall
+    dependencies:
+      - exercises-for-programmer-in-haskell
+
+  ex18:
+    main: Main.hs
+    source-dirs: ex18
     ghc-options: -Wall
     dependencies:
       - exercises-for-programmer-in-haskell

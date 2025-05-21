@@ -34,13 +34,13 @@ repeatUntilValid converter prompt errorMessage = do
       putTextLn errorMessage
       repeatUntilValid converter prompt errorMessage
 
-readInt :: Text -> Maybe Int
+readInt :: Converter Int
 readInt input =
   case input & T.strip & unpack & reads of
     [(x, "")] -> Just x
     _         -> Nothing
 
-readDouble :: Text -> Maybe Double
+readDouble :: Converter Double
 readDouble input =
   case input & T.strip & unpack & reads of
     [(x, "")] -> Just x
