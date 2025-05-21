@@ -19,7 +19,7 @@ A personal project to solve the exercises from the book *Exercises for Programme
 | Ex07 [x] [Area of a Rectangular Room](ex07/Main.hs)    | transformers ||1(1)
 | Ex08 [ ] [Pizza Party](ex08/Main.hs)                   | |
 | Ex09 [ ] [Paint Calculator](ex09/Main.hs)              | |
-| Ex10 [ ] [Self-Checkout](ex10/Main.hs)                 | |
+| Ex10 [x] [Self-Checkout](ex10/Main.hs)                 | money calculation | | 3(2)|
 | Ex11 [ ] [Currency Conversion](ex11/Main.hs)           | |
 | Ex12 [ ] [Computing Simple Interest](ex12/Main.hs)     | |
 | Ex13 [x] [Determining Compound Interest](ex13/Main.hs) | regex-tdfa | money calculation | 3(2) |
