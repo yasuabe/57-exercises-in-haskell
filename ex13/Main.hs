@@ -12,14 +12,13 @@
 module Main where
 
 import Data.String.Interpolate (i)
-import Data.Text (Text, unpack, unlines)
-import Text.Read (readMaybe)
-import Text.Regex.TDFA ((=~))
+import Data.Text (Text, unlines)
 
-import System.Console.Haskeline (InputT, Completion (display), outputStr)
+import System.Console.Haskeline (InputT)
 
 import Common.App (runProgram)
-import Common.System (Converter, putTextLn, repeatUntilValid)
+import Common.System (putTextLn, repeatUntilValid,
+                      toNonNega2Decimals, toPositiveSmallInt, toNonNegativeInt)
 import Ex13 (calcCompoundRate)
 
 data InputParam = InputParam
@@ -29,20 +28,6 @@ data InputParam = InputParam
   , frequency :: Int
   } deriving (Show)
 
-matchConvert :: (Read a) => String -> Converter a
-matchConvert pattern t
-  | t =~ pattern = readMaybe (unpack t)
-  | otherwise    = Nothing
-
-toNonNegativeInt :: Converter Int
-toNonNegativeInt = matchConvert "^(0|[1-9][0-9]*)$"
-
-toPositiveSmallInt :: Converter Int
-toPositiveSmallInt = matchConvert "^([1-9][0-9]{0,2})$"
-
-toNonNegativeRate :: Converter Double
-toNonNegativeRate = matchConvert "^(0|[1-9][0-9]*)(\\.[0-9]{1,2})?$"
-
 getPrincipalAmount :: InputT IO Int
 getPrincipalAmount = repeatUntilValid
                        toNonNegativeInt
@@ -50,7 +35,7 @@ getPrincipalAmount = repeatUntilValid
                        "Enter a non-negative integer."
 getAnnualInterestRate :: InputT IO Double
 getAnnualInterestRate = repeatUntilValid
-                       toNonNegativeRate
+                       toNonNega2Decimals
                        "What is the rate: "
                        "Enter a positive decimal rounded to two decimal places"
 getNumberOfYears :: InputT IO Int
@@ -74,7 +59,7 @@ getInputs = InputParam
 displayResult :: InputParam -> Double -> InputT IO ()
 displayResult input componded =
   let InputParam p r y f = input
-      compounded' = fromIntegral (ceiling (componded * 100)) / 100 :: Double
+      compounded' = fromIntegral (ceiling (componded * 100) :: Integer) / 100 :: Double
       formatted = [ [i|$#{p} invested at #{r}% for #{y} years|]
                   , [i|compounded #{f} times per year is $#{compounded'}.|]
                   ] :: [Text]
@@ -82,8 +67,8 @@ displayResult input componded =
 
 program :: InputT IO ()
 program = do
-  input@(InputParam principal rate year frequency) <- getInputs
-  let compounded = calcCompoundRate principal rate year frequency
+  input@(InputParam p r y f) <- getInputs
+  let compounded = calcCompoundRate p r y f
   displayResult input compounded
 
 main :: IO ()

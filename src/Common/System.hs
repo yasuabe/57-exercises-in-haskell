@@ -1,7 +1,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE QuasiQuotes #-}
 
-module Common.System (Converter, YesNo(..), askYesNo, putText, putTextLn, repeatUntilValid, readLine, readInt, readDouble) where
+module Common.System (Converter, YesNo(..), askYesNo, putText, putTextLn, repeatUntilValid, readLine, readInt, readDouble, toNonNegativeInt, toNonNega2Decimals, toPositiveSmallInt) where
 
 import Control.Monad.Catch (MonadMask)
 import Control.Monad.IO.Class (MonadIO)
@@ -9,6 +9,8 @@ import Data.Function ((&))
 import Data.String.Interpolate (i)
 import Data.Text as T (Text, pack, strip, toLower, unpack)
 import System.Console.Haskeline (InputT, getInputLine, outputStr, outputStrLn)
+import Text.Read (readMaybe)
+import Text.Regex.TDFA ((=~))
 
 type Converter a = Text -> Maybe a
 
@@ -43,6 +45,20 @@ readDouble input =
   case input & T.strip & unpack & reads of
     [(x, "")] -> Just x
     _         -> Nothing
+
+matchConvert :: (Read a) => String -> Converter a
+matchConvert pattern t
+  | t =~ pattern = readMaybe (unpack t)
+  | otherwise    = Nothing
+
+toNonNegativeInt :: Converter Int
+toNonNegativeInt = matchConvert "^(0|[1-9][0-9]*)$"
+
+toPositiveSmallInt :: Converter Int
+toPositiveSmallInt = matchConvert "^([1-9][0-9]{0,2})$"
+
+toNonNega2Decimals :: Converter Double
+toNonNega2Decimals = matchConvert "^(0|[1-9][0-9]*)(\\.[0-9]{1,2})?$"
 
 data YesNo = Yes | No
 
