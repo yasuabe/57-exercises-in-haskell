@@ -20,7 +20,7 @@ import Common.System (putTextLn, repeatUntilValid, convertText)
 
 import qualified Ex18 (ConversionType, toConversionType, convert, from, to)
 
-type AppType a = InputT IO a
+type AppType = InputT IO
 
 readConversionType :: AppType Ex18.ConversionType
 readConversionType =
