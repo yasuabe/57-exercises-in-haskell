@@ -16,7 +16,7 @@ import System.Console.Haskeline (InputT)
 
 import Common.App (runProgram)
 import Common.Math (roundTo)
-import Common.System (putTextLn, repeatUntilValid, readDouble)
+import Common.System (putTextLn, repeatUntilValid, convertText)
 
 import qualified Ex18 (ConversionType, toConversionType, convert, from, to)
 
@@ -32,7 +32,7 @@ readConversionType =
 getTemperature :: Ex18.ConversionType -> AppType Double
 getTemperature convType =
   repeatUntilValid
-    readDouble
+    convertText
     [i|Please enter the temperature in #{Ex18.from convType}: |]
     "Invalid temperature"
 

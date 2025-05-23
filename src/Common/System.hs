@@ -1,7 +1,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE QuasiQuotes #-}
 
-module Common.System (Converter, YesNo(..), askYesNo, putText, putTextLn, repeatUntilValid, readLine, readDouble, toNonNegativeInt, toNonNega2Decimals, toPositiveSmallInt, convertText) where
+module Common.System (Converter, YesNo(..), askYesNo, putText, putTextLn, repeatUntilValid, readLine, toNonNegativeInt, toNonNega2Decimals, toPositiveSmallInt, convertText) where
 
 import Control.Monad.Catch (MonadMask)
 import Control.Monad.IO.Class (MonadIO)
@@ -39,9 +39,6 @@ convertText input =
   case input & T.strip & unpack & reads of
     [(x, "")] -> Just x
     _         -> Nothing
-
-readDouble :: Converter Double
-readDouble = convertText
 
 matchConvert :: (Read a) => String -> Converter a
 matchConvert pattern t

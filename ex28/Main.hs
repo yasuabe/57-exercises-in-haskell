@@ -14,13 +14,13 @@ import Data.String.Interpolate (i)
 import System.Console.Haskeline (InputT)
 
 import Common.App (runProgram)
-import Common.System (putTextLn, repeatUntilValid, readDouble)
+import Common.System (putTextLn, repeatUntilValid, convertText)
 
 readFiveNumbers :: InputT IO [Double]
 readFiveNumbers =
     replicateM 5 readNumber
   where
-    readNumber = repeatUntilValid readDouble "Enter a number: " "Invalid number"
+    readNumber = repeatUntilValid convertText "Enter a number: " "Invalid number"
 
 program :: InputT IO ()
 program = do
