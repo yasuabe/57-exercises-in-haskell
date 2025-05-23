@@ -17,7 +17,7 @@ A personal project to solve the exercises from the book *Exercises for Programme
 | Exercise | dependencies | Memo  | Lv.  |
 | -------- | -------------| ----- | -----:|
 | Ex07 [x] [Area of a Rectangular Room](ex07/Main.hs)    | transformers ||1(1)
-| Ex08 [ ] [Pizza Party](ex08/Main.hs)                   | |
+| Ex08 [x] [Pizza Party](ex08/Main.hs)                   | | | 1(1)
 | Ex09 [ ] [Paint Calculator](ex09/Main.hs)              | |
 | Ex10 [x] [Self-Checkout](ex10/Main.hs)                 | money calculation | | 3(2)|
 | Ex11 [ ] [Currency Conversion](ex11/Main.hs)           | |
