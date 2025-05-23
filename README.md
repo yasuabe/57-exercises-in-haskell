@@ -26,11 +26,11 @@ A personal project to solve the exercises from the book *Exercises for Programme
 #### Chapter 4: Making Decisions
 | Exercise | dependencies | Memo  | Lv.  |
 | -------- | -------------| ----- | -----:|
-| Ex14 [x] [Tax Calculator](ex14/Main.hs)                 |transformers, regex-tdfa, text |money, rounding |2(1)|
-| Ex15 [ ] [Password Validation](ex15/Main.hs)            | | | |
-| Ex16 [ ] [Legal Driving Age](ex16/Main.hs)              | | | |
-| Ex17 [ ] [Blood Alcohol Calculator](ex17/Main.hs)       | | | |
-| Ex18 [x] [Temperature Converter](ex18/Main.hs)          | | |1(1) |
+| Ex14 [x] [Tax Calculator](ex14/Main.hs)                 | transformers, regex-tdfa, text | money, rounding |2(1)|
+| Ex15 [x] [Password Validation](ex15/Main.hs)            | extra | | 2(1)|
+| Ex16 [ ] [Legal Driving Age](ex16/Main.hs)              | | |  |
+| Ex17 [ ] [Blood Alcohol Calculator](ex17/Main.hs)       | | |  |
+| Ex18 [x] [Temperature Converter](ex18/Main.hs)          | | | 1(1) |
 | Ex19 [ ] [BMI Calculator](ex19/Main.hs)                 | | | |
 | Ex20 [ ] [Multistate Sales Tax Calculator](ex20/Main.hs)| | | |
 | Ex21 [ ] [Numbers to Names](ex21/Main.hs)               | | | |
