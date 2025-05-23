@@ -1,7 +1,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE QuasiQuotes #-}
 
-module Common.System (Converter, YesNo(..), askYesNo, putText, putTextLn, repeatUntilValid, readLine, readInt, readDouble, toNonNegativeInt, toNonNega2Decimals, toPositiveSmallInt) where
+module Common.System (Converter, YesNo(..), askYesNo, putText, putTextLn, repeatUntilValid, readLine, readDouble, toNonNegativeInt, toNonNega2Decimals, toPositiveSmallInt, convertText) where
 
 import Control.Monad.Catch (MonadMask)
 import Control.Monad.IO.Class (MonadIO)
@@ -34,17 +34,14 @@ repeatUntilValid converter prompt errorMessage = do
       putTextLn errorMessage
       repeatUntilValid converter prompt errorMessage
 
-readInt :: Converter Int
-readInt input =
+convertText :: (Read a) => Converter a 
+convertText input =
   case input & T.strip & unpack & reads of
     [(x, "")] -> Just x
     _         -> Nothing
 
 readDouble :: Converter Double
-readDouble input =
-  case input & T.strip & unpack & reads of
-    [(x, "")] -> Just x
-    _         -> Nothing
+readDouble = convertText
 
 matchConvert :: (Read a) => String -> Converter a
 matchConvert pattern t

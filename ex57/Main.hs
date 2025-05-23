@@ -38,7 +38,7 @@ import System.Console.Haskeline
 import qualified Data.ByteString.Lazy as BL
 
 import Common.App (runProgram)
-import Common.System (putTextLn, readInt, repeatUntilValid)
+import Common.System (putTextLn, repeatUntilValid, convertText)
 import Common.Util (shuffle)
 import Control.Monad.IO.Class
 
@@ -59,7 +59,7 @@ loadQuestions =
       Left  err       -> error $ "Failed to parse JSON: " ++ err
 
 readAnswer :: TriviaSession Int
-readAnswer = lift $ repeatUntilValid readInt
+readAnswer = lift $ repeatUntilValid convertText
                                      "Your answer: "
                                      "Please enter a valid number."
 
