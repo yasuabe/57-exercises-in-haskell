@@ -60,6 +60,7 @@ dependencies:
   - wai-cors
   - network-uri
   - streamly-core
+  - monad-loops
 
 library:
   source-dirs: src
@@ -188,6 +189,13 @@ executables:
   ex33:
     main: Main.hs
     source-dirs: ex33
+    ghc-options: -Wall
+    dependencies:
+      - exercises-for-programmer-in-haskell
+
+  ex35:
+    main: Main.hs
+    source-dirs: ex35
     ghc-options: -Wall
     dependencies:
       - exercises-for-programmer-in-haskell

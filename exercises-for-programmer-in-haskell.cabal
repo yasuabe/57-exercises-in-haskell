@@ -56,6 +56,7 @@ library
     , http-conduit
     , lucid
     , memory
+    , monad-loops
     , mongoDB
     , mtl
     , network-uri
@@ -120,6 +121,7 @@ executable ex01
     , http-conduit
     , lucid
     , memory
+    , monad-loops
     , mongoDB
     , mtl
     , network-uri
@@ -184,6 +186,7 @@ executable ex02
     , http-conduit
     , lucid
     , memory
+    , monad-loops
     , mongoDB
     , mtl
     , network-uri
@@ -249,6 +252,7 @@ executable ex03
     , http-conduit
     , lucid
     , memory
+    , monad-loops
     , mongoDB
     , mtl
     , network-uri
@@ -313,6 +317,7 @@ executable ex06
     , http-conduit
     , lucid
     , memory
+    , monad-loops
     , mongoDB
     , mtl
     , network-uri
@@ -378,6 +383,7 @@ executable ex07
     , http-conduit
     , lucid
     , memory
+    , monad-loops
     , mongoDB
     , mtl
     , network-uri
@@ -442,6 +448,7 @@ executable ex08
     , http-conduit
     , lucid
     , memory
+    , monad-loops
     , mongoDB
     , mtl
     , network-uri
@@ -506,6 +513,7 @@ executable ex10
     , http-conduit
     , lucid
     , memory
+    , monad-loops
     , mongoDB
     , mtl
     , network-uri
@@ -571,6 +579,7 @@ executable ex13
     , http-conduit
     , lucid
     , memory
+    , monad-loops
     , mongoDB
     , mtl
     , network-uri
@@ -635,6 +644,7 @@ executable ex14
     , http-conduit
     , lucid
     , memory
+    , monad-loops
     , mongoDB
     , mtl
     , network-uri
@@ -700,6 +710,7 @@ executable ex18
     , http-conduit
     , lucid
     , memory
+    , monad-loops
     , mongoDB
     , mtl
     , network-uri
@@ -764,6 +775,7 @@ executable ex23
     , http-conduit
     , lucid
     , memory
+    , monad-loops
     , mongoDB
     , mtl
     , network-uri
@@ -829,6 +841,7 @@ executable ex24
     , http-conduit
     , lucid
     , memory
+    , monad-loops
     , mongoDB
     , mtl
     , network-uri
@@ -894,6 +907,7 @@ executable ex27
     , http-conduit
     , lucid
     , memory
+    , monad-loops
     , mongoDB
     , mtl
     , network-uri
@@ -958,6 +972,7 @@ executable ex28
     , http-conduit
     , lucid
     , memory
+    , monad-loops
     , mongoDB
     , mtl
     , network-uri
@@ -1022,6 +1037,7 @@ executable ex30
     , http-conduit
     , lucid
     , memory
+    , monad-loops
     , mongoDB
     , mtl
     , network-uri
@@ -1086,6 +1102,7 @@ executable ex32
     , http-conduit
     , lucid
     , memory
+    , monad-loops
     , mongoDB
     , mtl
     , network-uri
@@ -1150,6 +1167,72 @@ executable ex33
     , http-conduit
     , lucid
     , memory
+    , monad-loops
+    , mongoDB
+    , mtl
+    , network-uri
+    , persistent
+    , persistent-mongoDB
+    , random
+    , regex-tdfa
+    , resource-pool
+    , scotty
+    , servant
+    , servant-server
+    , shakespeare
+    , sqlite-simple
+    , streamly-core
+    , string-interpolate
+    , template-haskell
+    , text
+    , time
+    , transformers
+    , unordered-containers
+    , uuid
+    , validation
+    , wai
+    , wai-cors
+    , warp
+    , yesod
+    , yesod-core
+    , yesod-form
+  default-language: Haskell2010
+
+executable ex35
+  main-is: Main.hs
+  other-modules:
+      Paths_exercises_for_programmer_in_haskell
+  hs-source-dirs:
+      ex35
+  ghc-options: -Wall
+  build-depends:
+      aeson
+    , aeson-casing
+    , base >=4.7 && <5
+    , base16-bytestring
+    , beam-core
+    , beam-sqlite
+    , bytestring
+    , conduit
+    , conduit-extra
+    , containers
+    , cryptohash-md5
+    , directory
+    , exceptions
+    , exercises-for-programmer-in-haskell
+    , extra
+    , gi-gdkpixbuf
+    , gi-gio
+    , gi-gtk
+    , hashtables
+    , haskeline
+    , hedis
+    , http-client
+    , http-client-tls
+    , http-conduit
+    , lucid
+    , memory
+    , monad-loops
     , mongoDB
     , mtl
     , network-uri
@@ -1214,6 +1297,7 @@ executable ex38
     , http-conduit
     , lucid
     , memory
+    , monad-loops
     , mongoDB
     , mtl
     , network-uri
@@ -1279,6 +1363,7 @@ executable ex40
     , http-conduit
     , lucid
     , memory
+    , monad-loops
     , mongoDB
     , mtl
     , network-uri
@@ -1343,6 +1428,7 @@ executable ex41
     , http-conduit
     , lucid
     , memory
+    , monad-loops
     , mongoDB
     , mtl
     , network-uri
@@ -1407,6 +1493,7 @@ executable ex42
     , http-conduit
     , lucid
     , memory
+    , monad-loops
     , mongoDB
     , mtl
     , network-uri
@@ -1471,6 +1558,7 @@ executable ex46
     , http-conduit
     , lucid
     , memory
+    , monad-loops
     , mongoDB
     , mtl
     , network-uri
@@ -1537,6 +1625,7 @@ executable ex49
     , http-conduit
     , lucid
     , memory
+    , monad-loops
     , mongoDB
     , mtl
     , network-uri
@@ -1608,6 +1697,7 @@ executable ex51
     , http-conduit
     , lucid
     , memory
+    , monad-loops
     , mongoDB
     , mtl
     , network-uri
@@ -1672,6 +1762,7 @@ executable ex52
     , http-conduit
     , lucid
     , memory
+    , monad-loops
     , mongoDB
     , mtl
     , network-uri
@@ -1736,6 +1827,7 @@ executable ex52-client
     , http-conduit
     , lucid
     , memory
+    , monad-loops
     , mongoDB
     , mtl
     , network-uri
@@ -1801,6 +1893,7 @@ executable ex53
     , http-conduit
     , lucid
     , memory
+    , monad-loops
     , mongoDB
     , mtl
     , network-uri
@@ -1866,6 +1959,7 @@ executable ex54
     , http-conduit
     , lucid
     , memory
+    , monad-loops
     , mongoDB
     , mtl
     , network-uri
@@ -1931,6 +2025,7 @@ executable ex55
     , http-conduit
     , lucid
     , memory
+    , monad-loops
     , mongoDB
     , mtl
     , network-uri
@@ -1996,6 +2091,7 @@ executable ex56
     , http-conduit
     , lucid
     , memory
+    , monad-loops
     , mongoDB
     , mtl
     , network-uri
@@ -2060,6 +2156,7 @@ executable ex57
     , http-conduit
     , lucid
     , memory
+    , monad-loops
     , mongoDB
     , mtl
     , network-uri
@@ -2129,6 +2226,7 @@ test-suite ex03-test
     , http-conduit
     , lucid
     , memory
+    , monad-loops
     , mongoDB
     , mtl
     , network-uri
@@ -2197,6 +2295,7 @@ test-suite ex07-test
     , http-conduit
     , lucid
     , memory
+    , monad-loops
     , mongoDB
     , mtl
     , network-uri
@@ -2265,6 +2364,7 @@ test-suite ex13-test
     , http-conduit
     , lucid
     , memory
+    , monad-loops
     , mongoDB
     , mtl
     , network-uri
@@ -2333,6 +2433,7 @@ test-suite ex24-test
     , http-conduit
     , lucid
     , memory
+    , monad-loops
     , mongoDB
     , mtl
     , network-uri
@@ -2402,6 +2503,7 @@ test-suite ex27-test
     , http-conduit
     , lucid
     , memory
+    , monad-loops
     , mongoDB
     , mtl
     , network-uri
@@ -2471,6 +2573,7 @@ test-suite ex40-test
     , http-conduit
     , lucid
     , memory
+    , monad-loops
     , mongoDB
     , mtl
     , network-uri
@@ -2551,6 +2654,7 @@ test-suite ex51-test
     , http-conduit
     , lucid
     , memory
+    , monad-loops
     , mongoDB
     , mtl
     , network-uri
@@ -2620,6 +2724,7 @@ test-suite ex53-test
     , http-conduit
     , lucid
     , memory
+    , monad-loops
     , mongoDB
     , mtl
     , network-uri
