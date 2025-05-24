@@ -56,7 +56,7 @@ A personal project to solve the exercises from the book *Exercises for Programme
 | -------- | -------------| ----- | -----:|
 | Ex33 [x] [Magic 8 Ball](ex33/Main.hs)          | exceptions, haskeline, random | |2(1)|
 | Ex34 [ ] [Employee List Removal](ex34/Main.hs) | | | |
-| Ex35 [ ] [Picking a Winner](ex35/Main.hs)      | | | |
+| Ex35 [x] [Picking a Winner](ex35/Main.hs)      | monad-loops | | 2(1) |
 | Ex36 [ ] [Computing Statistics](ex36/Main.hs)  | | | |
 | Ex37 [ ] [Password Generator](ex37/Main.hs)    | | | |
 | Ex38 [x] [Filtering Values](ex39/Main.hs)      | streamly| | 3(1)|
@@ -74,7 +74,7 @@ A personal project to solve the exercises from the book *Exercises for Programme
 #### Chapter 9: Working with External Services
 | Exercise | dependencies | Memo  | Lv.  |
 | -------- | -------------| ----- | -----:|
-| Ex47 [ ] [Who’s in Space?](ex47/Main.hs)                | |     
+| Ex47 [x] [Who’s in Space?](ex47/Main.hs)                | quickcheck-classes | type class test |  3(2) 
 | Ex48 [ ] [Grabbing the Weather](ex48/Main.hs)           | |          
 | Ex49 [x] [Flickr Photo Search](ex49/Main.hs)            | aeson, gi-gtk, http-client, bytestring, text | GUI/GTK3, HTTP client, multi-thread |5(4)
 | Ex50 [ ] [Movie Recommendations](ex50/Main.hs)          | |           
@@ -122,7 +122,7 @@ A personal project to solve the exercises from the book *Exercises for Programme
 - base16-bytestring
 - memory
 - streamly-core
-
+- monad-loops
 
 ## How to Run
 Run the following directly under the project.

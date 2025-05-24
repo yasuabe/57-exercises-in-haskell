@@ -68,6 +68,7 @@ library:
     - Common.App
     - Common.Function
     - Common.System
+    - Common.Tuples
     - Common.Util
     - Common.Math
   ghc-options: -Wall
@@ -235,6 +236,13 @@ executables:
     dependencies:
       - exercises-for-programmer-in-haskell
 
+  ex47:
+    main: Main.hs
+    source-dirs: ex47
+    ghc-options: -Wall
+    dependencies:
+      - exercises-for-programmer-in-haskell
+
   ex49:
     main: Main.hs
     source-dirs: ex49
@@ -393,4 +401,16 @@ tests:
     dependencies:
       - base
       - HUnit
+      - exercises-for-programmer-in-haskell
+
+  common-test:
+    main: Spec.hs
+    source-dirs:
+      - test/common
+      - src
+    dependencies:
+      - base
+      - QuickCheck >= 2.14
+      - quickcheck-classes >= 0.6
+      - quickcheck-classes-base >= 0.6
       - exercises-for-programmer-in-haskell
