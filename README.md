@@ -33,7 +33,7 @@ A personal project to solve the exercises from the book *Exercises for Programme
 | Ex18 [x] [Temperature Converter](ex18/Main.hs)          | | | 1(1) |
 | Ex19 [ ] [BMI Calculator](ex19/Main.hs)                 | | | |
 | Ex20 [ ] [Multistate Sales Tax Calculator](ex20/Main.hs)| | | |
-| Ex21 [ ] [Numbers to Names](ex21/Main.hs)               | | | |
+| Ex21 [x] [Numbers to Names](ex21/Main.hs)               | | | |
 | Ex22 [ ] [Comparing Numbers](ex22/Main.hs)              | | | |
 | Ex23 [x] [Troubleshooting Car Issues](ex23/Main.hs)     | | | 2(2) |
 #### Chapter 5: Functions
@@ -68,7 +68,7 @@ A personal project to solve the exercises from the book *Exercises for Programme
 | Ex41 [x] [Name Sorter](ex41/Main.hs)           | | |2(2)|
 | Ex42 [x] [Parsing a Data File](ex42/Main.hs)   |streamly | file read, `NonEmpty` | 3(2)|
 | Ex43 [ ] [Website Generator](ex43/Main.hs)     | | | |
-| Ex44 [ ] [Product Search](ex44/Main.hs)        | | | |
+| Ex44 [x] [Product Search](ex44/Main.hs)        | | file read, json parsing | 2(2) |
 | Ex45 [ ] [Word Finder](ex45/Main.hs)           | | | |
 | Ex46 [x] [Word Frequency Finder](ex46/Main.hs) | conduit, hashtables | Stream processing |3(1)|
 #### Chapter 9: Working with External Services
