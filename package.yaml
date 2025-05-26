@@ -95,6 +95,13 @@ executables:
     dependencies:
       - exercises-for-programmer-in-haskell
 
+  ex04:
+    main: Main.hs
+    source-dirs: ex04
+    ghc-options: -Wall
+    dependencies:
+      - exercises-for-programmer-in-haskell
+
   ex06:
     main: Main.hs
     source-dirs: ex06

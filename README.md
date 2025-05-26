@@ -10,7 +10,7 @@ A personal project to solve the exercises from the book *Exercises for Programme
 | Ex01 [x] [Saying Hello](ex01/Main.hs)                      | | |1(1)
 | Ex02 [x] [Counting the Number of Characters](ex02/Main.hs) | string-interpolate | |1(1)
 | Ex03 [x] [Printing Quotes](ex03/Main.hs)                   | | |1(1)
-| Ex04 [ ] [Mad Lib](ex04/Main.hs)                           | | |
+| Ex04 [x] [Mad Lib](ex04/Main.hs)                           | | |1(1)
 | Ex05 [ ] [Simple Math](ex05/Main.hs)                       | | |
 | Ex06 [x] [Retirement Calculator](ex06/Main.hs)             | time ||2(1)
 #### Chapter 3: Calculations
