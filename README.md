@@ -11,16 +11,16 @@ A personal project to solve the exercises from the book *Exercises for Programme
 | Ex02 [x] [Counting the Number of Characters](ex02/Main.hs) | string-interpolate | |1(1)
 | Ex03 [x] [Printing Quotes](ex03/Main.hs)                   | | |1(1)
 | Ex04 [x] [Mad Lib](ex04/Main.hs)                           | | |1(1)
-| Ex05 [ ] [Simple Math](ex05/Main.hs)                       | | |
+| Ex05 [x] [Simple Math](ex05/Main.hs)                       | | |1(1)
 | Ex06 [x] [Retirement Calculator](ex06/Main.hs)             | time ||2(1)
 #### Chapter 3: Calculations
 | Exercise | dependencies | Memo  | Lv.  |
 | -------- | -------------| ----- | -----:|
 | Ex07 [x] [Area of a Rectangular Room](ex07/Main.hs)    | transformers ||1(1)
 | Ex08 [x] [Pizza Party](ex08/Main.hs)                   | | | 1(1)
-| Ex09 [ ] [Paint Calculator](ex09/Main.hs)              | |
+| Ex09 [ ] [Paint Calculator](ex09/Main.hs)              | | | |
 | Ex10 [x] [Self-Checkout](ex10/Main.hs)                 | money calculation | | 3(2)|
-| Ex11 [ ] [Currency Conversion](ex11/Main.hs)           | |
+| Ex11 [x] [Currency Conversion](ex11/Main.hs)           | money calculation | | 2(2)|
 | Ex12 [ ] [Computing Simple Interest](ex12/Main.hs)     | |
 | Ex13 [x] [Determining Compound Interest](ex13/Main.hs) | regex-tdfa | money calculation | 3(2) |
 #### Chapter 4: Making Decisions
@@ -159,3 +159,4 @@ Completed 2 action(s).
 
 ## References
 - [Exercises for Programmers](https://www.oreilly.com/library/view/exercises-for-programmers/9781680501513/)
+- [Hoogle](https://hoogle.haskell.org/)
