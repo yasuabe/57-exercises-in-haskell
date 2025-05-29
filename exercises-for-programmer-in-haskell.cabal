@@ -349,6 +349,71 @@ executable ex04
     , yesod-form
   default-language: Haskell2010
 
+executable ex05
+  main-is: Main.hs
+  other-modules:
+      Paths_exercises_for_programmer_in_haskell
+  hs-source-dirs:
+      ex05
+  ghc-options: -Wall
+  build-depends:
+      aeson
+    , aeson-casing
+    , base >=4.7 && <5
+    , base16-bytestring
+    , beam-core
+    , beam-sqlite
+    , bytestring
+    , conduit
+    , conduit-extra
+    , containers
+    , cryptohash-md5
+    , directory
+    , exceptions
+    , exercises-for-programmer-in-haskell
+    , extra
+    , gi-gdkpixbuf
+    , gi-gio
+    , gi-gtk
+    , hashtables
+    , haskeline
+    , hedis
+    , http-client
+    , http-client-tls
+    , http-conduit
+    , lucid
+    , memory
+    , monad-loops
+    , mongoDB
+    , mtl
+    , network-uri
+    , persistent
+    , persistent-mongoDB
+    , random
+    , regex-tdfa
+    , resource-pool
+    , scotty
+    , servant
+    , servant-server
+    , shakespeare
+    , sqlite-simple
+    , streamly-core
+    , string-interpolate
+    , template-haskell
+    , text
+    , time
+    , transformers
+    , unordered-containers
+    , uuid
+    , validation
+    , wai
+    , wai-cors
+    , warp
+    , yesod
+    , yesod-core
+    , yesod-form
+  default-language: Haskell2010
+
 executable ex06
   main-is: Main.hs
   other-modules:
@@ -551,6 +616,72 @@ executable ex10
       Paths_exercises_for_programmer_in_haskell
   hs-source-dirs:
       ex10
+  ghc-options: -Wall
+  build-depends:
+      aeson
+    , aeson-casing
+    , base >=4.7 && <5
+    , base16-bytestring
+    , beam-core
+    , beam-sqlite
+    , bytestring
+    , conduit
+    , conduit-extra
+    , containers
+    , cryptohash-md5
+    , directory
+    , exceptions
+    , exercises-for-programmer-in-haskell
+    , extra
+    , gi-gdkpixbuf
+    , gi-gio
+    , gi-gtk
+    , hashtables
+    , haskeline
+    , hedis
+    , http-client
+    , http-client-tls
+    , http-conduit
+    , lucid
+    , memory
+    , monad-loops
+    , mongoDB
+    , mtl
+    , network-uri
+    , persistent
+    , persistent-mongoDB
+    , random
+    , regex-tdfa
+    , resource-pool
+    , scotty
+    , servant
+    , servant-server
+    , shakespeare
+    , sqlite-simple
+    , streamly-core
+    , string-interpolate
+    , template-haskell
+    , text
+    , time
+    , transformers
+    , unordered-containers
+    , uuid
+    , validation
+    , wai
+    , wai-cors
+    , warp
+    , yesod
+    , yesod-core
+    , yesod-form
+  default-language: Haskell2010
+
+executable ex11
+  main-is: Main.hs
+  other-modules:
+      Ex11
+      Paths_exercises_for_programmer_in_haskell
+  hs-source-dirs:
+      ex11
   ghc-options: -Wall
   build-depends:
       aeson
@@ -2540,6 +2671,76 @@ test-suite ex07-test
       ex07
   build-depends:
       QuickCheck
+    , aeson
+    , aeson-casing
+    , base
+    , base16-bytestring
+    , beam-core
+    , beam-sqlite
+    , bytestring
+    , conduit
+    , conduit-extra
+    , containers
+    , cryptohash-md5
+    , directory
+    , exceptions
+    , exercises-for-programmer-in-haskell
+    , extra
+    , gi-gdkpixbuf
+    , gi-gio
+    , gi-gtk
+    , hashtables
+    , haskeline
+    , hedis
+    , http-client
+    , http-client-tls
+    , http-conduit
+    , lucid
+    , memory
+    , monad-loops
+    , mongoDB
+    , mtl
+    , network-uri
+    , persistent
+    , persistent-mongoDB
+    , random
+    , regex-tdfa
+    , resource-pool
+    , scotty
+    , servant
+    , servant-server
+    , shakespeare
+    , sqlite-simple
+    , streamly-core
+    , string-interpolate
+    , template-haskell
+    , text
+    , time
+    , transformers
+    , unordered-containers
+    , uuid
+    , validation
+    , wai
+    , wai-cors
+    , warp
+    , yesod
+    , yesod-core
+    , yesod-form
+  default-language: Haskell2010
+
+test-suite ex11-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      MainTest
+      Ex11
+      Main
+      Paths_exercises_for_programmer_in_haskell
+  hs-source-dirs:
+      test/ex11
+      ex11
+  build-depends:
+      HUnit
     , aeson
     , aeson-casing
     , base

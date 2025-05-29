@@ -102,6 +102,13 @@ executables:
     dependencies:
       - exercises-for-programmer-in-haskell
 
+  ex05:
+    main: Main.hs
+    source-dirs: ex05
+    ghc-options: -Wall
+    dependencies:
+      - exercises-for-programmer-in-haskell
+
   ex06:
     main: Main.hs
     source-dirs: ex06
@@ -127,6 +134,13 @@ executables:
   ex10:
     main: Main.hs
     source-dirs: ex10
+    ghc-options: -Wall
+    dependencies:
+      - exercises-for-programmer-in-haskell
+
+  ex11:
+    main: Main.hs
+    source-dirs: ex11
     ghc-options: -Wall
     dependencies:
       - exercises-for-programmer-in-haskell
@@ -353,6 +367,16 @@ tests:
     dependencies:
       - base
       - QuickCheck
+      - exercises-for-programmer-in-haskell
+
+  ex11-test:
+    main: Spec.hs
+    source-dirs:
+      - test/ex11
+      - ex11
+    dependencies:
+      - base
+      - HUnit
       - exercises-for-programmer-in-haskell
 
   ex13-test:
