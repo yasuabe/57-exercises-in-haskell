@@ -19,10 +19,10 @@ A personal project to solve the exercises from the book *Exercises for Programme
 | Ex07 [x] [Area of a Rectangular Room](ex07/Main.hs)    | transformers ||1(1)
 | Ex08 [x] [Pizza Party](ex08/Main.hs)                   | | | 1(1)
 | Ex09 [ ] [Paint Calculator](ex09/Main.hs)              | | | |
-| Ex10 [x] [Self-Checkout](ex10/Main.hs)                 | money calculation | | 3(2)|
-| Ex11 [x] [Currency Conversion](ex11/Main.hs)           | money calculation | | 2(2)|
+| Ex10 [x] [Self-Checkout](ex10/Main.hs)                 | | money | 3(2)|
+| Ex11 [x] [Currency Conversion](ex11/Main.hs)           | | money | 2(2)|
 | Ex12 [ ] [Computing Simple Interest](ex12/Main.hs)     | |
-| Ex13 [x] [Determining Compound Interest](ex13/Main.hs) | regex-tdfa | money calculation | 3(2) |
+| Ex13 [x] [Determining Compound Interest](ex13/Main.hs) | regex-tdfa | money | 3(2) |
 #### Chapter 4: Making Decisions
 | Exercise | dependencies | Memo  | Lv.  |
 | -------- | -------------| ----- | -----:|
