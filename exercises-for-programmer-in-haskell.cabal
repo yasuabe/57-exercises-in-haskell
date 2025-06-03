@@ -30,7 +30,7 @@ library
       Paths_exercises_for_programmer_in_haskell
   hs-source-dirs:
       src
-  ghc-options: -Wall
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively -Wall
   build-depends:
       aeson
     , aeson-casing
@@ -64,6 +64,7 @@ library
     , network-uri
     , persistent
     , persistent-mongoDB
+    , polysemy
     , random
     , regex-tdfa
     , resource-pool
@@ -95,7 +96,7 @@ executable ex01
       Paths_exercises_for_programmer_in_haskell
   hs-source-dirs:
       ex01
-  ghc-options: -Wall
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively -Wall
   build-depends:
       aeson
     , aeson-casing
@@ -130,6 +131,7 @@ executable ex01
     , network-uri
     , persistent
     , persistent-mongoDB
+    , polysemy
     , random
     , regex-tdfa
     , resource-pool
@@ -161,7 +163,7 @@ executable ex02
       Paths_exercises_for_programmer_in_haskell
   hs-source-dirs:
       ex02
-  ghc-options: -Wall
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively -Wall
   build-depends:
       aeson
     , aeson-casing
@@ -196,6 +198,7 @@ executable ex02
     , network-uri
     , persistent
     , persistent-mongoDB
+    , polysemy
     , random
     , regex-tdfa
     , resource-pool
@@ -228,7 +231,7 @@ executable ex03
       Paths_exercises_for_programmer_in_haskell
   hs-source-dirs:
       ex03
-  ghc-options: -Wall
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively -Wall
   build-depends:
       aeson
     , aeson-casing
@@ -263,6 +266,7 @@ executable ex03
     , network-uri
     , persistent
     , persistent-mongoDB
+    , polysemy
     , random
     , regex-tdfa
     , resource-pool
@@ -294,7 +298,7 @@ executable ex04
       Paths_exercises_for_programmer_in_haskell
   hs-source-dirs:
       ex04
-  ghc-options: -Wall
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively -Wall
   build-depends:
       aeson
     , aeson-casing
@@ -329,6 +333,7 @@ executable ex04
     , network-uri
     , persistent
     , persistent-mongoDB
+    , polysemy
     , random
     , regex-tdfa
     , resource-pool
@@ -360,7 +365,7 @@ executable ex05
       Paths_exercises_for_programmer_in_haskell
   hs-source-dirs:
       ex05
-  ghc-options: -Wall
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively -Wall
   build-depends:
       aeson
     , aeson-casing
@@ -395,6 +400,7 @@ executable ex05
     , network-uri
     , persistent
     , persistent-mongoDB
+    , polysemy
     , random
     , regex-tdfa
     , resource-pool
@@ -426,7 +432,7 @@ executable ex06
       Paths_exercises_for_programmer_in_haskell
   hs-source-dirs:
       ex06
-  ghc-options: -Wall
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively -Wall
   build-depends:
       aeson
     , aeson-casing
@@ -461,6 +467,7 @@ executable ex06
     , network-uri
     , persistent
     , persistent-mongoDB
+    , polysemy
     , random
     , regex-tdfa
     , resource-pool
@@ -493,7 +500,7 @@ executable ex07
       Paths_exercises_for_programmer_in_haskell
   hs-source-dirs:
       ex07
-  ghc-options: -Wall
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively -Wall
   build-depends:
       aeson
     , aeson-casing
@@ -528,6 +535,7 @@ executable ex07
     , network-uri
     , persistent
     , persistent-mongoDB
+    , polysemy
     , random
     , regex-tdfa
     , resource-pool
@@ -559,7 +567,7 @@ executable ex08
       Paths_exercises_for_programmer_in_haskell
   hs-source-dirs:
       ex08
-  ghc-options: -Wall
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively -Wall
   build-depends:
       aeson
     , aeson-casing
@@ -594,6 +602,75 @@ executable ex08
     , network-uri
     , persistent
     , persistent-mongoDB
+    , polysemy
+    , random
+    , regex-tdfa
+    , resource-pool
+    , scotty
+    , servant
+    , servant-server
+    , shakespeare
+    , sqlite-simple
+    , streamly-core
+    , string-interpolate
+    , template-haskell
+    , text
+    , time
+    , transformers
+    , unordered-containers
+    , uuid
+    , validation
+    , wai
+    , wai-cors
+    , warp
+    , yesod
+    , yesod-core
+    , yesod-form
+  default-language: Haskell2010
+
+executable ex09
+  main-is: Main.hs
+  other-modules:
+      Ex09
+      Paths_exercises_for_programmer_in_haskell
+  hs-source-dirs:
+      ex09
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively -Wall
+  build-depends:
+      aeson
+    , aeson-casing
+    , base >=4.7 && <5
+    , base16-bytestring
+    , beam-core
+    , beam-sqlite
+    , bytestring
+    , conduit
+    , conduit-extra
+    , containers
+    , cryptohash-md5
+    , directory
+    , exceptions
+    , exercises-for-programmer-in-haskell
+    , extra
+    , free
+    , gi-gdkpixbuf
+    , gi-gio
+    , gi-gtk
+    , hashtables
+    , haskeline
+    , hedis
+    , http-client
+    , http-client-tls
+    , http-conduit
+    , lucid
+    , memory
+    , monad-loops
+    , mongoDB
+    , mtl
+    , network-uri
+    , persistent
+    , persistent-mongoDB
+    , polysemy
     , random
     , regex-tdfa
     , resource-pool
@@ -625,7 +702,7 @@ executable ex10
       Paths_exercises_for_programmer_in_haskell
   hs-source-dirs:
       ex10
-  ghc-options: -Wall
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively -Wall
   build-depends:
       aeson
     , aeson-casing
@@ -660,6 +737,7 @@ executable ex10
     , network-uri
     , persistent
     , persistent-mongoDB
+    , polysemy
     , random
     , regex-tdfa
     , resource-pool
@@ -692,7 +770,7 @@ executable ex11
       Paths_exercises_for_programmer_in_haskell
   hs-source-dirs:
       ex11
-  ghc-options: -Wall
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively -Wall
   build-depends:
       aeson
     , aeson-casing
@@ -727,6 +805,7 @@ executable ex11
     , network-uri
     , persistent
     , persistent-mongoDB
+    , polysemy
     , random
     , regex-tdfa
     , resource-pool
@@ -759,7 +838,7 @@ executable ex13
       Paths_exercises_for_programmer_in_haskell
   hs-source-dirs:
       ex13
-  ghc-options: -Wall
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively -Wall
   build-depends:
       aeson
     , aeson-casing
@@ -794,6 +873,7 @@ executable ex13
     , network-uri
     , persistent
     , persistent-mongoDB
+    , polysemy
     , random
     , regex-tdfa
     , resource-pool
@@ -825,7 +905,7 @@ executable ex14
       Paths_exercises_for_programmer_in_haskell
   hs-source-dirs:
       ex14
-  ghc-options: -Wall
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively -Wall
   build-depends:
       aeson
     , aeson-casing
@@ -860,6 +940,7 @@ executable ex14
     , network-uri
     , persistent
     , persistent-mongoDB
+    , polysemy
     , random
     , regex-tdfa
     , resource-pool
@@ -891,7 +972,7 @@ executable ex15
       Paths_exercises_for_programmer_in_haskell
   hs-source-dirs:
       ex15
-  ghc-options: -Wall
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively -Wall
   build-depends:
       aeson
     , aeson-casing
@@ -926,6 +1007,7 @@ executable ex15
     , network-uri
     , persistent
     , persistent-mongoDB
+    , polysemy
     , random
     , regex-tdfa
     , resource-pool
@@ -958,7 +1040,7 @@ executable ex16
       Paths_exercises_for_programmer_in_haskell
   hs-source-dirs:
       ex16
-  ghc-options: -Wall
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively -Wall
   build-depends:
       aeson
     , aeson-casing
@@ -993,6 +1075,7 @@ executable ex16
     , network-uri
     , persistent
     , persistent-mongoDB
+    , polysemy
     , random
     , regex-tdfa
     , resource-pool
@@ -1025,7 +1108,7 @@ executable ex18
       Paths_exercises_for_programmer_in_haskell
   hs-source-dirs:
       ex18
-  ghc-options: -Wall
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively -Wall
   build-depends:
       aeson
     , aeson-casing
@@ -1060,6 +1143,7 @@ executable ex18
     , network-uri
     , persistent
     , persistent-mongoDB
+    , polysemy
     , random
     , regex-tdfa
     , resource-pool
@@ -1091,7 +1175,7 @@ executable ex23
       Paths_exercises_for_programmer_in_haskell
   hs-source-dirs:
       ex23
-  ghc-options: -Wall
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively -Wall
   build-depends:
       aeson
     , aeson-casing
@@ -1126,6 +1210,7 @@ executable ex23
     , network-uri
     , persistent
     , persistent-mongoDB
+    , polysemy
     , random
     , regex-tdfa
     , resource-pool
@@ -1158,7 +1243,7 @@ executable ex24
       Paths_exercises_for_programmer_in_haskell
   hs-source-dirs:
       ex24
-  ghc-options: -Wall
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively -Wall
   build-depends:
       aeson
     , aeson-casing
@@ -1193,6 +1278,7 @@ executable ex24
     , network-uri
     , persistent
     , persistent-mongoDB
+    , polysemy
     , random
     , regex-tdfa
     , resource-pool
@@ -1225,7 +1311,7 @@ executable ex27
       Paths_exercises_for_programmer_in_haskell
   hs-source-dirs:
       ex27
-  ghc-options: -Wall
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively -Wall
   build-depends:
       aeson
     , aeson-casing
@@ -1260,6 +1346,7 @@ executable ex27
     , network-uri
     , persistent
     , persistent-mongoDB
+    , polysemy
     , random
     , regex-tdfa
     , resource-pool
@@ -1291,7 +1378,7 @@ executable ex28
       Paths_exercises_for_programmer_in_haskell
   hs-source-dirs:
       ex28
-  ghc-options: -Wall
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively -Wall
   build-depends:
       aeson
     , aeson-casing
@@ -1326,6 +1413,7 @@ executable ex28
     , network-uri
     , persistent
     , persistent-mongoDB
+    , polysemy
     , random
     , regex-tdfa
     , resource-pool
@@ -1357,7 +1445,7 @@ executable ex30
       Paths_exercises_for_programmer_in_haskell
   hs-source-dirs:
       ex30
-  ghc-options: -Wall
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively -Wall
   build-depends:
       aeson
     , aeson-casing
@@ -1392,6 +1480,7 @@ executable ex30
     , network-uri
     , persistent
     , persistent-mongoDB
+    , polysemy
     , random
     , regex-tdfa
     , resource-pool
@@ -1423,7 +1512,7 @@ executable ex32
       Paths_exercises_for_programmer_in_haskell
   hs-source-dirs:
       ex32
-  ghc-options: -Wall
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively -Wall
   build-depends:
       aeson
     , aeson-casing
@@ -1458,6 +1547,7 @@ executable ex32
     , network-uri
     , persistent
     , persistent-mongoDB
+    , polysemy
     , random
     , regex-tdfa
     , resource-pool
@@ -1489,7 +1579,7 @@ executable ex33
       Paths_exercises_for_programmer_in_haskell
   hs-source-dirs:
       ex33
-  ghc-options: -Wall
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively -Wall
   build-depends:
       aeson
     , aeson-casing
@@ -1524,6 +1614,7 @@ executable ex33
     , network-uri
     , persistent
     , persistent-mongoDB
+    , polysemy
     , random
     , regex-tdfa
     , resource-pool
@@ -1555,7 +1646,7 @@ executable ex35
       Paths_exercises_for_programmer_in_haskell
   hs-source-dirs:
       ex35
-  ghc-options: -Wall
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively -Wall
   build-depends:
       aeson
     , aeson-casing
@@ -1590,6 +1681,7 @@ executable ex35
     , network-uri
     , persistent
     , persistent-mongoDB
+    , polysemy
     , random
     , regex-tdfa
     , resource-pool
@@ -1621,7 +1713,7 @@ executable ex38
       Paths_exercises_for_programmer_in_haskell
   hs-source-dirs:
       ex38
-  ghc-options: -Wall
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively -Wall
   build-depends:
       aeson
     , aeson-casing
@@ -1656,6 +1748,7 @@ executable ex38
     , network-uri
     , persistent
     , persistent-mongoDB
+    , polysemy
     , random
     , regex-tdfa
     , resource-pool
@@ -1688,7 +1781,7 @@ executable ex40
       Paths_exercises_for_programmer_in_haskell
   hs-source-dirs:
       ex40
-  ghc-options: -Wall
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively -Wall
   build-depends:
       aeson
     , aeson-casing
@@ -1723,6 +1816,7 @@ executable ex40
     , network-uri
     , persistent
     , persistent-mongoDB
+    , polysemy
     , random
     , regex-tdfa
     , resource-pool
@@ -1754,7 +1848,7 @@ executable ex41
       Paths_exercises_for_programmer_in_haskell
   hs-source-dirs:
       ex41
-  ghc-options: -Wall
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively -Wall
   build-depends:
       aeson
     , aeson-casing
@@ -1789,6 +1883,7 @@ executable ex41
     , network-uri
     , persistent
     , persistent-mongoDB
+    , polysemy
     , random
     , regex-tdfa
     , resource-pool
@@ -1820,7 +1915,7 @@ executable ex42
       Paths_exercises_for_programmer_in_haskell
   hs-source-dirs:
       ex42
-  ghc-options: -Wall
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively -Wall
   build-depends:
       aeson
     , aeson-casing
@@ -1855,6 +1950,7 @@ executable ex42
     , network-uri
     , persistent
     , persistent-mongoDB
+    , polysemy
     , random
     , regex-tdfa
     , resource-pool
@@ -1886,7 +1982,7 @@ executable ex44
       Paths_exercises_for_programmer_in_haskell
   hs-source-dirs:
       ex44
-  ghc-options: -Wall
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively -Wall
   build-depends:
       aeson
     , aeson-casing
@@ -1921,6 +2017,7 @@ executable ex44
     , network-uri
     , persistent
     , persistent-mongoDB
+    , polysemy
     , random
     , regex-tdfa
     , resource-pool
@@ -1952,7 +2049,7 @@ executable ex46
       Paths_exercises_for_programmer_in_haskell
   hs-source-dirs:
       ex46
-  ghc-options: -Wall
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively -Wall
   build-depends:
       aeson
     , aeson-casing
@@ -1987,6 +2084,7 @@ executable ex46
     , network-uri
     , persistent
     , persistent-mongoDB
+    , polysemy
     , random
     , regex-tdfa
     , resource-pool
@@ -2018,7 +2116,7 @@ executable ex47
       Paths_exercises_for_programmer_in_haskell
   hs-source-dirs:
       ex47
-  ghc-options: -Wall
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively -Wall
   build-depends:
       aeson
     , aeson-casing
@@ -2053,6 +2151,7 @@ executable ex47
     , network-uri
     , persistent
     , persistent-mongoDB
+    , polysemy
     , random
     , regex-tdfa
     , resource-pool
@@ -2084,7 +2183,7 @@ executable ex49
       Paths_exercises_for_programmer_in_haskell
   hs-source-dirs:
       ex49
-  ghc-options: -Wall -threaded
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively -Wall -threaded
   build-depends:
       aeson
     , aeson-casing
@@ -2121,6 +2220,7 @@ executable ex49
     , network-uri
     , persistent
     , persistent-mongoDB
+    , polysemy
     , random
     , regex-tdfa
     , resource-pool
@@ -2159,7 +2259,7 @@ executable ex51
       Paths_exercises_for_programmer_in_haskell
   hs-source-dirs:
       ex51
-  ghc-options: -Wall
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively -Wall
   build-depends:
       aeson
     , aeson-casing
@@ -2194,6 +2294,7 @@ executable ex51
     , network-uri
     , persistent
     , persistent-mongoDB
+    , polysemy
     , random
     , regex-tdfa
     , resource-pool
@@ -2225,7 +2326,7 @@ executable ex52
       Paths_exercises_for_programmer_in_haskell
   hs-source-dirs:
       ex52/Server
-  ghc-options: -Wall
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively -Wall
   build-depends:
       aeson
     , aeson-casing
@@ -2260,6 +2361,7 @@ executable ex52
     , network-uri
     , persistent
     , persistent-mongoDB
+    , polysemy
     , random
     , regex-tdfa
     , resource-pool
@@ -2291,7 +2393,7 @@ executable ex52-client
       Paths_exercises_for_programmer_in_haskell
   hs-source-dirs:
       ex52/Client
-  ghc-options: -Wall
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively -Wall
   build-depends:
       aeson
     , aeson-casing
@@ -2326,6 +2428,7 @@ executable ex52-client
     , network-uri
     , persistent
     , persistent-mongoDB
+    , polysemy
     , random
     , regex-tdfa
     , resource-pool
@@ -2358,7 +2461,7 @@ executable ex53
       Paths_exercises_for_programmer_in_haskell
   hs-source-dirs:
       ex53
-  ghc-options: -Wall
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively -Wall
   build-depends:
       aeson
     , aeson-casing
@@ -2393,6 +2496,7 @@ executable ex53
     , network-uri
     , persistent
     , persistent-mongoDB
+    , polysemy
     , random
     , regex-tdfa
     , resource-pool
@@ -2425,7 +2529,7 @@ executable ex54
       Paths_exercises_for_programmer_in_haskell
   hs-source-dirs:
       ex54
-  ghc-options: -Wall
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively -Wall
   build-depends:
       aeson
     , aeson-casing
@@ -2460,6 +2564,7 @@ executable ex54
     , network-uri
     , persistent
     , persistent-mongoDB
+    , polysemy
     , random
     , regex-tdfa
     , resource-pool
@@ -2492,7 +2597,7 @@ executable ex55
       Paths_exercises_for_programmer_in_haskell
   hs-source-dirs:
       ex55
-  ghc-options: -Wall
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively -Wall
   build-depends:
       aeson
     , aeson-casing
@@ -2527,6 +2632,7 @@ executable ex55
     , network-uri
     , persistent
     , persistent-mongoDB
+    , polysemy
     , random
     , regex-tdfa
     , resource-pool
@@ -2559,7 +2665,7 @@ executable ex56
       Paths_exercises_for_programmer_in_haskell
   hs-source-dirs:
       ex56
-  ghc-options: -Wall
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively -Wall
   build-depends:
       aeson
     , aeson-casing
@@ -2594,6 +2700,7 @@ executable ex56
     , network-uri
     , persistent
     , persistent-mongoDB
+    , polysemy
     , random
     , regex-tdfa
     , resource-pool
@@ -2625,7 +2732,7 @@ executable ex57
       Paths_exercises_for_programmer_in_haskell
   hs-source-dirs:
       ex57
-  ghc-options: -Wall
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively -Wall
   build-depends:
       aeson
     , aeson-casing
@@ -2660,6 +2767,7 @@ executable ex57
     , network-uri
     , persistent
     , persistent-mongoDB
+    , polysemy
     , random
     , regex-tdfa
     , resource-pool
@@ -2699,6 +2807,7 @@ test-suite common-test
   hs-source-dirs:
       test/common
       src
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively
   build-depends:
       QuickCheck >=2.14
     , aeson
@@ -2734,6 +2843,7 @@ test-suite common-test
     , network-uri
     , persistent
     , persistent-mongoDB
+    , polysemy
     , quickcheck-classes >=0.6
     , quickcheck-classes-base >=0.6
     , random
@@ -2771,6 +2881,7 @@ test-suite ex03-test
   hs-source-dirs:
       test/ex03
       ex03
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively
   build-depends:
       HUnit
     , QuickCheck
@@ -2807,6 +2918,7 @@ test-suite ex03-test
     , network-uri
     , persistent
     , persistent-mongoDB
+    , polysemy
     , random
     , regex-tdfa
     , resource-pool
@@ -2842,6 +2954,7 @@ test-suite ex07-test
   hs-source-dirs:
       test/ex07
       ex07
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively
   build-depends:
       QuickCheck
     , aeson
@@ -2877,6 +2990,7 @@ test-suite ex07-test
     , network-uri
     , persistent
     , persistent-mongoDB
+    , polysemy
     , random
     , regex-tdfa
     , resource-pool
@@ -2913,6 +3027,7 @@ test-suite ex11-test
   hs-source-dirs:
       test/ex11
       ex11
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively
   build-depends:
       HUnit
     , aeson
@@ -2948,6 +3063,7 @@ test-suite ex11-test
     , network-uri
     , persistent
     , persistent-mongoDB
+    , polysemy
     , random
     , regex-tdfa
     , resource-pool
@@ -2983,6 +3099,7 @@ test-suite ex13-test
   hs-source-dirs:
       test/ex13
       ex13
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively
   build-depends:
       QuickCheck
     , aeson
@@ -3018,6 +3135,7 @@ test-suite ex13-test
     , network-uri
     , persistent
     , persistent-mongoDB
+    , polysemy
     , random
     , regex-tdfa
     , resource-pool
@@ -3053,6 +3171,7 @@ test-suite ex16-test
   hs-source-dirs:
       test/ex16
       ex16
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively
   build-depends:
       HUnit
     , aeson
@@ -3088,6 +3207,7 @@ test-suite ex16-test
     , network-uri
     , persistent
     , persistent-mongoDB
+    , polysemy
     , random
     , regex-tdfa
     , resource-pool
@@ -3123,6 +3243,7 @@ test-suite ex24-test
   hs-source-dirs:
       test/ex24
       ex24
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively
   build-depends:
       QuickCheck
     , aeson
@@ -3158,6 +3279,7 @@ test-suite ex24-test
     , network-uri
     , persistent
     , persistent-mongoDB
+    , polysemy
     , random
     , regex-tdfa
     , resource-pool
@@ -3194,6 +3316,7 @@ test-suite ex27-test
   hs-source-dirs:
       test/ex27
       ex27
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively
   build-depends:
       HUnit
     , aeson
@@ -3229,6 +3352,7 @@ test-suite ex27-test
     , network-uri
     , persistent
     , persistent-mongoDB
+    , polysemy
     , random
     , regex-tdfa
     , resource-pool
@@ -3265,6 +3389,7 @@ test-suite ex40-test
   hs-source-dirs:
       test/ex40
       ex40
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively
   build-depends:
       QuickCheck >=2.14
     , aeson
@@ -3300,6 +3425,7 @@ test-suite ex40-test
     , network-uri
     , persistent
     , persistent-mongoDB
+    , polysemy
     , quickcheck-classes >=0.6
     , quickcheck-classes-base >=0.6
     , random
@@ -3347,6 +3473,7 @@ test-suite ex51-test
   hs-source-dirs:
       test/ex51
       ex51
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively
   build-depends:
       HUnit
     , aeson
@@ -3382,6 +3509,7 @@ test-suite ex51-test
     , network-uri
     , persistent
     , persistent-mongoDB
+    , polysemy
     , random
     , regex-tdfa
     , resource-pool
@@ -3418,6 +3546,7 @@ test-suite ex53-test
   hs-source-dirs:
       test/ex53
       ex53
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively
   build-depends:
       HUnit
     , aeson
@@ -3453,6 +3582,7 @@ test-suite ex53-test
     , network-uri
     , persistent
     , persistent-mongoDB
+    , polysemy
     , random
     , regex-tdfa
     , resource-pool

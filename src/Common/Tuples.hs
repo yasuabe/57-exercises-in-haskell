@@ -3,7 +3,6 @@
 module Common.Tuples where
 
 import GHC.Generics (Generic)
-import Control.Monad (when)
 
 newtype MaxPair = MaxPair (Int, Int)
   deriving (Eq, Show, Generic)

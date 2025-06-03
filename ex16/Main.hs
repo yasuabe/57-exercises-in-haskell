@@ -9,11 +9,11 @@
 
 module Main where
 
-import qualified Common.System as S (putTextLn, readLine)
 import Control.Monad.Free
 import System.Console.Haskeline (InputT)
 
 import Common.App (runProgram)
+import qualified Common.System as S (putTextLn, readLine)
 import Ex16
 
 runConsole :: Console a -> InputT IO a

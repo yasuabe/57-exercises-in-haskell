@@ -5,6 +5,7 @@ license: MIT
 author: "Yasuyuki Abe"
 maintainer: "yasu@yasuabe.net"
 extra-source-files: []
+ghc-options: -O2 -flate-specialise -fspecialise-aggressively
 
 dependencies:
   - base >= 4.7 && < 5
@@ -62,6 +63,7 @@ dependencies:
   - streamly-core
   - monad-loops
   - free
+  - polysemy
 
 library:
   source-dirs: src
@@ -128,6 +130,13 @@ executables:
   ex08:
     main: Main.hs
     source-dirs: ex08
+    ghc-options: -Wall
+    dependencies:
+      - exercises-for-programmer-in-haskell
+
+  ex09:
+    main: Main.hs
+    source-dirs: ex09
     ghc-options: -Wall
     dependencies:
       - exercises-for-programmer-in-haskell
