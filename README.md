@@ -33,8 +33,8 @@ A personal project to solve the exercises from the book *Exercises for Programme
 | Ex18 [x] [Temperature Converter](ex18/Main.hs)          | | | 1(1) |
 | Ex19 [ ] [BMI Calculator](ex19/Main.hs)                 | | | |
 | Ex20 [ ] [Multistate Sales Tax Calculator](ex20/Main.hs)| | | |
-| Ex21 [x] [Numbers to Names](ex21/Main.hs)               | | | |
-| Ex22 [ ] [Comparing Numbers](ex22/Main.hs)              | | | |
+| Ex21 [x] [Numbers to Names](ex21/Main.hs)               | | | | 
+| Ex22 [x] [Comparing Numbers](ex22/Main.hs)              | polysemy| Polysemy.State | 4(1~2) |
 | Ex23 [x] [Troubleshooting Car Issues](ex23/Main.hs)     | | | 2(2) |
 #### Chapter 5: Functions
 | Exercise | dependencies | Memo  | Lv.  |
