@@ -392,6 +392,16 @@ tests:
       - QuickCheck
       - exercises-for-programmer-in-haskell
 
+  ex09-test:
+    main: Test.hs
+    source-dirs:
+      - test/ex09
+      - ex09
+    dependencies:
+      - base
+      - HUnit
+      - exercises-for-programmer-in-haskell
+
   ex11-test:
     main: Spec.hs
     source-dirs:

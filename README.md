@@ -18,7 +18,7 @@ A personal project to solve the exercises from the book *Exercises for Programme
 | -------- | -------------| ----- | -----:|
 | Ex07 [x] [Area of a Rectangular Room](ex07/Main.hs)    | transformers ||1(1)
 | Ex08 [x] [Pizza Party](ex08/Main.hs)                   | | | 1(1)
-| Ex09 [ ] [Paint Calculator](ex09/Main.hs)              | | | |
+| Ex09 [x] [Paint Calculator](ex09/Main.hs)              | polysemy | Polysemy | 4(1)|
 | Ex10 [x] [Self-Checkout](ex10/Main.hs)                 | | money | 3(2)|
 | Ex11 [x] [Currency Conversion](ex11/Main.hs)           | | money | 2(2)|
 | Ex12 [ ] [Computing Simple Interest](ex12/Main.hs)     | |
@@ -124,6 +124,8 @@ A personal project to solve the exercises from the book *Exercises for Programme
 - memory
 - streamly-core
 - monad-loops
+- polysemy
+- free
 
 ## How to Run
 Run the following directly under the project.

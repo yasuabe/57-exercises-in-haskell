@@ -3016,6 +3016,78 @@ test-suite ex07-test
     , yesod-form
   default-language: Haskell2010
 
+test-suite ex09-test
+  type: exitcode-stdio-1.0
+  main-is: Test.hs
+  other-modules:
+      Ex09
+      Main
+      Paths_exercises_for_programmer_in_haskell
+  hs-source-dirs:
+      test/ex09
+      ex09
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively
+  build-depends:
+      HUnit
+    , aeson
+    , aeson-casing
+    , base
+    , base16-bytestring
+    , beam-core
+    , beam-sqlite
+    , bytestring
+    , conduit
+    , conduit-extra
+    , containers
+    , cryptohash-md5
+    , directory
+    , exceptions
+    , exercises-for-programmer-in-haskell
+    , extra
+    , free
+    , gi-gdkpixbuf
+    , gi-gio
+    , gi-gtk
+    , hashtables
+    , haskeline
+    , hedis
+    , http-client
+    , http-client-tls
+    , http-conduit
+    , lucid
+    , memory
+    , monad-loops
+    , mongoDB
+    , mtl
+    , network-uri
+    , persistent
+    , persistent-mongoDB
+    , polysemy
+    , random
+    , regex-tdfa
+    , resource-pool
+    , scotty
+    , servant
+    , servant-server
+    , shakespeare
+    , sqlite-simple
+    , streamly-core
+    , string-interpolate
+    , template-haskell
+    , text
+    , time
+    , transformers
+    , unordered-containers
+    , uuid
+    , validation
+    , wai
+    , wai-cors
+    , warp
+    , yesod
+    , yesod-core
+    , yesod-form
+  default-language: Haskell2010
+
 test-suite ex11-test
   type: exitcode-stdio-1.0
   main-is: Spec.hs
