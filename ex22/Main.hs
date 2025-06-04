@@ -20,10 +20,11 @@ import Ex22
 
 type App = (InputT IO)
 
-consoleToApp :: Member (Embed App) r => Sem (Console ': r) a -> Sem r a
-consoleToApp = interpret \case
-  ReadLine  prompt -> embed @App (S.readLine prompt)
-  WriteLine msg    -> embed @App (S.putTextLn msg )
+runApp :: Member (Embed App) r => Sem (Console ': State [Int] ': r) a -> Sem r a
+runApp = evalState ([] :: [Int])
+       . interpret \case
+          ReadLine  prompt -> embed @App (S.readLine prompt)
+          WriteLine msg    -> embed @App (S.putTextLn msg )
 
 main :: IO ()
-main = runProgram $ runM . consoleToApp $ evalState ([] :: [Int]) program
+main = runProgram $ runM $ runApp program

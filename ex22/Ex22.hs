@@ -7,10 +7,10 @@
 
 import Data.Function ((&))
 import Data.String.Interpolate (i)
-import Data.Text as T (Text, null, pack, unpack, strip)
+import Data.Text as T (Text, null, unpack, strip)
 import Text.Read (readMaybe)
 import Polysemy (Sem, makeSem, Member)
-import Polysemy.State
+import Polysemy.State as PS (State, get, put)
 
 data Console m r where
   ReadLine  :: Text -> Console m Text
@@ -23,20 +23,20 @@ data Input = Number Int | Exit
 readNumber :: (Member Console r, Member (State [Int]) r) => Sem r Input
 readNumber = do
   nums  <- get
-  input <- strip <$> readLine [i|Enter a number (#{length (nums :: [Int])}): |]
+  input <- strip <$> readLine [i|Enter a number (#{length (nums :: [Int]) + 1}): |]
   (readMaybe . unpack) input & \case
     Just n | n `elem` nums -> onInvalid "Duplicate input."
-    Just n                 -> return $ Number n
+    Just n                 -> do _ <- put (n : nums); return $ Number n
     _ | T.null input       -> return Exit
     _                      -> onInvalid "Invalid input."
   where onInvalid errMsg = writeLine errMsg >> readNumber
 
 selectMaxInt :: (Member Console r, Member (State [Int]) r) => Maybe Int -> Sem r (Maybe Int)
 selectMaxInt mbInt = readNumber >>= \case
-  Exit     -> return mbInt
   Number n -> selectMaxInt $ Just $ maybe n (max n) mbInt
+  Exit     -> return mbInt
 
 program :: (Member Console r, Member (State [Int]) r) => Sem r ()
 program = selectMaxInt Nothing >>= \case
-  Just maxVal -> writeLine $ "The largest number is: " <> pack (show maxVal)
+  Just maxNum -> writeLine [i|The largest number is: #{maxNum}|] 
   Nothing     -> writeLine "No numbers were entered."

@@ -437,6 +437,16 @@ tests:
       - HUnit
       - exercises-for-programmer-in-haskell
 
+  ex22-test:
+    main: Test.hs
+    source-dirs:
+      - test/ex22
+      - ex22
+    dependencies:
+      - base
+      - HUnit
+      - exercises-for-programmer-in-haskell
+
   ex24-test:
     main: Spec.hs
     source-dirs:
