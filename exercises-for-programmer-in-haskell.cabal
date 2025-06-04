@@ -1169,6 +1169,74 @@ executable ex18
     , yesod-form
   default-language: Haskell2010
 
+executable ex22
+  main-is: Main.hs
+  other-modules:
+      Ex22
+      Paths_exercises_for_programmer_in_haskell
+  hs-source-dirs:
+      ex22
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively -Wall
+  build-depends:
+      aeson
+    , aeson-casing
+    , base >=4.7 && <5
+    , base16-bytestring
+    , beam-core
+    , beam-sqlite
+    , bytestring
+    , conduit
+    , conduit-extra
+    , containers
+    , cryptohash-md5
+    , directory
+    , exceptions
+    , exercises-for-programmer-in-haskell
+    , extra
+    , free
+    , gi-gdkpixbuf
+    , gi-gio
+    , gi-gtk
+    , hashtables
+    , haskeline
+    , hedis
+    , http-client
+    , http-client-tls
+    , http-conduit
+    , lucid
+    , memory
+    , monad-loops
+    , mongoDB
+    , mtl
+    , network-uri
+    , persistent
+    , persistent-mongoDB
+    , polysemy
+    , random
+    , regex-tdfa
+    , resource-pool
+    , scotty
+    , servant
+    , servant-server
+    , shakespeare
+    , sqlite-simple
+    , streamly-core
+    , string-interpolate
+    , template-haskell
+    , text
+    , time
+    , transformers
+    , unordered-containers
+    , uuid
+    , validation
+    , wai
+    , wai-cors
+    , warp
+    , yesod
+    , yesod-core
+    , yesod-form
+  default-language: Haskell2010
+
 executable ex23
   main-is: Main.hs
   other-modules:
@@ -3243,6 +3311,78 @@ test-suite ex16-test
   hs-source-dirs:
       test/ex16
       ex16
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively
+  build-depends:
+      HUnit
+    , aeson
+    , aeson-casing
+    , base
+    , base16-bytestring
+    , beam-core
+    , beam-sqlite
+    , bytestring
+    , conduit
+    , conduit-extra
+    , containers
+    , cryptohash-md5
+    , directory
+    , exceptions
+    , exercises-for-programmer-in-haskell
+    , extra
+    , free
+    , gi-gdkpixbuf
+    , gi-gio
+    , gi-gtk
+    , hashtables
+    , haskeline
+    , hedis
+    , http-client
+    , http-client-tls
+    , http-conduit
+    , lucid
+    , memory
+    , monad-loops
+    , mongoDB
+    , mtl
+    , network-uri
+    , persistent
+    , persistent-mongoDB
+    , polysemy
+    , random
+    , regex-tdfa
+    , resource-pool
+    , scotty
+    , servant
+    , servant-server
+    , shakespeare
+    , sqlite-simple
+    , streamly-core
+    , string-interpolate
+    , template-haskell
+    , text
+    , time
+    , transformers
+    , unordered-containers
+    , uuid
+    , validation
+    , wai
+    , wai-cors
+    , warp
+    , yesod
+    , yesod-core
+    , yesod-form
+  default-language: Haskell2010
+
+test-suite ex22-test
+  type: exitcode-stdio-1.0
+  main-is: Test.hs
+  other-modules:
+      Ex22
+      Main
+      Paths_exercises_for_programmer_in_haskell
+  hs-source-dirs:
+      test/ex22
+      ex22
   ghc-options: -O2 -flate-specialise -fspecialise-aggressively
   build-depends:
       HUnit
