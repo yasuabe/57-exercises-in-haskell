@@ -59,6 +59,7 @@ toNonNega2Decimals :: Converter Double
 toNonNega2Decimals = matchConvert "^(0|[1-9][0-9]*)(\\.[0-9]{1,2})?$"
 
 data YesNo = Yes | No
+  deriving (Show, Eq)
 
 askYesNo :: Text -> InputT IO YesNo
 askYesNo prompt =
