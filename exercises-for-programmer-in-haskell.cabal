@@ -3010,7 +3010,7 @@ test-suite common-test
   hs-source-dirs:
       test/common
       src
-  ghc-options: -O2 -flate-specialise -fspecialise-aggressively
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively -main-is Spec
   build-depends:
       QuickCheck >=2.14
     , aeson
@@ -3084,7 +3084,7 @@ test-suite ex03-test
   hs-source-dirs:
       test/ex03
       ex03
-  ghc-options: -O2 -flate-specialise -fspecialise-aggressively
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively -main-is Spec
   build-depends:
       HUnit
     , QuickCheck
@@ -3157,7 +3157,7 @@ test-suite ex07-test
   hs-source-dirs:
       test/ex07
       ex07
-  ghc-options: -O2 -flate-specialise -fspecialise-aggressively
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively -main-is Spec
   build-depends:
       QuickCheck
     , aeson
@@ -3229,7 +3229,7 @@ test-suite ex09-test
   hs-source-dirs:
       test/ex09
       ex09
-  ghc-options: -O2 -flate-specialise -fspecialise-aggressively
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively -main-is Test
   build-depends:
       HUnit
     , aeson
@@ -3293,16 +3293,15 @@ test-suite ex09-test
 
 test-suite ex11-test
   type: exitcode-stdio-1.0
-  main-is: Spec.hs
+  main-is: MainTest.hs
   other-modules:
-      MainTest
       Ex11
       Main
       Paths_exercises_for_programmer_in_haskell
   hs-source-dirs:
       test/ex11
       ex11
-  ghc-options: -O2 -flate-specialise -fspecialise-aggressively
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively -main-is MainTest
   build-depends:
       HUnit
     , aeson
@@ -3374,7 +3373,7 @@ test-suite ex13-test
   hs-source-dirs:
       test/ex13
       ex13
-  ghc-options: -O2 -flate-specialise -fspecialise-aggressively
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively -main-is Spec
   build-depends:
       QuickCheck
     , aeson
@@ -3446,7 +3445,7 @@ test-suite ex16-test
   hs-source-dirs:
       test/ex16
       ex16
-  ghc-options: -O2 -flate-specialise -fspecialise-aggressively
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively -main-is Test
   build-depends:
       HUnit
     , aeson
@@ -3518,7 +3517,7 @@ test-suite ex22-test
   hs-source-dirs:
       test/ex22
       ex22
-  ghc-options: -O2 -flate-specialise -fspecialise-aggressively
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively -main-is Test
   build-depends:
       HUnit
     , aeson
@@ -3590,7 +3589,7 @@ test-suite ex24-test
   hs-source-dirs:
       test/ex24
       ex24
-  ghc-options: -O2 -flate-specialise -fspecialise-aggressively
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively -main-is Spec
   build-depends:
       QuickCheck
     , aeson
@@ -3654,16 +3653,15 @@ test-suite ex24-test
 
 test-suite ex27-test
   type: exitcode-stdio-1.0
-  main-is: Spec.hs
+  main-is: ValidationTest.hs
   other-modules:
-      ValidationTest
       Main
       Validation
       Paths_exercises_for_programmer_in_haskell
   hs-source-dirs:
       test/ex27
       ex27
-  ghc-options: -O2 -flate-specialise -fspecialise-aggressively
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively -main-is ValidationTest
   build-depends:
       HUnit
     , aeson
@@ -3735,7 +3733,7 @@ test-suite ex29-test
   hs-source-dirs:
       test/ex29
       ex29
-  ghc-options: -O2 -flate-specialise -fspecialise-aggressively
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively -main-is Spec
   build-depends:
       HUnit
     , aeson
@@ -3799,16 +3797,15 @@ test-suite ex29-test
 
 test-suite ex40-test
   type: exitcode-stdio-1.0
-  main-is: Test.hs
+  main-is: Spec.hs
   other-modules:
-      Spec
       Ex40
       Main
       Paths_exercises_for_programmer_in_haskell
   hs-source-dirs:
       test/ex40
       ex40
-  ghc-options: -O2 -flate-specialise -fspecialise-aggressively
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively -main-is Spec
   build-depends:
       QuickCheck >=2.14
     , aeson
@@ -3874,12 +3871,11 @@ test-suite ex40-test
 
 test-suite ex51-test
   type: exitcode-stdio-1.0
-  main-is: Test.hs
+  main-is: TokenInfoTest.hs
   other-modules:
       AddNoteReqTest
       GetNotesResTest
       TokenInfoResTest
-      TokenInfoTest
       AddNoteReq
       Config
       GetNotesRes
@@ -3892,7 +3888,7 @@ test-suite ex51-test
   hs-source-dirs:
       test/ex51
       ex51
-  ghc-options: -O2 -flate-specialise -fspecialise-aggressively
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively -main-is TokenInfoTest
   build-depends:
       HUnit
     , aeson
@@ -3956,16 +3952,15 @@ test-suite ex51-test
 
 test-suite ex53-test
   type: exitcode-stdio-1.0
-  main-is: Test.hs
+  main-is: CommandTest.hs
   other-modules:
-      CommandTest
       Command
       Main
       Paths_exercises_for_programmer_in_haskell
   hs-source-dirs:
       test/ex53
       ex53
-  ghc-options: -O2 -flate-specialise -fspecialise-aggressively
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively -main-is CommandTest
   build-depends:
       HUnit
     , aeson

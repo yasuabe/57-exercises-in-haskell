@@ -1,4 +1,4 @@
-module Main where
+module Spec where
 import Ex07 ( toSquareMeter )
 import Test.QuickCheck ( quickCheck )
 import Data.String.Interpolate (i)

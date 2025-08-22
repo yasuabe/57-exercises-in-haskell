@@ -1,6 +1,6 @@
 {-# LANGUAGE QuasiQuotes #-}
 
-module Main where
+module Spec where
 import Ex03
 import Test.QuickCheck
 import Data.String.Interpolate (i)

@@ -400,6 +400,7 @@ tests:
       - QuickCheck
       - HUnit
       - exercises-for-programmer-in-haskell
+    ghc-options: -main-is Spec 
 
   ex07-test:
     main: Spec.hs
@@ -410,6 +411,7 @@ tests:
       - base
       - QuickCheck
       - exercises-for-programmer-in-haskell
+    ghc-options: -main-is Spec 
 
   ex09-test:
     main: Test.hs
@@ -420,9 +422,10 @@ tests:
       - base
       - HUnit
       - exercises-for-programmer-in-haskell
+    ghc-options: -main-is Test
 
   ex11-test:
-    main: Spec.hs
+    main: MainTest.hs
     source-dirs:
       - test/ex11
       - ex11
@@ -430,6 +433,7 @@ tests:
       - base
       - HUnit
       - exercises-for-programmer-in-haskell
+    ghc-options: -main-is MainTest
 
   ex13-test:
     main: Spec.hs
@@ -440,6 +444,7 @@ tests:
       - base
       - QuickCheck
       - exercises-for-programmer-in-haskell
+    ghc-options: -main-is Spec 
 
   ex16-test:
     main: Test.hs
@@ -450,6 +455,7 @@ tests:
       - base
       - HUnit
       - exercises-for-programmer-in-haskell
+    ghc-options: -main-is Test
 
   ex22-test:
     main: Test.hs
@@ -460,6 +466,7 @@ tests:
       - base
       - HUnit
       - exercises-for-programmer-in-haskell
+    ghc-options: -main-is Test
 
   ex24-test:
     main: Spec.hs
@@ -470,9 +477,10 @@ tests:
       - base
       - QuickCheck
       - exercises-for-programmer-in-haskell
+    ghc-options: -main-is Spec 
 
   ex27-test:
-    main: Spec.hs
+    main: ValidationTest.hs
     source-dirs:
       - test/ex27
       - ex27
@@ -480,6 +488,7 @@ tests:
       - base
       - HUnit
       - exercises-for-programmer-in-haskell
+    ghc-options: -main-is ValidationTest
 
   ex29-test:
     main: Spec.hs
@@ -490,9 +499,10 @@ tests:
       - base
       - HUnit
       - exercises-for-programmer-in-haskell
+    ghc-options: -main-is Spec
 
   ex40-test:
-    main: Test.hs
+    main: Spec.hs
     source-dirs:
       - test/ex40
       - ex40
@@ -502,9 +512,11 @@ tests:
       - quickcheck-classes >= 0.6
       - quickcheck-classes-base >= 0.6
       - exercises-for-programmer-in-haskell
+    ghc-options: -main-is Spec
+
 
   ex51-test:
-    main: Test.hs
+    main: TokenInfoTest.hs
     source-dirs:
       - test/ex51
       - ex51
@@ -512,9 +524,10 @@ tests:
       - base
       - HUnit
       - exercises-for-programmer-in-haskell
+    ghc-options: -main-is TokenInfoTest
 
   ex53-test:
-    main: Test.hs
+    main: CommandTest.hs
     source-dirs:
       - test/ex53
       - ex53
@@ -522,6 +535,7 @@ tests:
       - base
       - HUnit
       - exercises-for-programmer-in-haskell
+    ghc-options: -main-is CommandTest
 
   common-test:
     main: Spec.hs
@@ -534,3 +548,4 @@ tests:
       - quickcheck-classes >= 0.6
       - quickcheck-classes-base >= 0.6
       - exercises-for-programmer-in-haskell
+    ghc-options: -main-is Spec

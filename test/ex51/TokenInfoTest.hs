@@ -53,6 +53,7 @@ testExpiration = TestCase $ do
       result <- isExpired (return currentTime) sampleTokenInfo
       assertEqual message expected result
 
+-- TODO: run other tests in ex51
 main :: IO ()
 main = runTestTTAndExit $ TestList
   [ testInstantiation
