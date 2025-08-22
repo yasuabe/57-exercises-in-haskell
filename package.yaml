@@ -222,6 +222,13 @@ executables:
     dependencies:
       - exercises-for-programmer-in-haskell
 
+  ex29:
+    main: Main.hs
+    source-dirs: ex29
+    ghc-options: -Wall
+    dependencies:
+      - exercises-for-programmer-in-haskell
+
   ex30:
     main: Main.hs
     source-dirs: ex30
@@ -469,6 +476,16 @@ tests:
     source-dirs:
       - test/ex27
       - ex27
+    dependencies:
+      - base
+      - HUnit
+      - exercises-for-programmer-in-haskell
+
+  ex29-test:
+    main: Spec.hs
+    source-dirs:
+      - test/ex29
+      - ex29
     dependencies:
       - base
       - HUnit

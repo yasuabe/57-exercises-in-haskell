@@ -47,7 +47,7 @@ A personal project to solve the exercises from the book *Exercises for Programme
 | Exercise | dependencies | Memo  | Lv.  |
 | -------- | -------------| ----- | -----:|
 | Ex28 [x] [Adding Numbers](ex28/Main.hs)        | | |2(1)|
-| Ex29 [ ] [Handling Bad Input](ex29/Main.hs)    | | | |
+| Ex29 [x] [Handling Bad Input](ex29/Main.hs)    | | |2(1)|
 | Ex30 [x] [Multiplication Table](ex30/Main.hs)  | streamly-core | PULL stream | 3(1) |
 | Ex31 [ ] [Karvonen Heart Rate](ex31/Main.hs)   | | | |
 | Ex32 [x] [Guess the Number Game](ex32/Main.hs) | | RWST monad |4(3) |
