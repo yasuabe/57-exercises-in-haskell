@@ -508,6 +508,17 @@ tests:
       - exercises-for-programmer-in-haskell
     ghc-options: -main-is Spec
 
+  ex36-test:
+    main: Spec.hs
+    source-dirs:
+      - test/ex36
+      - ex36
+    dependencies:
+      - base
+      - HUnit
+      - exercises-for-programmer-in-haskell
+    ghc-options: -main-is Spec
+
   ex40-test:
     main: Spec.hs
     source-dirs:
