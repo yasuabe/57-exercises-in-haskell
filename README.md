@@ -57,7 +57,7 @@ A personal project to solve the exercises from the book *Exercises for Programme
 | Ex33 [x] [Magic 8 Ball](ex33/Main.hs)          | exceptions, haskeline, random | |2(1)|
 | Ex34 [ ] [Employee List Removal](ex34/Main.hs) | | | |
 | Ex35 [x] [Picking a Winner](ex35/Main.hs)      | monad-loops | | 2(1) |
-| Ex36 [ ] [Computing Statistics](ex36/Main.hs)  | | | |
+| Ex36 [x] [Computing Statistics](ex36/Main.hs)  | streamly| | 3(1) |
 | Ex37 [ ] [Password Generator](ex37/Main.hs)    | | | |
 | Ex38 [x] [Filtering Values](ex39/Main.hs)      | streamly| | 3(1)|
 | Ex39 [ ] [Sorting Records](ex39/Main.hs)       | | | |
