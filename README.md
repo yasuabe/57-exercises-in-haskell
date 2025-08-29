@@ -21,7 +21,7 @@ A personal project to solve the exercises from the book *Exercises for Programme
 | Ex09 [x] [Paint Calculator](ex09/Main.hs)              | polysemy | Polysemy | 4(1)|
 | Ex10 [x] [Self-Checkout](ex10/Main.hs)                 | | money | 3(2)|
 | Ex11 [x] [Currency Conversion](ex11/Main.hs)           | | money | 2(2)|
-| Ex12 [ ] [Computing Simple Interest](ex12/Main.hs)     | |
+| Ex12 [x] [Computing Simple Interest](ex12/Main.hs)     | streamly | | 3(1) |
 | Ex13 [x] [Determining Compound Interest](ex13/Main.hs) | regex-tdfa | money | 3(2) |
 #### Chapter 4: Making Decisions
 | Exercise | dependencies | Memo  | Lv.  |
