@@ -31,7 +31,7 @@ A personal project to solve the exercises from the book *Exercises for Programme
 | Ex16 [x] [Legal Driving Age](ex16/Main.hs)              | free | Free Monad | 4(1) |
 | Ex17 [ ] [Blood Alcohol Calculator](ex17/Main.hs)       | | |  |
 | Ex18 [x] [Temperature Converter](ex18/Main.hs)          | | | 1(1) |
-| Ex19 [ ] [BMI Calculator](ex19/Main.hs)                 | | | |
+| Ex19 [x] [BMI Calculator](ex19/Main.hs)                 | free | Free Monad| 4(1) |
 | Ex20 [ ] [Multistate Sales Tax Calculator](ex20/Main.hs)| | | |
 | Ex21 [x] [Numbers to Names](ex21/Main.hs)               | | | | 
 | Ex22 [x] [Comparing Numbers](ex22/Main.hs)              | polysemy| Polysemy.State | 4(1~2) |
