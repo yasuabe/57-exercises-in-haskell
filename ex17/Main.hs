@@ -7,7 +7,7 @@
 
 module Main where
 
-import Control.Monad.Free
+import Control.Monad.Free (Free(..))
 import System.Console.Haskeline (InputT)
 
 import Common.App (runProgram)

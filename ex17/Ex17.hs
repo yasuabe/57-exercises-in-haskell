@@ -41,9 +41,6 @@ readDouble prompt errMsg = do
     Just v | v >= 0 -> return v
     _               -> writeLine errMsg >> readDouble prompt errMsg
 
-readWeight :: Console Double
-readWeight = readDouble "What is your weight? " "Invalid weight."
-
 readGender :: Console Gender
 readGender = do
   gender  <- readLine "What is your gender? "
@@ -52,8 +49,11 @@ readGender = do
     "F" -> return Female
     _   -> writeLine "Invalid gender." >> readGender
 
+readWeight :: Console Double
+readWeight = readDouble "What is your weight? " "Invalid weight."
+
 readAlcohol :: Console Double
-readAlcohol = readDouble "How many drinks have you had? " "Invalid alcohol amount."
+readAlcohol = readDouble "How much alcohol have you consumed? " "Invalid alcohol amount."
 
 readHours :: Console Double 
 readHours = readDouble "How many hours has it been since your last drink? " "Invalid hours."
@@ -74,7 +74,7 @@ program = do
   hours   <- readHours
 
   let bac     = calculateBAC weight gender alcohol hours
-  let notWord = if bac < 0.08 then "" else "not " :: Text
+  let negator = if bac < 0.08 then "" else "not " :: Text
 
   writeLine [i|Your BAC is #{fixedF 3 bac}|]
-  writeLine [i|It is #{notWord}legal for you to drive.|]
+  writeLine [i|It is #{negator}legal for you to drive.|]
