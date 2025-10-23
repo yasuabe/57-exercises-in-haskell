@@ -46,6 +46,7 @@ library
     , directory
     , exceptions
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -113,6 +114,7 @@ executable ex01
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -180,6 +182,7 @@ executable ex02
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -248,6 +251,7 @@ executable ex03
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -315,6 +319,7 @@ executable ex04
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -382,6 +387,7 @@ executable ex05
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -449,6 +455,7 @@ executable ex06
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -517,6 +524,7 @@ executable ex07
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -584,6 +592,7 @@ executable ex08
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -652,6 +661,7 @@ executable ex09
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -719,6 +729,7 @@ executable ex10
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -787,6 +798,7 @@ executable ex11
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -855,6 +867,7 @@ executable ex12
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -923,6 +936,7 @@ executable ex13
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -990,6 +1004,7 @@ executable ex14
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -1057,6 +1072,7 @@ executable ex15
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -1125,6 +1141,76 @@ executable ex16
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
+    , free
+    , gi-gdkpixbuf
+    , gi-gio
+    , gi-gtk
+    , hashtables
+    , haskeline
+    , hedis
+    , http-client
+    , http-client-tls
+    , http-conduit
+    , lucid
+    , memory
+    , monad-loops
+    , mongoDB
+    , mtl
+    , network-uri
+    , persistent
+    , persistent-mongoDB
+    , polysemy
+    , random
+    , regex-tdfa
+    , resource-pool
+    , scotty
+    , servant
+    , servant-server
+    , shakespeare
+    , sqlite-simple
+    , streamly-core
+    , string-interpolate
+    , template-haskell
+    , text
+    , time
+    , transformers
+    , unordered-containers
+    , uuid
+    , validation
+    , wai
+    , wai-cors
+    , warp
+    , yesod
+    , yesod-core
+    , yesod-form
+  default-language: Haskell2010
+
+executable ex17
+  main-is: Main.hs
+  other-modules:
+      Ex17
+      Paths_exercises_for_programmer_in_haskell
+  hs-source-dirs:
+      ex17
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively -Wall
+  build-depends:
+      aeson
+    , aeson-casing
+    , base >=4.7 && <5
+    , base16-bytestring
+    , beam-core
+    , beam-sqlite
+    , bytestring
+    , conduit
+    , conduit-extra
+    , containers
+    , cryptohash-md5
+    , directory
+    , exceptions
+    , exercises-for-programmer-in-haskell
+    , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -1193,6 +1279,7 @@ executable ex18
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -1261,6 +1348,7 @@ executable ex19
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -1329,6 +1417,7 @@ executable ex22
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -1396,6 +1485,7 @@ executable ex23
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -1464,6 +1554,7 @@ executable ex24
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -1532,6 +1623,7 @@ executable ex27
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -1599,6 +1691,7 @@ executable ex28
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -1667,6 +1760,7 @@ executable ex29
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -1734,6 +1828,7 @@ executable ex30
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -1801,6 +1896,7 @@ executable ex32
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -1868,6 +1964,7 @@ executable ex33
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -1935,6 +2032,7 @@ executable ex35
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -2003,6 +2101,7 @@ executable ex36
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -2070,6 +2169,7 @@ executable ex38
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -2138,6 +2238,7 @@ executable ex40
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -2205,6 +2306,7 @@ executable ex41
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -2272,6 +2374,7 @@ executable ex42
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -2339,6 +2442,7 @@ executable ex43
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -2406,6 +2510,7 @@ executable ex44
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -2473,6 +2578,7 @@ executable ex46
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -2540,6 +2646,7 @@ executable ex47
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -2607,6 +2714,7 @@ executable ex49
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -2683,6 +2791,7 @@ executable ex51
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -2750,6 +2859,7 @@ executable ex52
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -2817,6 +2927,7 @@ executable ex52-client
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -2885,6 +2996,7 @@ executable ex53
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -2953,6 +3065,7 @@ executable ex54
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -3021,6 +3134,7 @@ executable ex55
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -3089,6 +3203,7 @@ executable ex56
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -3156,6 +3271,7 @@ executable ex57
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -3232,6 +3348,7 @@ test-suite common-test
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -3307,6 +3424,7 @@ test-suite ex03-test
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -3379,6 +3497,7 @@ test-suite ex07-test
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -3451,6 +3570,7 @@ test-suite ex09-test
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -3523,6 +3643,7 @@ test-suite ex11-test
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -3595,6 +3716,7 @@ test-suite ex12-test
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -3667,6 +3789,7 @@ test-suite ex13-test
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -3739,6 +3862,80 @@ test-suite ex16-test
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
+    , free
+    , gi-gdkpixbuf
+    , gi-gio
+    , gi-gtk
+    , hashtables
+    , haskeline
+    , hedis
+    , http-client
+    , http-client-tls
+    , http-conduit
+    , lucid
+    , memory
+    , monad-loops
+    , mongoDB
+    , mtl
+    , network-uri
+    , persistent
+    , persistent-mongoDB
+    , polysemy
+    , random
+    , regex-tdfa
+    , resource-pool
+    , scotty
+    , servant
+    , servant-server
+    , shakespeare
+    , sqlite-simple
+    , streamly-core
+    , string-interpolate
+    , template-haskell
+    , text
+    , time
+    , transformers
+    , unordered-containers
+    , uuid
+    , validation
+    , wai
+    , wai-cors
+    , warp
+    , yesod
+    , yesod-core
+    , yesod-form
+  default-language: Haskell2010
+
+test-suite ex17-test
+  type: exitcode-stdio-1.0
+  main-is: Test.hs
+  other-modules:
+      Ex17
+      Main
+      Paths_exercises_for_programmer_in_haskell
+  hs-source-dirs:
+      test/ex17
+      ex17
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively -main-is Test
+  build-depends:
+      HUnit
+    , aeson
+    , aeson-casing
+    , base
+    , base16-bytestring
+    , beam-core
+    , beam-sqlite
+    , bytestring
+    , conduit
+    , conduit-extra
+    , containers
+    , cryptohash-md5
+    , directory
+    , exceptions
+    , exercises-for-programmer-in-haskell
+    , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -3811,6 +4008,7 @@ test-suite ex19-test
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -3883,6 +4081,7 @@ test-suite ex22-test
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -3955,6 +4154,7 @@ test-suite ex24-test
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -4027,6 +4227,7 @@ test-suite ex27-test
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -4099,6 +4300,7 @@ test-suite ex29-test
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -4171,6 +4373,7 @@ test-suite ex36-test
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -4243,6 +4446,7 @@ test-suite ex40-test
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -4326,6 +4530,7 @@ test-suite ex51-test
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio
@@ -4398,6 +4603,7 @@ test-suite ex53-test
     , exceptions
     , exercises-for-programmer-in-haskell
     , extra
+    , fmt
     , free
     , gi-gdkpixbuf
     , gi-gio

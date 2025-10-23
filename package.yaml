@@ -64,6 +64,7 @@ dependencies:
   - monad-loops
   - free
   - polysemy
+  - fmt
 
 library:
   source-dirs: src
@@ -186,6 +187,12 @@ executables:
   ex16:
     main: Main.hs
     source-dirs: ex16
+    ghc-options: -Wall
+    dependencies:
+      - exercises-for-programmer-in-haskell
+  ex17:
+    main: Main.hs
+    source-dirs: ex17
     ghc-options: -Wall
     dependencies:
       - exercises-for-programmer-in-haskell
@@ -482,6 +489,17 @@ tests:
     source-dirs:
       - test/ex16
       - ex16
+    dependencies:
+      - base
+      - HUnit
+      - exercises-for-programmer-in-haskell
+    ghc-options: -main-is Test
+
+  ex17-test:
+    main: Test.hs
+    source-dirs:
+      - test/ex17
+      - ex17
     dependencies:
       - base
       - HUnit

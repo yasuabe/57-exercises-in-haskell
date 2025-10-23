@@ -29,7 +29,7 @@ A personal project to solve the exercises from the book *Exercises for Programme
 | Ex14 [x] [Tax Calculator](ex14/Main.hs)                 | transformers, regex-tdfa, text | money, rounding |2(1)|
 | Ex15 [x] [Password Validation](ex15/Main.hs)            | extra | | 2(1)|
 | Ex16 [x] [Legal Driving Age](ex16/Main.hs)              | free | Free Monad | 4(1) |
-| Ex17 [ ] [Blood Alcohol Calculator](ex17/Main.hs)       | | |  |
+| Ex17 [x] [Blood Alcohol Calculator](ex17/Main.hs)       | fmt, free | Free Monad | 4(1) |
 | Ex18 [x] [Temperature Converter](ex18/Main.hs)          | | | 1(1) |
 | Ex19 [x] [BMI Calculator](ex19/Main.hs)                 | free | Free Monad| 4(1) |
 | Ex20 [ ] [Multistate Sales Tax Calculator](ex20/Main.hs)| | | |
